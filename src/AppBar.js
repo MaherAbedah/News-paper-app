@@ -13,6 +13,11 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
+import Movie from '@material-ui/icons/Movie';
+import Devices from '@material-ui/icons/Devices';
+import Pool from '@material-ui/icons/Pool';
+import LocalHospital from '@material-ui/icons/LocalHospital';
+import AttachMoney from '@material-ui/icons/AttachMoney';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
@@ -20,6 +25,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
+import AccountBalance from '@material-ui/icons/AccountBalance';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -28,6 +34,14 @@ import ListItemText from '@material-ui/core/ListItemText';
 import clsx from 'clsx';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+
+import { ReactComponent as KlLogo } from './svg/kauppalehti.svg';
+import { ReactComponent as HsLogo } from './svg/Helsinginsanomat.svg';
+import { ReactComponent as KslmLogo } from './svg/keskisuomalainen.svg';
+import { ReactComponent as TsLogo } from './svg/Turunsanomat.svg';
+import { ReactComponent as SsLogo } from './svg/savonsanomat.svg';
+
+import Login from './login';
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -67,6 +81,12 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  badgerLogin: {
+    position: 'relative',
+    paddingTop: theme.spacing(2),
+  },
+
   inputRoot: {
     color: 'inherit',
   },
@@ -241,7 +261,7 @@ function SearchAppBar() {
     </Menu>
   );
 
-  // adding drawer object  
+
   
   return (
     <div className={ classes.root }>
@@ -262,7 +282,7 @@ function SearchAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography  variant="h6" noWrap>
-            Material-UI
+            FINN+ 
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -278,6 +298,9 @@ function SearchAppBar() {
             />
           </div>
           <div className={classes.grow} />
+          <div className={classes.badgerLogin}>
+            <Login />
+          </div>
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="Show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="secondary">
@@ -331,18 +354,18 @@ function SearchAppBar() {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['Politics', 'Sports', 'Economy', 'Technology' , 'Health' , 'Entertainment'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>{index % 6 === 0 ? <AccountBalance /> : index % 6 === 1 ? <Pool/> : index % 6 === 2 ? <AttachMoney/> : index % 6 === 3 ? <Devices/> : index % 6 === 4 ? <LocalHospital/> : <Movie/> }</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          {['Helsingin Sonomat', 'Kauppalehti', 'Keskisuomalainen' , 'Savon Sanomat' , 'Turun Sanomat'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>{index % 5 === 0 ? <HsLogo width={40} height={50} /> : index % 5 === 1 ? <KlLogo width={40} height={50}/> : index % 5 === 2 ? <KslmLogo width={40} height={50}/> : index % 5 === 3 ? <SsLogo width={40} height={50}/> : <TsLogo width={40} height={50}/> }</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}

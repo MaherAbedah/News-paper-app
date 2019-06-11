@@ -22,7 +22,7 @@ class Login extends Component {
 				        position: ['city']
 				      }
 				    }}
-				    color="blue"
+				    color="orange"
 				    qr={false}
 		    	/>
 		    </div>
