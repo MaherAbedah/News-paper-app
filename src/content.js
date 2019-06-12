@@ -3,29 +3,29 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import ImgMediaCard from './articleCard'
+import TitlebarGridList from './newsSection';
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
   paper: {
-    height: 420,
-    width: 340,
+    height: 440,
+    width: 360,
   },
   control: {
-    padding: theme.spacing(6),
+    padding: theme.spacing(4),
   },
 }));
 
 export default function SpacingGrid() {
-  const [spacing] = React.useState(2);
+  const [spacing] = React.useState(6);
   const classes = useStyles();
 
 
 
   return (
-    <Grid container className={classes.root} spacing={6}>
+    <Grid container className={classes.root} spacing={4}>
       <Grid item xs={12}>
         <Grid container justify="center" spacing={spacing}>
           {['Most Read', 'Trending', 'Latest'].map(value => (
@@ -34,8 +34,7 @@ export default function SpacingGrid() {
                 {value} 
               </Typography>
               <Paper className={classes.paper} >
-                <ImgMediaCard />
-                <ImgMediaCard />
+                <TitlebarGridList name = {value}/>
               </Paper>
             </Grid>
           ))}

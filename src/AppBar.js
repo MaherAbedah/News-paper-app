@@ -286,7 +286,7 @@ function SearchAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography  variant="h6" noWrap>
+          <Typography  variant="h6" Wrap>
             FINN+ 
           </Typography>
           <div className={classes.search}>
@@ -307,13 +307,8 @@ function SearchAppBar() {
             <Login />
           </div>
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="Show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="Show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
+            <IconButton aria-label="Show 2 new notifications" color="inherit">
+              <Badge badgeContent={2} color="secondary">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
