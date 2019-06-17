@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import CashId from 'react-cashid'
 import './App.css';
 
-class Login extends Component {
+class BadgerLogin extends Component {
 	render(){	
 		return (
 			<div>
@@ -30,4 +30,4 @@ class Login extends Component {
 	}
 }
 
-export default Login
+export default BadgerLogin

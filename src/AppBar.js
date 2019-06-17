@@ -12,7 +12,8 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
+import Link from '@material-ui/core/Link';
+
 import Movie from '@material-ui/icons/Movie';
 import Devices from '@material-ui/icons/Devices';
 import Pool from '@material-ui/icons/Pool';
@@ -41,7 +42,7 @@ import { ReactComponent as KslmLogo } from './svg/keskisuomalainen.svg';
 import { ReactComponent as TsLogo } from './svg/Turunsanomat.svg';
 import { ReactComponent as SsLogo } from './svg/savonsanomat.svg';
 
-import Login from './login';
+import BadgerLogin from './badgerLogin';
 import SpacingGrid from './content.js'
 
 const drawerWidth = 240;
@@ -220,7 +221,7 @@ function SearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <Link href='/signin'><MenuItem onClick={handleMenuClose}>Login</MenuItem> </Link>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
@@ -237,16 +238,8 @@ function SearchAppBar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton aria-label="Show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
         <IconButton aria-label="Show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
+          <Badge badgeContent={2} color="secondary">
             <NotificationsIcon />
           </Badge>
         </IconButton>
@@ -261,7 +254,7 @@ function SearchAppBar() {
         >
           <AccountCircle />
         </IconButton>
-        <p>Profile</p>
+        <Link href='/signin'> <p>Login</p> </Link>
       </MenuItem>
     </Menu>
   );
@@ -304,7 +297,7 @@ function SearchAppBar() {
           </div>
           <div className={classes.grow} />
           <div className={classes.badgerLogin}>
-            <Login />
+            <BadgerLogin />
           </div>
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="Show 2 new notifications" color="inherit">

@@ -4,7 +4,7 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
-import InfoIcon from '@material-ui/icons/Info';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import MrData from './mostReadData';
 import TrData from './trendingData';
 import LtData from './latestData';
@@ -29,6 +29,20 @@ const useStyles = makeStyles(theme => ({
   image: {
     maxWidth: 240,
     maxHight: 160,
+  },
+  wrapper: {
+    '& p' : {
+      position:'absolute',
+      top:-10,
+      paddingLeft:4,
+      visibility:'hidden',
+      color:'white',
+      backgroundColor: '#727272FF',
+      textDecoration: 'none',
+    },
+    '&:hover':{
+      '& p':{ visibility: 'visible'}
+    }
   }
 }));
 
@@ -40,14 +54,15 @@ export default function TitlebarGridList(props) {
       return(
         MrData.map(tile => (  
               <GridListTile key={tile.img}>
-                <Link href={tile.link} target="_blank" rel="noopener">
+                <Link href={tile.link} target="_blank" rel="noopener" className={classes.wrapper}>
                   <img src={tile.img} alt={tile.title} className={classes.image} />
+                  <p className={classes.text}> {tile.title} </p> 
                   <GridListTileBar
                     title={tile.title}
                     subtitle={<span>by: {tile.author}</span>}
                     actionIcon={
-                      <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
-                        <InfoIcon />
+                      <IconButton aria-label={`add ${tile.title} to favorite`} className={classes.icon}>
+                        <FavoriteIcon />
                       </IconButton>
                     }
                   />
@@ -67,8 +82,8 @@ export default function TitlebarGridList(props) {
                   title={tile.title}
                   subtitle={<span>by: {tile.author}</span>}
                   actionIcon={
-                    <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
-                      <InfoIcon />
+                    <IconButton aria-label={`add ${tile.title} to favorite`} className={classes.icon}>
+                      <FavoriteIcon />
                     </IconButton>
                   }
                 />
@@ -86,8 +101,8 @@ export default function TitlebarGridList(props) {
                   title={tile.title}
                   subtitle={<span>by: {tile.author}</span>}
                   actionIcon={
-                    <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
-                      <InfoIcon />
+                    <IconButton aria-label={`add ${tile.title} to favorite`} className={classes.icon}>
+                      <FavoriteIcon />
                     </IconButton>
                   }
                 />
