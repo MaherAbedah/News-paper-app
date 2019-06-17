@@ -6,15 +6,15 @@ it aims to design an application for newspaper subscription which is supposed to
 
 ## install the project 
 
-First clone the project repository to your computer
- `npm clone https://github.com/MaherAbedah/News-paper-app.git` 
+First clone the project repository to your computer <br>
+ `git clone https://github.com/MaherAbedah/News-paper-app.git` 
 
 go to the project directory <br>
- `cd badger-test`
+ `cd badger-test` <br>
 then install the project dependencies <br>
- `npm install`
+ `npm install` <br>
 run the app server <br>
- `npm start`
+ `npm start` <br>
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
