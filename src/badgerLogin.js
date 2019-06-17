@@ -24,6 +24,7 @@ class BadgerLogin extends Component {
 				    }}
 				    color="orange"
 				    qr={false}
+				    /*callback={callbackFunction}*/
 		    	/>
 		    </div>
 	    )
