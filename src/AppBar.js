@@ -43,7 +43,8 @@ import { ReactComponent as TsLogo } from './svg/Turunsanomat.svg';
 import { ReactComponent as SsLogo } from './svg/savonsanomat.svg';
 
 import BadgerLogin from './badgerLogin';
-import SpacingGrid from './content.js'
+import SpacingGrid from './content.js';
+import PaymentDialog from './components/paymentDialog'
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -372,6 +373,9 @@ function SearchAppBar() {
         <div className={classes.drawerHeader} />
         <div className={classes.gridContent}>
           <SpacingGrid  />
+        </div>
+        <div> 
+        <PaymentDialog />
         </div>
       </main>
     </div>

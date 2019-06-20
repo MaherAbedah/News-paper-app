@@ -7,6 +7,7 @@
     "@material-ui/icons": "^4.1.0",
     "auth0-js": "^9.10.4",
     "badger-components-react": "^0.3.0",
+    "cashid": "^0.2.5",
     "react": "^16.8.6",
     "react-cashid": "^0.2.0",
     "react-dom": "^16.8.6",

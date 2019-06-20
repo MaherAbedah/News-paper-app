@@ -24,7 +24,7 @@ class BadgerLogin extends Component {
 				    }}
 				    color="orange"
 				    qr={false}
-				    /*callback={callbackFunction}*/
+				    callback={() => console.log(`login succeeded`)}
 		    	/>
 		    </div>
 	    )
