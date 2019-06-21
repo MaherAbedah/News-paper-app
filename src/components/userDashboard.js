@@ -44,7 +44,8 @@ import { ReactComponent as SsLogo } from '../svg/savonsanomat.svg';
 
 
 import SpacingGrid from '../content.js';
-import PaymentDialog from './paymentDialog'
+import PaymentDialog from './paymentDialog';
+import MonthlyPayment from './monthlyPayment'
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -219,7 +220,7 @@ function UserDashboard() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <Link href='/'><MenuItem onClick={handleMenuClose}>Logout</MenuItem> </Link>
+      <Link href='/logout'><MenuItem onClick={handleMenuClose}>Logout</MenuItem> </Link>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
@@ -294,6 +295,8 @@ function UserDashboard() {
             />
           </div>
           <div className={classes.grow} />
+
+          <MonthlyPayment />
           
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="Show 2 new notifications" color="inherit">
@@ -368,9 +371,6 @@ function UserDashboard() {
         <div className={classes.drawerHeader} />
         <div className={classes.gridContent}>
           <SpacingGrid  />
-        </div>
-        <div> 
-        <PaymentDialog />
         </div>
       </main>
     </div>
