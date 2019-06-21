@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -44,6 +43,10 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignIn() {
   const classes = useStyles();
+  /*function handleSubmit (event){
+    alert("working");
+    event.preventDefault();
+  };*/
 
   return (
     <Container component="main" maxWidth="xs">
@@ -55,7 +58,7 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate >
+        <form className={classes.form} noValidate method="POST">
           <TextField
             variant="outlined"
             margin="normal"
@@ -106,7 +109,7 @@ export default function SignIn() {
             </Grid>
           </Grid>
 
-          <input type="hidden" name="csrf_token" value={""} />
+          <input type="hidden" id="signin_token" name="csrf_token" value={""} />
         </form>
       </div>
     </Container>
