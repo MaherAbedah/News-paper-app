@@ -36,15 +36,15 @@ import clsx from 'clsx';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
-import { ReactComponent as KlLogo } from './svg/kauppalehti.svg';
-import { ReactComponent as HsLogo } from './svg/Helsinginsanomat.svg';
-import { ReactComponent as KslmLogo } from './svg/keskisuomalainen.svg';
-import { ReactComponent as TsLogo } from './svg/Turunsanomat.svg';
-import { ReactComponent as SsLogo } from './svg/savonsanomat.svg';
+import { ReactComponent as KlLogo } from '../svg/kauppalehti.svg';
+import { ReactComponent as HsLogo } from '../svg/Helsinginsanomat.svg';
+import { ReactComponent as KslmLogo } from '../svg/keskisuomalainen.svg';
+import { ReactComponent as TsLogo } from '../svg/Turunsanomat.svg';
+import { ReactComponent as SsLogo } from '../svg/savonsanomat.svg';
 
-import BadgerLogin from './badgerLogin';
-import SpacingGrid from './content.js';
-import PaymentDialog from './components/paymentDialog'
+
+import SpacingGrid from '../content.js';
+import PaymentDialog from './paymentDialog'
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -85,10 +85,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
   },
 
-  badgerLogin: {
-    position: 'relative',
-    paddingTop: theme.spacing(2),
-  },
+  
 
   inputRoot: {
     color: 'inherit',
@@ -173,7 +170,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function SearchAppBar() {
+function UserDashboard() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -222,8 +219,8 @@ function SearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <Link href='/signin'><MenuItem onClick={handleMenuClose}>Login</MenuItem> </Link>
-      
+      <Link href='/'><MenuItem onClick={handleMenuClose}>Logout</MenuItem> </Link>
+      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
 
@@ -255,7 +252,7 @@ function SearchAppBar() {
         >
           <AccountCircle />
         </IconButton>
-        <Link href='/signin'> <p>Login</p> </Link>
+        <Link href='/'> <p>Logout</p> </Link>
       </MenuItem>
     </Menu>
   );
@@ -372,10 +369,12 @@ function SearchAppBar() {
         <div className={classes.gridContent}>
           <SpacingGrid  />
         </div>
-        
+        <div> 
+        <PaymentDialog />
+        </div>
       </main>
     </div>
   );
 }
 
-export default SearchAppBar;
+export default UserDashboard;

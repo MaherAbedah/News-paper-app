@@ -100,22 +100,19 @@ export default function SignUp() {
                 autoComplete="current-password"
               />
             </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
-              />
-            </Grid>
+            
           </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Sign Up
-          </Button>
+          
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Sign Up
+            </Button>
+          
           <Grid container justify="flex-end">
             <Grid item>
               <Link href="/signin" variant="body2">
@@ -123,6 +120,7 @@ export default function SignUp() {
               </Link>
             </Grid>
           </Grid>
+          <input type="hidden" name="csrf_token" value={""} />
         </form>
       </div>
       

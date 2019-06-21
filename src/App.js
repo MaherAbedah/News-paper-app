@@ -5,6 +5,7 @@ import './App.css';
 import SearchAppBar from './AppBar';
 import SignUp from './signUp';
 import SignIn from './components/signIn';
+import UserDashboard from './components/userDashboard'
 
 
 function App()  {
@@ -16,6 +17,7 @@ function App()  {
 		      	<Router>
 		      		<Switch>
 		      			<Route exact path='/' component={SearchAppBar} />
+		      			<Route  path='/dashboard' component={UserDashboard} />
 		      			<Route path='/signin' component={SignIn} />
 		      			<Route path='/signup' component={SignUp}/>
 		      			
