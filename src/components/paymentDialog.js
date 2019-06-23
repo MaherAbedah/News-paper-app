@@ -6,13 +6,14 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
-import BadgerLogin from '../badgerLogin';
+import MonthlyPayment from './monthlyPayment';
+import PackagePayment from './packagePayment'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function PaymentDialig() {
+export default function PaymentDialog() {
   const [open, setOpen] = React.useState(false);
 
   function handleClickOpen() {
@@ -25,7 +26,7 @@ export default function PaymentDialig() {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Button variant="contained" color="secondary" onClick={handleClickOpen}>
         payment options
       </Button>
       <Dialog
@@ -36,19 +37,17 @@ export default function PaymentDialig() {
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle id="alert-dialog-slide-title">{"premium content! login or pay please"}</DialogTitle>
+        <DialogTitle id="alert-dialog-slide-title">{"Choose your favorite payment method"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Subscripers: please login with Badger on top.<br/>
-            Not a subscriper? you can pay for one time access
+            Monthly subscription: full access to the content for one month.<br/>
+            Package subscription: access to 15 articles per payment.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-        <BadgerLogin/>
-          
-          <Button onClick={handleClose} color="primary">
-            pay 
-          </Button>
+          <MonthlyPayment />
+            
+          <PackagePayment />
         </DialogActions>
       </Dialog>
     </div>

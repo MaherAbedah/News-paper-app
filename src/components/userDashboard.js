@@ -12,6 +12,7 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import PowerSettingsNew from '@material-ui/icons/PowerSettingsNew';
 import Link from '@material-ui/core/Link';
 
 import Movie from '@material-ui/icons/Movie';
@@ -45,7 +46,7 @@ import { ReactComponent as SsLogo } from '../svg/savonsanomat.svg';
 
 import SpacingGrid from '../content.js';
 import PaymentDialog from './paymentDialog';
-import MonthlyPayment from './monthlyPayment'
+
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -221,7 +222,7 @@ function UserDashboard() {
       onClose={handleMenuClose}
     >
       <Link href='/logout'><MenuItem onClick={handleMenuClose}>Logout</MenuItem> </Link>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <Link href='/profile'><MenuItem onClick={handleMenuClose}>My profile </MenuItem> </Link>
     </Menu>
   );
 
@@ -237,14 +238,14 @@ function UserDashboard() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton aria-label="Show 11 new notifications" color="inherit">
+        <IconButton aria-label="Show 2 new notifications" color="inherit">
           <Badge badgeContent={2} color="secondary">
             <NotificationsIcon />
           </Badge>
         </IconButton>
         <p>Notifications</p>
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
+      <MenuItem >
         <IconButton
           aria-label="Account of current user"
           aria-controls="primary-search-account-menu"
@@ -253,7 +254,18 @@ function UserDashboard() {
         >
           <AccountCircle />
         </IconButton>
-        <Link href='/'> <p>Logout</p> </Link>
+        <Link href='/profile'> <p> My profile </p> </Link>
+      </MenuItem>
+      <MenuItem >
+        <IconButton
+          aria-label="logout current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
+        >
+          <PowerSettingsNew />
+        </IconButton>
+        <Link href='/logout'> <p>Logout</p> </Link>
       </MenuItem>
     </Menu>
   );
@@ -296,7 +308,7 @@ function UserDashboard() {
           </div>
           <div className={classes.grow} />
 
-          <MonthlyPayment />
+          <PaymentDialog />
           
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="Show 2 new notifications" color="inherit">
