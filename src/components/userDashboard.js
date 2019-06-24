@@ -221,8 +221,28 @@ function UserDashboard() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <Link href='/logout'><MenuItem onClick={handleMenuClose}>Logout</MenuItem> </Link>
-      <Link href='/profile'><MenuItem onClick={handleMenuClose}>My profile </MenuItem> </Link>
+      <MenuItem >
+          <Link href='/profile'><IconButton
+            aria-label="Account of current user"
+            aria-controls="primary-search-account-menu"
+            aria-haspopup="true"
+            color="inherit"
+          >
+            <AccountCircle />
+          </IconButton>
+           <span> My profile </span> </Link>
+        </MenuItem>
+      <MenuItem >
+          <Link href='/logout'><IconButton
+            aria-label="logout current user"
+            aria-controls="primary-search-account-menu"
+            aria-haspopup="true"
+            color="inherit"
+          >
+            <PowerSettingsNew />
+          </IconButton>
+           <span>Logout</span> </Link>
+        </MenuItem>      
     </Menu>
   );
 
@@ -246,7 +266,7 @@ function UserDashboard() {
         <p>Notifications</p>
       </MenuItem>
       <MenuItem >
-        <IconButton
+        <Link href='/profile'><IconButton
           aria-label="Account of current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
@@ -254,10 +274,10 @@ function UserDashboard() {
         >
           <AccountCircle />
         </IconButton>
-        <Link href='/profile'> <p> My profile </p> </Link>
+         <span> My profile </span> </Link>
       </MenuItem>
       <MenuItem >
-        <IconButton
+        <Link href='/logout'> <IconButton
           aria-label="logout current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
@@ -265,7 +285,7 @@ function UserDashboard() {
         >
           <PowerSettingsNew />
         </IconButton>
-        <Link href='/logout'> <p>Logout</p> </Link>
+         <span>Logout</span> </Link>
       </MenuItem>
     </Menu>
   );
