@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase'; 
@@ -55,22 +56,35 @@ export default function Profile (props){
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
                 <Typography gutterBottom variant="subtitle1">
-                  User Name
+                  {window.obj.name}
                 </Typography>
                 <Typography variant="body2" gutterBottom>
-                  user e-mail adddress
+                  {window.obj.email}
                 </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  other information 
-                </Typography>
+                
+                  {window.obj.end_date !== null ? 
+                  	<Typography variant="body2" color="textSecondary"> Monthly subscription
+                  	</Typography> : window.obj.bought.length !== null ? 
+                  	<Typography variant="body2" color="textSecondary"> Package subscription
+                  	</Typography> : <Typography variant="body2" color="textSecondary"> Not subscriped!
+                  	</Typography>
+                  } 
+                
               </Grid>
               <Grid item>
-                <Typography variant="body2" style={{ cursor: 'pointer' }}>
+                <Button variant="body2" style={{ cursor: 'pointer' }}>
                   Edit
-                </Typography>
+                </Button>
               </Grid>
             </Grid>
             <Grid item>
+            	{window.obj.end_date !== null ? 
+                  	<Typography variant="subtitle1" color="textSecondary"> ends {window.obj.end_date}
+                  	</Typography> : window.obj.bought.length !== null ? 
+                  	<Typography variant="subtitle1" color="textSecondary"> {window.obj.bought.length} left 
+                  	</Typography> : <Typography variant="subtitle1" color="textSecondary"> Non!
+                  	</Typography>
+                  }
               <Typography variant="subtitle1">20 days left</Typography>
             </Grid>
           </Grid>

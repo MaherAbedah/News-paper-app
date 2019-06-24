@@ -5,7 +5,7 @@ const PackagePayment = props => {
   
   const paymentSuccess = (txid) =>
   {
-  fetch("/api/monthpaid",
+  fetch("/api/packagepaid",
 	{
     headers: {
       'Accept': 'application/json',

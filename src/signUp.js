@@ -119,7 +119,7 @@ export default function SignUp() {
               </Link>
             </Grid>
           </Grid>
-          <input type="hidden" id="signup_token" name="csrf_token" value={""} />
+          <input type="hidden" id="signup_token" name="csrf_token" value={window.csrf_token} />
         </form>
       </div>
       

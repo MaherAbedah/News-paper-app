@@ -257,14 +257,6 @@ function UserDashboard() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton aria-label="Show 2 new notifications" color="inherit">
-          <Badge badgeContent={2} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
       <MenuItem >
         <Link href='/profile'><IconButton
           aria-label="Account of current user"
@@ -313,29 +305,12 @@ function UserDashboard() {
           <Typography  variant="h6" Wrap>
             FINN+ 
           </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'Search' }}
-            />
-          </div>
+          
           <div className={classes.grow} />
 
           <PaymentDialog />
           
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="Show 2 new notifications" color="inherit">
-              <Badge badgeContent={2} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
             <IconButton
               edge="end"
               aria-label="Account of current user"
@@ -400,7 +375,9 @@ function UserDashboard() {
           [classes.contentShift]: open,
         })}
       >
-        <div className={classes.drawerHeader} />
+        <div className={classes.drawerHeader} >
+        Good day User 
+        </div>
         <div className={classes.gridContent}>
           <SpacingGrid  />
         </div>

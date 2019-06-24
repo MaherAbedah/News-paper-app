@@ -109,7 +109,7 @@ export default function SignIn() {
             </Grid>
           </Grid>
 
-          <input type="hidden" id="signin_token" name="csrf_token" value={""} />
+          <input type="hidden" id="signin_token" name="csrf_token" value={window.csrf_token} />
         </form>
       </div>
     </Container>
