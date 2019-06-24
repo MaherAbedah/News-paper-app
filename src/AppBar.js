@@ -42,9 +42,7 @@ import { ReactComponent as KslmLogo } from './svg/keskisuomalainen.svg';
 import { ReactComponent as TsLogo } from './svg/Turunsanomat.svg';
 import { ReactComponent as SsLogo } from './svg/savonsanomat.svg';
 
-import BadgerLogin from './badgerLogin';
 import SpacingGrid from './content.js';
-import PaymentDialog from './components/paymentDialog'
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -173,7 +171,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function SearchAppBar() {
+function GuestDashboard() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -378,4 +376,4 @@ function SearchAppBar() {
   );
 }
 
-export default SearchAppBar;
+export default GuestDashboard;
