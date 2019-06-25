@@ -6,7 +6,8 @@ import GuestDashboard from './AppBar';
 import SignUp from './signUp';
 import SignIn from './components/signIn';
 import UserDashboard from './components/userDashboard';
-import Profile from './components/profile'
+import Profile from './components/profile';
+import TurunSanomat from './components/TurunSanomat'
 
 
 function App()  {
@@ -23,6 +24,7 @@ function App()  {
 		      			<Route path='/signup' component={SignUp}/>
 		      			<Route path='/logout' component={GuestDashboard} />
 		      			<Route path='/profile' component={Profile} />
+		      			<Route path='/ts' component={TurunSanomat} />
 		      			
 		      		</Switch>      
 		        </Router>

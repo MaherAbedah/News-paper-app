@@ -81,7 +81,7 @@ export default function Profile (props){
             	{window.obj.end_date !== null ? 
                   	<Typography variant="subtitle1" color="textSecondary"> ends {window.obj.end_date}
                   	</Typography> : window.obj.bought.length !== null ? 
-                  	<Typography variant="subtitle1" color="textSecondary"> {window.obj.bought.length} left 
+                  	<Typography variant="subtitle1" color="textSecondary"> {window.obj.prepaid} left 
                   	</Typography> : <Typography variant="subtitle1" color="textSecondary"> Non!
                   	</Typography>
                   }
