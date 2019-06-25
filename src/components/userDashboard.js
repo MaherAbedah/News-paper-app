@@ -42,7 +42,7 @@ import { ReactComponent as HsLogo } from '../svg/Helsinginsanomat.svg';
 import { ReactComponent as KslmLogo } from '../svg/keskisuomalainen.svg';
 import { ReactComponent as TsLogo } from '../svg/Turunsanomat.svg';
 import { ReactComponent as SsLogo } from '../svg/savonsanomat.svg';
-
+import Logo from '../images/logo/logo9.png';
 
 import SpacingGrid from '../content.js';
 import PaymentDialog from './paymentDialog';
@@ -302,9 +302,9 @@ function UserDashboard() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography  variant="h6" Wrap>
-            FINN+ 
-          </Typography>
+          <span Wrap>
+            <img src={Logo} alt="Finn+ logo" width="200px"/> 
+          </span>
           
           <div className={classes.grow} />
 
