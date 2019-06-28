@@ -7,7 +7,8 @@ import SignUp from './signUp';
 import SignIn from './components/signIn';
 import UserDashboard from './components/userDashboard';
 import Profile from './components/profile';
-import TurunSanomat from './components/TurunSanomat'
+import TurunSanomat from './components/TurunSanomat';
+import Analytics from './components/analytics'
 
 
 function App()  {
@@ -24,7 +25,9 @@ function App()  {
 		      			<Route path='/signup' component={SignUp}/>
 		      			<Route path='/logout' component={GuestDashboard} />
 		      			<Route path='/profile' component={Profile} />
+		      			<Route path='/analytics' component={Analytics} />
 		      			<Route path='/ts' component={TurunSanomat} />
+
 		      			
 		      		</Switch>      
 		        </Router>
