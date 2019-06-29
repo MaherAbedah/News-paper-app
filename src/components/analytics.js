@@ -42,50 +42,50 @@ export default function Analytics() {
 	const articlesData = [
     {
       x: 1,
-      y: 270,
+      y: window.obj.articles[0].hits,
       color:'#00137FFF'
     },
     {
       x: 2,
-      y: 210,
+      y: window.obj.articles[1].hits,
       color:'#0013D4FF'
     },
     {
       x: 3,
-      y: 150,
+      y: window.obj.articles[2].hits,
       color:'#0074FFFF'
     },
     {
       x: 4,
-      y: 80,
+      y: window.obj.articles[3].hits,
       color:'#00DBFFFF'
     }
   ];
   const articleLabel = [
   {
       x: 1,
-      y: 270,
-      label: 'article1',
+      y: window.obj.articles[0].hits,
+      label: window.obj.articles[0].name,
       rotation: 90, 
     },
     {
       x: 2,
-      y: 210,
-      label: 'article2',
+      y: window.obj.articles[1].hits,
+      label: window.obj.articles[1].name,
       rotation: 90, 
       
     },
     {
       x: 3,
-      y: 150,
-      label: 'article3',
+      y: window.obj.articles[2].hits,
+      label: window.obj.articles[2].name,
       rotation: 90, 
       
     },
     {
       x: 4,
-      y: 80,
-      label: 'article4',
+      y: window.obj.articles[3].hits,
+      label: window.obj.articles[3].name,
       rotation: 90, 
       
     },
