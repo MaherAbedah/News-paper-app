@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import ButtonBase from '@material-ui/core/ButtonBase'; 
+import ButtonBase from '@material-ui/core/ButtonBase';
 import myImage from '../images/myImage.jpg';
 
 
@@ -32,16 +32,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function Profile (props){
 	const classes = useStyles();
-	
-	const userInfo = (current_user) =>{
-	  fetch(`api/Usaedata/current_user`, { 
-	  headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json' }},)
-	    .then(res => res.json())
-	    .then(data => data.user)
-	}
-
 
 	return (
     <div className={classes.root}>
@@ -61,15 +51,15 @@ export default function Profile (props){
                 <Typography variant="body2" gutterBottom>
                   {window.obj.email}
                 </Typography>
-                
-                  {window.obj.end_date !== null ? 
+
+                  {window.obj.end_date !== null ?
                   	<Typography variant="body2" color="textSecondary"> Monthly subscription
-                  	</Typography> : window.obj.bought.length !== null ? 
+                  	</Typography> : window.obj.prepaid > 0 ?
                   	<Typography variant="body2" color="textSecondary"> Package subscription
                   	</Typography> : <Typography variant="body2" color="textSecondary"> Not subscriped!
                   	</Typography>
-                  } 
-                
+                  }
+
               </Grid>
               <Grid item>
                 <Button variant="body2" style={{ cursor: 'pointer' }}>
@@ -78,14 +68,13 @@ export default function Profile (props){
               </Grid>
             </Grid>
             <Grid item>
-            	{window.obj.end_date !== null ? 
+            	{window.obj.end_date !== null ?
                   	<Typography variant="subtitle1" color="textSecondary"> ends {window.obj.end_date}
-                  	</Typography> : window.obj.bought.length !== null ? 
-                  	<Typography variant="subtitle1" color="textSecondary"> {window.obj.prepaid} left 
-                  	</Typography> : <Typography variant="subtitle1" color="textSecondary"> Non!
+                  	</Typography> : window.obj.prepaid > 0 ?
+                  	<Typography variant="subtitle1" color="textSecondary"> {window.obj.prepaid} left
+                  	</Typography> : <Typography variant="subtitle1" color="textSecondary"> Single payments
                   	</Typography>
                   }
-              <Typography variant="subtitle1">20 days left</Typography>
             </Grid>
           </Grid>
         </Grid>

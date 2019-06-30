@@ -66,41 +66,41 @@ export default function Analytics() {
       x: 1,
       y: window.obj.articles[0].hits,
       label: window.obj.articles[0].name,
-      rotation: 90, 
+      rotation: 90,
     },
     {
       x: 2,
       y: window.obj.articles[1].hits,
       label: window.obj.articles[1].name,
-      rotation: 90, 
-      
+      rotation: 90,
+
     },
     {
       x: 3,
       y: window.obj.articles[2].hits,
       label: window.obj.articles[2].name,
-      rotation: 90, 
-      
+      rotation: 90,
+
     },
     {
       x: 4,
       y: window.obj.articles[3].hits,
       label: window.obj.articles[3].name,
-      rotation: 90, 
-      
+      rotation: 90,
+
     },
   ];
 
   const percentageData = [
   	{
-  		angle0: 0, angle: Math.PI * 2 * window.obj.payment_percent.monthly , radius: 3, radius0: 2, color:'#2AD46FFF'
+  		angle0: 0, angle: Math.PI * 2 * window.obj.payment_percent.monthly ,  radius: 3, radius0: 2, color:'#2AD46FFF',
   	},
   	{
-  		angle0: 0 , angle: -Math.PI * 2 * window.obj.payment_percent.package , radius: 2, radius0: 1, color:'#EDDB11FF'
+  		angle0: 0 , angle: -Math.PI * 2 * window.obj.payment_percent.package,  radius: 3, radius0: 2, color:'#EDDB11FF'
 
   	},
   	{
-  		angle0: -Math.PI , angle: -Math.PI * 2 * window.obj.payment_percent.single , radius: 1, radius0: 0, color:'#FF41FCFF'
+  		angle0: Math.PI * 2 * window.obj.payment_percent.monthly ,  angle: Math.PI * 2 * (window.obj.payment_percent.monthly + window.obj.payment_percent.single),  radius: 3, radius0: 2, color:'#FF41FCFF'
 
   	}
   ];
@@ -112,7 +112,7 @@ export default function Analytics() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-          	<h2> {window.obj.name} Analytics </h2>
+          	<h2> HelsiginSanomat Analytics </h2>
           	<h3> Most Read Articles and subscription types </h3>
           	<List className={classes.list}>
 			      <ListItem>
@@ -121,7 +121,7 @@ export default function Analytics() {
 			            <PercentageIcon style={{color:'#000000FF'}}/>
 			          </Avatar>
 			        </ListItemAvatar>
-			        <ListItemText primary="Provider percentage of all read article % " secondary={window.obj.revenue * 100 } />
+			        <ListItemText primary="Provider percentage of all read article" secondary="50 %" />
 			      </ListItem>
 			</List>
 
@@ -133,7 +133,7 @@ export default function Analytics() {
           	<XYPlot
            		width={300}
            		height={300}
-           		
+
            		colorType={'literal'}
            		>
            		<XAxis/>
@@ -153,7 +153,7 @@ export default function Analytics() {
 			            <BookIcon style={{color:'#00137FFF'}}/>
 			          </Avatar>
 			        </ListItemAvatar>
-			        <ListItemText primary={window.obj.articles[0].name} secondary={window.obj.articles[0].hits} />
+			        <ListItemText primary="article1" secondary={window.obj.articles[0].hits} />
 			      </ListItem>
 			      <ListItem button>
 			        <ListItemAvatar>
@@ -161,7 +161,7 @@ export default function Analytics() {
 			            <BookIcon style={{color:'#0013D4FF'}}/>
 			          </Avatar>
 			        </ListItemAvatar>
-			        <ListItemText primary={window.obj.articles[1].name} secondary={window.obj.articles[1].hits} />
+			        <ListItemText primary="article2" secondary="210 reads" />
 			      </ListItem>
 			      <ListItem button >
 			        <ListItemAvatar >
@@ -169,7 +169,7 @@ export default function Analytics() {
 			            <BookIcon  style={{color:'#0074FFFF'}} />
 			          </Avatar>
 			        </ListItemAvatar>
-			        <ListItemText primary={window.obj.articles[2].name} secondary={window.obj.articles[2].hits} />
+			        <ListItemText primary="article3" secondary="150 reads" />
 			      </ListItem>
 			      <ListItem button>
 			        <ListItemAvatar>
@@ -177,7 +177,7 @@ export default function Analytics() {
 			            <BookIcon style={{color:'#00DBFFFF'}}/>
 			          </Avatar>
 			        </ListItemAvatar>
-			        <ListItemText primary={window.obj.articles[3].name} secondary={window.obj.articles[3].hits} />
+			        <ListItemText primary="article4" secondary="80 reads" />
 			      </ListItem>
     			</List>
 			</div>
@@ -191,10 +191,10 @@ export default function Analytics() {
 			  yDomain={[-6, 6]}
 			  width={300}
 			  height={300}>
-			  
+
 			  <ArcSeries
 			    animation
-			    
+
 			    center={{x: 0, y: 0}}
 			    data={percentageData}
 			    colorType={'literal'}/>
@@ -206,7 +206,7 @@ export default function Analytics() {
 			            <MonthlyPaymentIcon style={{color:'#2AD46FFF'}}/>
 			          </Avatar>
 			        </ListItemAvatar>
-			        <ListItemText primary="monthly subscription %" secondary={window.obj.payment_percent.monthly * 100} />
+			        <ListItemText primary="monthly subscription" secondary="50 %" />
 			      </ListItem>
 			      <ListItem >
 			        <ListItemAvatar>
@@ -214,7 +214,7 @@ export default function Analytics() {
 			            <PackagePaymentIcon style={{color:'#EDDB11FF'}}/>
 			          </Avatar>
 			        </ListItemAvatar>
-			        <ListItemText primary="Package Subscription" secondary={window.obj.payment_percent.package * 100} />
+			        <ListItemText primary="Package Subscription" secondary="25 %" />
 			      </ListItem>
 			      <ListItem >
 			        <ListItemAvatar >
@@ -222,7 +222,7 @@ export default function Analytics() {
 			            <OnePaymentIcon  style={{color:'#FF41FCFF'}} />
 			          </Avatar>
 			        </ListItemAvatar>
-			        <ListItemText primary="One Time Payment" secondary={window.obj.payment_percent.single * 100} />
+			        <ListItemText primary="One Time Payment" secondary="25 %" />
 			      </ListItem>
 			</List>
           </Paper>
