@@ -4,7 +4,6 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import ButtonBase from '@material-ui/core/ButtonBase';
 import myImage from '../images/myImage.jpg';
 
 
@@ -51,7 +50,6 @@ export default function Profile (props){
                 <Typography variant="body2" gutterBottom>
                   {window.obj.email}
                 </Typography>
-
                   {window.obj.end_date !== null ?
                   	<Typography variant="body2" color="textSecondary"> Monthly subscription
                   	</Typography> : window.obj.prepaid > 0 ?
@@ -59,7 +57,6 @@ export default function Profile (props){
                   	</Typography> : <Typography variant="body2" color="textSecondary"> Not subscriped!
                   	</Typography>
                   }
-
               </Grid>
               <Grid item>
                 <Button variant="body2" style={{ cursor: 'pointer' }}>
