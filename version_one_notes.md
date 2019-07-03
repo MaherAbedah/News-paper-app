@@ -10,3 +10,8 @@ adding the home page button to all pages.
 progress bar for the articles.
 
 adding show me more to the news sections.
+
+analytics page: time of accessing the articles, overall access and the provider access. 
+the location of readers. 
+
+the subscription types for the publisher 

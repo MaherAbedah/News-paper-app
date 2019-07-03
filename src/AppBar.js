@@ -10,7 +10,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
+import LoginIcon from '@material-ui/icons/ExitToApp';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Link from '@material-ui/core/Link';
 
@@ -19,7 +19,7 @@ import Devices from '@material-ui/icons/Devices';
 import Pool from '@material-ui/icons/Pool';
 import LocalHospital from '@material-ui/icons/LocalHospital';
 import AttachMoney from '@material-ui/icons/AttachMoney';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+import RegisterIcon from '@material-ui/icons/Create';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -221,7 +221,30 @@ function GuestDashboard() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <Link href='/signin'><MenuItem onClick={handleMenuClose}>Login</MenuItem> </Link>
+      <MenuItem onClick={handleMenuClose}>
+        <Link href='/signin'>
+          <IconButton
+            aria-label="Login user"
+            aria-controls="primary-search-account-menu"
+            aria-haspopup="true"
+            color="inherit"
+          >
+            <LoginIcon />
+          </IconButton>
+           <span> Login </span> 
+        </Link>
+      </MenuItem>
+      <MenuItem >
+          <Link href='/signup'><IconButton
+            aria-label="register new user"
+            aria-controls="primary-search-account-menu"
+            aria-haspopup="true"
+            color="inherit"
+          >
+            <RegisterIcon />
+          </IconButton>
+           <span> Register </span> </Link>
+        </MenuItem>
       
     </Menu>
   );
@@ -238,17 +261,30 @@ function GuestDashboard() {
       onClose={handleMobileMenuClose}
     >
       
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label="Account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <Link href='/signin'> <p>Login</p> </Link>
+      <MenuItem onClick={handleMenuClose}>
+        <Link href='/signin'>
+          <IconButton
+            aria-label="Login user"
+            aria-controls="primary-search-account-menu"
+            aria-haspopup="true"
+            color="inherit"
+          >
+            <LoginIcon />
+          </IconButton>
+           <span> Login </span> 
+        </Link>
       </MenuItem>
+      <MenuItem >
+          <Link href='/signup'><IconButton
+            aria-label="register new user"
+            aria-controls="primary-search-account-menu"
+            aria-haspopup="true"
+            color="inherit"
+          >
+            <RegisterIcon />
+          </IconButton>
+           <span> Register </span> </Link>
+        </MenuItem>
     </Menu>
   );
 
