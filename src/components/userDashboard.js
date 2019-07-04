@@ -362,7 +362,7 @@ function UserDashboard() {
         </List>
         <Divider />
         <List>
-          {[{name:'Helsingin Sonomat',link:'http://127.0.0.1:8000/hs/'}, {name:'Kauppalehti'}, {name:'Keskisuomalainen'} ,{name:'Savon Sanomat'} , {name:'Turun Sanomat', link:'http://127.0.0.1:8000/ts/'}].map((text, index) => (
+          {[{name:'Helsingin Sonomat',link:'http://127.0.0.1:8000/hs/'}, {name:'Kauppalehti',link:'http://127.0.0.1:8000/kl/'}, {name:'Keskisuomalainen',link:'http://127.0.0.1:8000/kslm/'} ,{name:'Savon Sanomat',link:'http://127.0.0.1:8000/ss/'} , {name:'Turun Sanomat', link:'http://127.0.0.1:8000/ts/'}].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index % 5 === 0 ? <HsLogo width={40} height={50} /> : index % 5 === 1 ? <KlLogo width={40} height={50}/> : index % 5 === 2 ? <KslmLogo width={40} height={50}/> : index % 5 === 3 ? <SsLogo width={40} height={50}/> : <Link href="http://127.0.0.1:8000/ts/"><TsLogo width={40} height={50}/></Link> }</ListItemIcon>
              <Link href={text.link}> <ListItemText primary={text.name} /></Link>

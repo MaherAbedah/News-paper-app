@@ -78,18 +78,16 @@ export default function OneTimePayment(props) {
               </Select>
             </FormControl>
             <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="amount-simple">Amount</InputLabel>
+              <InputLabel htmlFor="amount-simple">Amount €</InputLabel>
               <Select
                 value={state.amount}
                 onChange={handleChange('amount')}
                 input={<Input id="amount-simple" />}
               >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
+                <MenuItem value={5}>5</MenuItem>
+                <MenuItem value={10}>10</MenuItem>
+                <MenuItem value={20}>20</MenuItem>
+                <MenuItem value={30}>30</MenuItem>
               </Select>
             </FormControl>
           </form>
