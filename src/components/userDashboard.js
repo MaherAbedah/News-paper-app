@@ -182,7 +182,8 @@ function UserDashboard() {
 
   //adding drawer consts
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  //fixed drawer: changed false to true
+  const [open, setOpen] = React.useState(true);
 
   function handleProfileMenuOpen(event) {
     setAnchorEl(event.currentTarget);
@@ -205,9 +206,9 @@ function UserDashboard() {
    function handleDrawerOpen() {
     setOpen(true);
   }
-
+// fixed drawer: changed false to true 
   function handleDrawerClose() {
-    setOpen(false);
+    setOpen(true);
   }
 
   const menuId = 'primary-search-account-menu';
@@ -347,9 +348,10 @@ function UserDashboard() {
         }}
       >
         <div className={classes.drawerHeader}>
+         {/* fixed drawer : removing the button to close the drawer
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
+          </IconButton>*/}
         </div>
         <Divider />
         <List>
@@ -362,7 +364,7 @@ function UserDashboard() {
         </List>
         <Divider />
         <List>
-          {[{name:'Helsingin Sonomat',link:'http://127.0.0.1:8000/hs/'}, {name:'Kauppalehti',link:'http://127.0.0.1:8000/kl/'}, {name:'Keskisuomalainen',link:'http://127.0.0.1:8000/kslm/'} ,{name:'Savon Sanomat',link:'http://127.0.0.1:8000/ss/'} , {name:'Turun Sanomat', link:'http://127.0.0.1:8000/ts/'}].map((text, index) => (
+          {[{name:'Helsingin Sonomat',link:'http://127.0.0.1:8000/hs/'}, {name:'Kauppalehti',link:'http://127.0.0.1:8000/kl/'}, {name:'Keskisuomalainen',link:'http://127.0.0.1:8000/ks/'} ,{name:'Savon Sanomat',link:'http://127.0.0.1:8000/ss/'} , {name:'Turun Sanomat', link:'http://127.0.0.1:8000/ts/'}].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index % 5 === 0 ? <HsLogo width={40} height={50} /> : index % 5 === 1 ? <KlLogo width={40} height={50}/> : index % 5 === 2 ? <KslmLogo width={40} height={50}/> : index % 5 === 3 ? <SsLogo width={40} height={50}/> : <Link href="http://127.0.0.1:8000/ts/"><TsLogo width={40} height={50}/></Link> }</ListItemIcon>
              <Link href={text.link}> <ListItemText primary={text.name} /></Link>

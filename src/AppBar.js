@@ -182,7 +182,8 @@ function GuestDashboard() {
 
   //adding drawer consts
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  //fixed drawer: changed false to true
+  const [open, setOpen] = React.useState(true);
 
   function handleProfileMenuOpen(event) {
     setAnchorEl(event.currentTarget);
@@ -205,9 +206,9 @@ function GuestDashboard() {
    function handleDrawerOpen() {
     setOpen(true);
   }
-
+//fixed drawer : changing false to true
   function handleDrawerClose() {
-    setOpen(false);
+    setOpen(true);
   }
 
   const menuId = 'primary-search-account-menu';
@@ -351,9 +352,10 @@ function GuestDashboard() {
         }}
       >
         <div className={classes.drawerHeader}>
+         {/* fixed drawer : removing the button to close the drawer
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
+          </IconButton>*/}
         </div>
         <Divider />
         <List>
