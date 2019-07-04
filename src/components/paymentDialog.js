@@ -7,7 +7,8 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import MonthlyPayment from './monthlyPayment';
-import PackagePayment from './packagePayment'
+import PackagePayment from './packagePayment';
+import OneTimePayment from './oneTimePayment'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -41,13 +42,14 @@ export default function PaymentDialog() {
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
             Monthly subscription: full access to the content for one month.<br/>
-            Package subscription: access to 15 articles per payment.
+            Package subscription: access to 15 articles per payment.<br/>
+            Or top up your account to use the one-time payment.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <MonthlyPayment />
-            
+          <OneTimePayment/>
           <PackagePayment />
+          <MonthlyPayment />
         </DialogActions>
       </Dialog>
     </div>
