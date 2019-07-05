@@ -85,7 +85,7 @@ export default function Profile (props){
                   	</Typography> : <Typography variant="subtitle1" color="textSecondary"> Non!
                   	</Typography>
                   }
-              <Typography variant="subtitle1">20 days left</Typography>
+              
             </Grid>
           </Grid>
         </Grid>
