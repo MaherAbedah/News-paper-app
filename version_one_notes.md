@@ -14,4 +14,11 @@ adding show me more to the news sections.
 analytics page: time of accessing the articles, overall access and the provider access. 
 the location of readers. 
 
-the subscription types for the publisher 
+the subscription types for the publisher
+
+5.07.2019
+
+add a text to the front login page to explain what to do to the new user.
+check spiegle+ for the registration flow.
+
+give 5 tokens to every new user

@@ -13,6 +13,12 @@ const useStyles = makeStyles(theme => ({
     height: 600,
     width: 360,
   },
+  paperHead: {
+    height: 100,
+    width: 400,
+    padding: 10,
+
+  },
   control: {
     padding: theme.spacing(4),
   },
@@ -26,6 +32,24 @@ export default function SpacingGrid() {
 
   return (
     <Grid container className={classes.root} spacing={4}>
+      <Grid item xs={12}>
+      <Grid container spacing={spacing}>
+        <Grid item xs={6}>
+            <Paper className={classes.paperHead} style={{backgroundColor: 'red', color: 'white'}}>
+              <Typography  variant="h4" Wrap>
+                  New user! please <a href='http://localhost:3000/signup'>Register</a> here. 
+                </Typography>
+            </Paper>
+        </Grid>
+        <Grid item xs={6}>
+        <Paper className={classes.paperHead} style={{backgroundColor: 'green', color: 'white'}}>
+              <Typography  variant="h4" Wrap>
+                  FINN+ user! please <a href='http://localhost:3000/signin'>Login</a> here. 
+                </Typography>
+            </Paper>
+        </Grid>
+        </Grid>
+      </Grid>
       <Grid item xs={12}>
         <Grid container justify="center" spacing={spacing}>
           {['Most Read', 'Trending', 'Latest'].map(value => (
