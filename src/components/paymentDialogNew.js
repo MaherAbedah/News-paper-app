@@ -80,40 +80,41 @@ export default function PaymentDialogNew(props) {
           </DialogContentText>
         </DialogContent>
         <DialogContent>
-          <form className={classes.container}>
+          <form method="POST" action="/api/topup" className={classes.container}>
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="method-simple">Method</InputLabel>
               <Select
+                name='pay-method'
                 value={state.method}
                 onChange={handleChange('method')}
-                input={<Input id="method-simple" />}
+                input={<Input name='pay-method' id="method-simple" />}
               >
                 <MenuItem value={1}>Monthly</MenuItem>
                 <MenuItem value={2}>Package</MenuItem>
                 <MenuItem value={3}>One-time</MenuItem>
               </Select>
             </FormControl>
-            {state.method === 3 ? <div>
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="payWith-native-simple">Pay with</InputLabel>
               <Select
-                native
+                
+                
                 value={state.payWith}
                 onChange={handleChange('payWith')}
-                input={<Input id="payWith-native-simple" />}
+                input={<Input name='pay-with' id="payWith-simple" />}
               >
-                <option value="" />
-                <option value={1}>Credit Card</option>
-                <option value={2}>Bank Payment</option>
-                
+                <MenuItem value={1}>Credit Card</MenuItem>
+                <MenuItem value={2}>Bank Payment</MenuItem>
               </Select>
             </FormControl>
+
+            {state.method === 3 ? <div>
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="amount-simple">Amount €</InputLabel>
               <Select
                 value={state.amount}
                 onChange={handleChange('amount')}
-                input={<Input id="amount-simple" />}
+                input={<Input name="amount" id="amount-simple" />}
               >
                 <MenuItem value={5}>5</MenuItem>
                 <MenuItem value={10}>10</MenuItem>
