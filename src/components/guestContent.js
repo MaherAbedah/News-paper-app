@@ -37,14 +37,14 @@ export default function GuestContent() {
         <Grid item xs={6}>
             <Paper className={classes.paperHead} style={{backgroundColor: 'red', color: 'white'}}>
               <Typography  variant="h4" Wrap>
-                  New user! please <a href='http://localhost:3000/signup'>Register</a> here. 
+                  New user! please <a href='/signup'>Register</a> here. 
                 </Typography>
             </Paper>
         </Grid>
         <Grid item xs={6}>
         <Paper className={classes.paperHead} style={{backgroundColor: 'green', color: 'white'}}>
               <Typography  variant="h4" Wrap>
-                  FINN+ user! please <a href='http://localhost:3000/signin'>Login</a> here. 
+                  FINN+ user! please <a href='/signin'>Login</a> here. 
                 </Typography>
             </Paper>
         </Grid>
