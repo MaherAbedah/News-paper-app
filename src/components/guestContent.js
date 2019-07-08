@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import TitlebarGridList from './newsSection';
+import TitlebarGridList from '../newsSection';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SpacingGrid() {
+export default function GuestContent() {
   const [spacing] = React.useState(6);
   const classes = useStyles();
 
@@ -32,7 +32,24 @@ export default function SpacingGrid() {
 
   return (
     <Grid container className={classes.root} spacing={4}>
-      
+      <Grid item xs={12}>
+      <Grid container spacing={spacing}>
+        <Grid item xs={6}>
+            <Paper className={classes.paperHead} style={{backgroundColor: 'red', color: 'white'}}>
+              <Typography  variant="h4" Wrap>
+                  New user! please <a href='http://localhost:3000/signup'>Register</a> here. 
+                </Typography>
+            </Paper>
+        </Grid>
+        <Grid item xs={6}>
+        <Paper className={classes.paperHead} style={{backgroundColor: 'green', color: 'white'}}>
+              <Typography  variant="h4" Wrap>
+                  FINN+ user! please <a href='http://localhost:3000/signin'>Login</a> here. 
+                </Typography>
+            </Paper>
+        </Grid>
+        </Grid>
+      </Grid>
       <Grid item xs={12}>
         <Grid container justify="center" spacing={spacing}>
           {['Most Read', 'Trending', 'Latest'].map(value => (

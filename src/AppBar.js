@@ -42,7 +42,7 @@ import { ReactComponent as KslmLogo } from './svg/keskisuomalainen.svg';
 import { ReactComponent as TsLogo } from './svg/Turunsanomat.svg';
 import { ReactComponent as SsLogo } from './svg/savonsanomat.svg';
 
-import SpacingGrid from './content.js';
+import GuestContent from './components/guestContent.js';
 import Logo from './images/logo/logo9.png';
 
 const drawerWidth = 240;
@@ -383,7 +383,7 @@ function GuestDashboard() {
       >
         <div className={classes.drawerHeader} />
         <div className={classes.gridContent}>
-          <SpacingGrid  />
+          <GuestContent  />
         </div>
         
       </main>

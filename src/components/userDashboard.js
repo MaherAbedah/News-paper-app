@@ -46,6 +46,7 @@ import Logo from '../images/logo/logo9.png';
 
 import SpacingGrid from '../content.js';
 import PaymentDialog from './paymentDialog';
+import PaymentDialogNew from './paymentDialogNew';
 
 
 const drawerWidth = 240;
@@ -309,7 +310,7 @@ function UserDashboard() {
           
           <div className={classes.grow} />
 
-          <PaymentDialog />
+          <PaymentDialogNew />
           
           <div className={classes.sectionDesktop}>
             <IconButton
