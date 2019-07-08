@@ -32,26 +32,23 @@ export default function GuestContent() {
 
   return (
     <Grid container className={classes.root} spacing={4}>
+      
       <Grid item xs={12}>
-      <Grid container spacing={spacing}>
-        <Grid item xs={6}>
+        <Grid container justify="center" spacing={spacing}>
+        <Grid item >
             <Paper className={classes.paperHead} style={{backgroundColor: 'red', color: 'white'}}>
               <Typography  variant="h4" Wrap>
                   New user! please <a href='/signup'>Register</a> here. 
                 </Typography>
             </Paper>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item >
         <Paper className={classes.paperHead} style={{backgroundColor: 'green', color: 'white'}}>
               <Typography  variant="h4" Wrap>
                   FINN+ user! please <a href='/signin'>Login</a> here. 
                 </Typography>
             </Paper>
         </Grid>
-        </Grid>
-      </Grid>
-      <Grid item xs={12}>
-        <Grid container justify="center" spacing={spacing}>
           {['Most Read', 'Trending', 'Latest'].map(value => (
             <Grid key={value} item>
               <Typography  variant="h6" noWrap>
