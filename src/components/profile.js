@@ -33,16 +33,7 @@ const useStyles = makeStyles(theme => ({
 export default function Profile (props){
 	const classes = useStyles();
 	
-	const userInfo = (current_user) =>{
-	  fetch(`api/Usaedata/current_user`, { 
-	  headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json' }},)
-	    .then(res => res.json())
-	    .then(data => data.user)
-	}
-
-
+ 
 	return (
     <div className={classes.root}>
       <Paper className={classes.paper}>

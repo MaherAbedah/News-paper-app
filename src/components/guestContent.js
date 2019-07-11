@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import TitlebarGridList from '../newsSection';
+import NewsSection from '../newsSection';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -55,7 +55,7 @@ export default function GuestContent() {
                 {value} 
               </Typography>
               <Paper className={classes.paper} >
-                <TitlebarGridList name = {value}/>
+                <NewsSection name = {value}/>
               </Paper>
             </Grid>
           ))}

@@ -1,8 +1,8 @@
-### still under construction 
+
 # "FINN+" a national newspaper subscription service in Finland
 
 ### this project is done for a research in Jyvaslyla university.
-it aims to design an application for newspaper subscription which is supposed to provid access to many newspapers at one place. 
+FINN+ is a newspaper subscription service to enable the customers to have subscription with multi newspapers from around Finland at one place, with variety of options to pay and methods to subscribe 
 
 ## install the project 
 
@@ -21,3 +21,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
+
+
+for full documentation please visit [FINN+ UI DOCS](https://finn-1.gitbook.io/finn-ui-docs/).

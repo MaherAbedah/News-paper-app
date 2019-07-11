@@ -44,7 +44,7 @@ import { ReactComponent as TsLogo } from '../svg/Turunsanomat.svg';
 import { ReactComponent as SsLogo } from '../svg/savonsanomat.svg';
 import Logo from '../images/logo/logo9.png';
 
-import SpacingGrid from '../content.js';
+import Content from '../content.js';
 import PaymentDialog from './paymentDialog';
 import PaymentDialogNew from './paymentDialogNew';
 
@@ -380,7 +380,7 @@ function UserDashboard() {
       >
         <div className={classes.drawerHeader} />
         <div className={classes.gridContent}>
-          <SpacingGrid  />
+          <Content  />
         </div>
       </main>
     </div>

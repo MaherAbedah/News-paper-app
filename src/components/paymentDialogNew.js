@@ -68,7 +68,7 @@ export default function PaymentDialogNew(props) {
   return (
     <div>
       <Button variant="contained" color="secondary" onClick={handleClickOpen}>
-        payment options
+        Top Up your account
       </Button>
       <Dialog open={state.open} onClose={handleClose}>
         <DialogTitle id="alert-dialog-slide-title">{"Choose your favorite payment method"}</DialogTitle>
@@ -98,10 +98,9 @@ export default function PaymentDialogNew(props) {
               <InputLabel htmlFor="payWith-native-simple">Pay with</InputLabel>
               <Select
                 
-                
                 value={state.payWith}
                 onChange={handleChange('payWith')}
-                input={<Input name='pay-with' id="payWith-simple" />}
+                input={<Input  name='pay-with' id="payWith-simple" />}
               >
                 <MenuItem value={1}>Credit Card</MenuItem>
                 <MenuItem value={2}>Bank Payment</MenuItem>

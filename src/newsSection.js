@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function TitlebarGridList(props) {
+export default function NewsSection(props) {
   const classes = useStyles();
 
   function renderSection () {
