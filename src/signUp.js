@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import HomeIcon from '@material-ui/icons/Home';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -74,9 +74,9 @@ useEffect(() => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
+        <Link href='/'><Avatar className={classes.avatar}>
+          <HomeIcon /> 
+        </Avatar></Link>
         <Typography component="h1" variant="h5">
           Register with FINN+
         </Typography>
@@ -161,13 +161,13 @@ useEffect(() => {
               color="primary"
               className={classes.submit}
             >
-              Sign Up
+              Register
             </Button>
           
           <Grid container justify="flex-end">
             <Grid item>
               <Link href="/signin" variant="body2">
-                Already have an account? Sign in
+                Already have an account? Log In
               </Link>
             </Grid>
           </Grid>

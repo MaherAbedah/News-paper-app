@@ -131,7 +131,7 @@ export default function Analytics() {
         <Grid item xs={12}>
           <Paper className={classes.paper}>
 	        <div className={classes.header}>
-			    <div className={classes.title}>
+			     <div className={classes.title}>
 		          	<h2> {window.obj.name} Analytics </h2>
 		          	<h3> Most Read Articles and subscription types </h3>
 	          	</div>
@@ -141,7 +141,7 @@ export default function Analytics() {
 				       Logout
 				    </Button>
 				    </Link>
-			    </div>
+			     </div>
 	        </div>
           	
           	<List className={classes.list}>

@@ -7,7 +7,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import HomeIcon from '@material-ui/icons/Home';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -39,6 +39,7 @@ const useStyles = makeStyles(theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+ 
 }));
 
 export default function SignIn() {
@@ -52,11 +53,11 @@ export default function SignIn() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
+        <Link href='/'><Avatar className={classes.avatar}>
+          <HomeIcon /> 
+        </Avatar></Link>
         <Typography component="h1" variant="h5">
-          Sign in
+          Log in to FINN+
         </Typography>
         <form className={classes.form} method="POST">
           <TextField
@@ -93,7 +94,7 @@ export default function SignIn() {
             className={classes.submit}
           >
           
-            Sign In
+            Log In
           </Button>
           
           <Grid container>
@@ -104,7 +105,7 @@ export default function SignIn() {
             </Grid>
             <Grid item>
               <Link href="/signup" variant="body2">
-                {"Don't have an account? Sign Up"}
+                {"Don't have an account? Register"}
               </Link>
             </Grid>
           </Grid>

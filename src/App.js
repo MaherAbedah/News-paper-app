@@ -8,7 +8,8 @@ import SignIn from './components/signIn';
 import UserDashboard from './components/userDashboard';
 import Profile from './components/profile';
 import ForgotPW from './components/forgotPW';
-import Analytics from './components/analytics'
+import Analytics from './components/analytics';
+import FrontPage from './components/guestDashboardNew';
 
 
 function App()  {
@@ -19,7 +20,7 @@ function App()  {
       		<div>
 		      	<Router>
 		      		<Switch>
-		      			<Route exact path='/' component={GuestDashboard} />
+		      			<Route exact path='/' component={FrontPage} />
 		      			<Route  path='/dashboard' component={UserDashboard} />
 		      			<Route path='/signin' component={SignIn} />
 		      			<Route path='/signup' component={SignUp}/>
