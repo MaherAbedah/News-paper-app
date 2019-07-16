@@ -68,7 +68,7 @@ export default function PaymentDialogNew(props) {
   return (
     <div>
       <Button variant="contained" color="secondary" onClick={handleClickOpen}>
-        Top Up your account
+        Top Up Wallet
       </Button>
       <Dialog open={state.open} onClose={handleClose}>
         <DialogTitle id="alert-dialog-slide-title">{"Choose your favorite payment method"}</DialogTitle>

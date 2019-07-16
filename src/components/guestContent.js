@@ -14,8 +14,8 @@ const useStyles = makeStyles(theme => ({
     width: 360,
   },
   paperHead: {
-    height: 100,
-    width: 400,
+    minHeight: 100,
+    maxWidth: 1200,
     padding: 10,
 
   },
@@ -36,19 +36,22 @@ export default function GuestContent() {
       <Grid item xs={12}>
         <Grid container justify="center" spacing={spacing}>
         <Grid item >
-            <Paper className={classes.paperHead} style={{backgroundColor: 'red', color: 'white'}}>
-              <Typography  variant="h4" Wrap>
-                  New user! please <a href='/signup'>Register</a> here. 
+            <Paper className={classes.paperHead} style={{backgroundColor: 'green', color: 'white'}}>
+              <Typography  variant="h5" Wrap>
+                  Are you a big fan of news? congratulations FINN+ is the place for news lovers.<a href='/signup'>Register</a> for the service and choose your favorit payment option. 
+                </Typography>
+                <Typography  variant="h6" Wrap style={{color:'#3FBFAFFF'}}>
+                  Already a FINN+ user! well you know how to  <a href='/signin'>Login</a>! 
                 </Typography>
             </Paper>
         </Grid>
-        <Grid item >
+       {/* <Grid item >
         <Paper className={classes.paperHead} style={{backgroundColor: 'green', color: 'white'}}>
               <Typography  variant="h4" Wrap>
                   FINN+ user! please <a href='/signin'>Login</a> here. 
                 </Typography>
             </Paper>
-        </Grid>
+        </Grid>*/}
           {['Most Read', 'Trending', 'Latest'].map(value => (
             <Grid key={value} item>
               <Typography  variant="h6" noWrap>

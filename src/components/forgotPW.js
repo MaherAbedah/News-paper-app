@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SignIn() {
+export default function ForgotPW() {
   const classes = useStyles();
   /*function handleSubmit (event){
     alert("working");
@@ -56,7 +56,7 @@ export default function SignIn() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Forgot Password
         </Typography>
         <form className={classes.form} method="POST">
           <TextField
@@ -70,21 +70,7 @@ export default function SignIn() {
             autoComplete="email"
             autoFocus
           />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
+          
           <Button
             type="submit"
             fullWidth
@@ -93,23 +79,10 @@ export default function SignIn() {
             className={classes.submit}
           >
           
-            Sign In
+            Send
           </Button>
           
-          <Grid container>
-            <Grid item xs>
-              <Link href="/forgotpw" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="/signup" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
-
-          <input type="hidden" id="signin_token" name="csrf_token" value={window.csrf_token} />
+          <input type="hidden" id="forgot_token" name="csrf_token" value={window.csrf_token} />
         </form>
       </div>
     </Container>

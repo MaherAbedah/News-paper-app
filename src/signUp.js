@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useEffect} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -10,6 +10,9 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from "@material-ui/core/FormControl";
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -37,6 +40,34 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SignUp() {
+  const [state, setState] = React.useState({
+    matched: false ,
+    password:'',
+    rPassword:'',
+  });
+
+  const handleChange = name => event => {
+    setState({ ...state, [name]: event.target.value });
+    console.log(`password = ${state.password}`);
+  };
+
+  const handleMatch = name => event => {
+    setState({ ...state, [name]: event.target.value});
+    
+    console.log(`password = ${state.password} ,rPassword= ${state.rPassword} ,matched= ${state.matched}`)
+  };
+
+
+useEffect(() => {
+    // checking the password and the confirm password all the time.
+    if(state.password === state.rPassword)
+      setState({ ...state, matched: true});
+    else 
+      setState({ ...state, matched: false});
+});
+
+
+
   const classes = useStyles();
 
   return (
@@ -47,7 +78,7 @@ export default function SignUp() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          Register with FINN+
         </Typography>
         <form className={classes.form} method="POST">
           <Grid container spacing={2}>
@@ -90,17 +121,40 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
+                value={state.password}
                 name="password"
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
+                onChange={handleMatch('password')}
               />
             </Grid>
+            <Grid item xs={12}>
+             
+              <TextField
+                error= {!state.matched}
+                variant="outlined"
+                required
+                fullWidth
+                value={state.rPassword}
+                name="rPassword"
+                label="Repeat Password"
+                type="password"
+                id="rPassword" 
+                onChange={handleMatch('rPassword')}
+              />
+             
+              {!state.matched &&<FormHelperText>password not matched </FormHelperText>}
+            </Grid>
+            <FormControlLabel
+            control={<Checkbox value="policy" required color="primary" />}
+            label="I agree to your Terms of use and Privacy Policy."
+          />
             
           </Grid>
           
             <Button
+
               type="submit"
               fullWidth
               variant="contained"

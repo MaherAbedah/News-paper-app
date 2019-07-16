@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
       paddingLeft:4,
       visibility:'hidden',
       color:'white',
-      backgroundColor: '#727272FF',
+      backgroundColor: '#727272BB',
       textDecoration: 'none',
     },
     '&:hover':{
@@ -76,8 +76,9 @@ export default function NewsSection(props) {
       return(
         TrData.map(tile => (
             <GridListTile key={tile.img}>
-              <Link href={tile.link} target="_blank" rel="noopener">
+              <Link href={tile.link} target="_blank" rel="noopener" className={classes.wrapper}>
                 <img src={tile.img} alt={tile.title} className={classes.image} />
+                <p className={classes.text}> {tile.title} </p>
                 <GridListTileBar
                   title={tile.title}
                   subtitle={<span>by: {tile.author}</span>}
@@ -95,8 +96,9 @@ export default function NewsSection(props) {
       return(
         LtData.map(tile => (
             <GridListTile key={tile.img}>
-              <Link href={tile.link} target="_blank" rel="noopener">
+              <Link href={tile.link} target="_blank" rel="noopener" className={classes.wrapper}>
                 <img src={tile.img} alt={tile.title} className={classes.image} />
+                <p className={classes.text}> {tile.title} </p>
                 <GridListTileBar
                   title={tile.title}
                   subtitle={<span>by: {tile.author}</span>}

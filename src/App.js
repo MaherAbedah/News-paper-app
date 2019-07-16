@@ -7,7 +7,7 @@ import SignUp from './signUp';
 import SignIn from './components/signIn';
 import UserDashboard from './components/userDashboard';
 import Profile from './components/profile';
-import TurunSanomat from './components/TurunSanomat';
+import ForgotPW from './components/forgotPW';
 import Analytics from './components/analytics'
 
 
@@ -26,7 +26,7 @@ function App()  {
 		      			<Route path='/logout' component={GuestDashboard} />
 		      			<Route path='/profile' component={Profile} />
 		      			<Route path='/analytics' component={Analytics} />
-		      			<Route path='/ts' component={TurunSanomat} />
+		      			<Route path='/forgotpw' component={ForgotPW} />
 
 		      			
 		      		</Switch>      
