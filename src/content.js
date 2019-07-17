@@ -10,8 +10,8 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   paper: {
-    height: 600,
-    width: 360,
+    maxWidth: 600,
+    minHeight: 800,
   },
   paperHead: {
     height: 100,

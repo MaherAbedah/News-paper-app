@@ -9,6 +9,7 @@ import MrData from './mostReadData';
 import TrData from './trendingData';
 import LtData from './latestData';
 import Link from '@material-ui/core/Link';
+import Article from './components/article'
 
 
 const useStyles = makeStyles(theme => ({
@@ -20,8 +21,8 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
-    width: 360,
-    height: 600,
+    minWidth: 600,
+    minHeight: 800,
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
@@ -52,8 +53,8 @@ export default function NewsSection(props) {
   function renderSection () {
     if (props.name === 'Most Read') {
       return(
-        MrData.map(tile => (  
-              <GridListTile key={tile.img}>
+        MrData.map(tile => (  <Article data = {tile}/>
+              /*<GridListTile key={tile.img}>
                 <Link href={tile.link} target="_blank" rel="noopener" className={classes.wrapper}>
                   <img src={tile.img} alt={tile.title} className={classes.image} />
                   <p className={classes.text}> {tile.title} </p> 
@@ -67,15 +68,15 @@ export default function NewsSection(props) {
                     }
                   />
                 </Link>
-              </GridListTile>
+              </GridListTile>*/
               
             ))
       )
     }
     else if (props.name === 'Trending') {
       return(
-        TrData.map(tile => (
-            <GridListTile key={tile.img}>
+        TrData.map(tile => ( <Article data = {tile}/>
+            /*<GridListTile key={tile.img}>
               <Link href={tile.link} target="_blank" rel="noopener" className={classes.wrapper}>
                 <img src={tile.img} alt={tile.title} className={classes.image} />
                 <p className={classes.text}> {tile.title} </p>
@@ -89,13 +90,13 @@ export default function NewsSection(props) {
                   }
                 />
               </Link>
-            </GridListTile>
+            </GridListTile>*/
           ))
       )
     } else {
       return(
-        LtData.map(tile => (
-            <GridListTile key={tile.img}>
+        LtData.map(tile => ( <Article data = {tile}/>
+           /* <GridListTile key={tile.img}>
               <Link href={tile.link} target="_blank" rel="noopener" className={classes.wrapper}>
                 <img src={tile.img} alt={tile.title} className={classes.image} />
                 <p className={classes.text}> {tile.title} </p>
@@ -109,7 +110,7 @@ export default function NewsSection(props) {
                   }
                 />
                 </Link>
-            </GridListTile>
+            </GridListTile>*/
           ))
       )
     }
