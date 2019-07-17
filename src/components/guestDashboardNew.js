@@ -13,6 +13,9 @@ import CheckIcon from '@material-ui/icons/CheckCircleOutline';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
+import SampleData from './sampleData';
+import Article from './article';
+
 import { ReactComponent as KlLogo } from '../svg/kauppalehti.svg';
 import { ReactComponent as HsLogo } from '../svg/Helsinginsanomat.svg';
 import { ReactComponent as KslmLogo } from '../svg/keskisuomalainen.svg';
@@ -182,7 +185,9 @@ export default function FrontPage() {
         </Grid>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-          Sample News Section
+          {
+            SampleData.map(tile => <Article data={tile} />)
+          }
           </Paper>
         </Grid>
         <Grid item xs={6} sm={2}>

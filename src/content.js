@@ -19,8 +19,15 @@ const useStyles = makeStyles(theme => ({
     padding: 10,
 
   },
+  paperSide: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    maxHight:600,
+    marginTop:'30px'
+  },
   control: {
-    padding: theme.spacing(4),
+    padding: theme.spacing(2),
   },
 }));
 
@@ -31,9 +38,9 @@ export default function Content() {
 
 
   return (
-    <Grid container className={classes.root} spacing={4}>
+    <Grid container className={classes.root} spacing={2}>
       
-      <Grid item xs={12}>
+      <Grid item xs={9}>
         <Grid container justify="center" spacing={spacing}>
           {['Most Read', 'Trending', 'Latest'].map(value => (
             <Grid key={value} item>
@@ -47,6 +54,9 @@ export default function Content() {
           ))}
         </Grid>
       </Grid>
+       <Grid item xs={3}>
+          <Paper className={classes.paperSide}>User Information</Paper>
+        </Grid>
     </Grid>
   );
 }

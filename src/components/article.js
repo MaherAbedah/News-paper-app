@@ -37,7 +37,9 @@ export default function Article(props) {
         <Grid container spacing={2}>
           <Grid item>
             <ButtonBase className={classes.image}>
-              <img className={classes.img} alt="complex" src={props.data.img} />
+              <a href={props.data.link} rel="noopener" target="_blank" >
+                <img className={classes.img} alt="complex" src={props.data.img} />
+              </a>
             </ButtonBase>
           </Grid>
           <Grid item xs={12} sm container>

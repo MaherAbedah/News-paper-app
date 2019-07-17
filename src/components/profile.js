@@ -7,7 +7,10 @@ import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase'; 
 import myImage from '../images/myImage.jpg';
 
-
+const testObj = {
+  name:'maher',
+  
+};
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -32,7 +35,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Profile (props){
 	const classes = useStyles();
-	
+	const obj = window.obj === null ? testObj : window.obj ;
  
 	return (
     <div className={classes.root}>

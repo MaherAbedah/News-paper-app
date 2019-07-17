@@ -24,7 +24,7 @@ function App()  {
 		      			<Route  path='/dashboard' component={UserDashboard} />
 		      			<Route path='/signin' component={SignIn} />
 		      			<Route path='/signup' component={SignUp}/>
-		      			<Route path='/logout' component={GuestDashboard} />
+		      			<Route path='/logout' component={FrontPage} />
 		      			<Route path='/profile' component={Profile} />
 		      			<Route path='/analytics' component={Analytics} />
 		      			<Route path='/forgotpw' component={ForgotPW} />

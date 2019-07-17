@@ -209,7 +209,7 @@ function UserDashboard() {
   }
 // fixed drawer: changed false to true 
   function handleDrawerClose() {
-    setOpen(true);
+    setOpen(false);
   }
 
   const menuId = 'primary-search-account-menu';
@@ -304,9 +304,12 @@ function UserDashboard() {
           >
             <MenuIcon />
           </IconButton>
-          <span Wrap>
+          {/*<span Wrap>
             <img src={Logo} alt="Finn+ logo" width="200px"/> 
-          </span>
+          </span>*/}
+          <Typography  variant="h3">
+                   FINN+
+            </Typography>
           
           <div className={classes.grow} />
 
@@ -349,10 +352,10 @@ function UserDashboard() {
         }}
       >
         <div className={classes.drawerHeader}>
-         {/* fixed drawer : removing the button to close the drawer
+         
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>*/}
+          </IconButton>
         </div>
         <Divider />
         <List>
