@@ -52,29 +52,32 @@ const useStyles = makeStyles(theme => ({
 
 export default function Analytics() {
 	const classes = useStyles();
+  let myObj = TestObj;
+  if(window.obj !== undefined)
+    myObj = window.obj ;
 	const articlesData = [
     {
       x: 1,
-      y: window.obj.articles[0].hits,
-      name: window.obj.articles[0].name,
+      y: myObj.articles[0].hits,
+      name: myObj.articles[0].name,
       color:'#00137FFF'
     },
     {
       x: 2,
-      y: window.obj.articles[1].hits,
-      name: window.obj.articles[1].name,
+      y: myObj.articles[1].hits,
+      name: myObj.articles[1].name,
       color:'#0013D4FF'
     },
     {
       x: 3,
-      y: window.obj.articles[2].hits,
-      name: window.obj.articles[2].name,
+      y: myObj.articles[2].hits,
+      name: myObj.articles[2].name,
       color:'#0074FFFF'
     },
     {
       x: 4,
-      y: window.obj.articles[3].hits,
-      name: window.obj.articles[3].name,
+      y: myObj.articles[3].hits,
+      name: myObj.articles[3].name,
       color:'#00DBFFFF'
     }
   ];
@@ -82,28 +85,28 @@ export default function Analytics() {
   const articleLabel = [
   {
       x: 1,
-      y: window.obj.articles[0].hits,
-      label: window.obj.articles[0].name,
+      y: myObj.articles[0].hits,
+      label: myObj.articles[0].name,
       rotation: 90, 
     },
     {
       x: 2,
-      y: window.obj.articles[1].hits,
-      label: window.obj.articles[1].name,
+      y: myObj.articles[1].hits,
+      label: myObj.articles[1].name,
       rotation: 90, 
       
     },
     {
       x: 3,
-      y: window.obj.articles[2].hits,
-      label: window.obj.articles[2].name,
+      y: myObj.articles[2].hits,
+      label: myObj.articles[2].name,
       rotation: 90, 
       
     },
     {
       x: 4,
-      y: window.obj.articles[3].hits,
-      label: window.obj.articles[3].name,
+      y: myObj.articles[3].hits,
+      label: myObj.articles[3].name,
       rotation: 90, 
       
     },
@@ -111,14 +114,14 @@ export default function Analytics() {
 
   const percentageData = [
   	{
-  		angle0: 0, angle: Math.PI * 2 * window.obj.payment_percent.monthly , radius: 4, radius0: 3, color:'#2AD46FFF'
+  		angle0: 0, angle: Math.PI * 2 * myObj.payment_percent.monthly , radius: 4, radius0: 3, color:'#2AD46FFF'
   	},
   	{
-  		angle0: Math.PI * 2 * window.obj.payment_percent.monthly , angle: Math.PI * 2 * window.obj.payment_percent.monthly + Math.PI * 2 * window.obj.payment_percent.package , radius: 4, radius0: 3, color:'#EDDB11FF'
+  		angle0: Math.PI * 2 * myObj.payment_percent.monthly , angle: Math.PI * 2 * myObj.payment_percent.monthly + Math.PI * 2 * myObj.payment_percent.package , radius: 4, radius0: 3, color:'#EDDB11FF'
 
   	},
   	{
-  		angle0: Math.PI * 2 * window.obj.payment_percent.monthly + Math.PI * 2 * window.obj.payment_percent.package , angle: Math.PI * 2 * window.obj.payment_percent.monthly + Math.PI * 2 * window.obj.payment_percent.package + Math.PI * 2 * window.obj.payment_percent.single , radius: 4, radius0: 3, color:'#FF41FCFF'
+  		angle0: Math.PI * 2 * myObj.payment_percent.monthly + Math.PI * 2 * myObj.payment_percent.package , angle: Math.PI * 2 * myObj.payment_percent.monthly + Math.PI * 2 * myObj.payment_percent.package + Math.PI * 2 * myObj.payment_percent.single , radius: 4, radius0: 3, color:'#FF41FCFF'
 
   	}
   ];
@@ -132,7 +135,7 @@ export default function Analytics() {
           <Paper className={classes.paper}>
 	        <div className={classes.header}>
 			     <div className={classes.title}>
-		          	<h2> {window.obj.name} Analytics </h2>
+		          	<h2> {myObj.name} Analytics </h2>
 		          	<h3> Most Read Articles and subscription types </h3>
 	          	</div>
 	          	<div className={classes.logout}>
@@ -151,7 +154,7 @@ export default function Analytics() {
 			            <PercentageIcon style={{color:'#000000FF'}}/>
 			          </Avatar>
 			        </ListItemAvatar>
-			        <ListItemText primary="Percentage of all read article % " secondary={window.obj.revenue * 100 } />
+			        <ListItemText primary="Percentage of all read article % " secondary={myObj.revenue * 100 } />
 			      </ListItem>
 			</List>
 
@@ -214,7 +217,7 @@ export default function Analytics() {
 			            <MonthlyPaymentIcon style={{color:'#2AD46FFF'}}/>
 			          </Avatar>
 			        </ListItemAvatar>
-			        <ListItemText primary="monthly subscription %" secondary={window.obj.payment_percent.monthly * 100} />
+			        <ListItemText primary="monthly subscription %" secondary={myObj.payment_percent.monthly * 100} />
 			      </ListItem>
 			      <ListItem >
 			        <ListItemAvatar>
@@ -222,7 +225,7 @@ export default function Analytics() {
 			            <PackagePaymentIcon style={{color:'#EDDB11FF'}}/>
 			          </Avatar>
 			        </ListItemAvatar>
-			        <ListItemText primary="Package Subscription %" secondary={window.obj.payment_percent.package * 100} />
+			        <ListItemText primary="Package Subscription %" secondary={myObj.payment_percent.package * 100} />
 			      </ListItem>
 			      <ListItem >
 			        <ListItemAvatar >
@@ -230,7 +233,7 @@ export default function Analytics() {
 			            <OnePaymentIcon  style={{color:'#FF41FCFF'}} />
 			          </Avatar>
 			        </ListItemAvatar>
-			        <ListItemText primary="One Time Payment %" secondary={window.obj.payment_percent.single * 100} />
+			        <ListItemText primary="One Time Payment %" secondary={myObj.payment_percent.single * 100} />
 			      </ListItem>
 			</List>
           </Paper>

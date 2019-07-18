@@ -10,6 +10,8 @@ import Profile from './components/profile';
 import ForgotPW from './components/forgotPW';
 import Analytics from './components/analytics';
 import FrontPage from './components/guestDashboardNew';
+import PaymentPage from './components/paymentPage';
+
 
 
 function App()  {
@@ -28,6 +30,8 @@ function App()  {
 		      			<Route path='/profile' component={Profile} />
 		      			<Route path='/analytics' component={Analytics} />
 		      			<Route path='/forgotpw' component={ForgotPW} />
+		      			<Route path='/payment' component={PaymentPage} />
+
 
 		      			
 		      		</Switch>      

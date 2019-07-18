@@ -21,8 +21,9 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
-    maxWidth: 600,
+    maxWidth: 700,
     minHeight: 800,
+    
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
@@ -51,7 +52,7 @@ export default function NewsSection(props) {
   const classes = useStyles();
 
   function renderSection () {
-    if (props.name === 'Most Read') {
+    if (props.name === 'Headlines') {
       return(
         MrData.map(tile => (  <Article data = {tile}/>
               /*<GridListTile key={tile.img}>

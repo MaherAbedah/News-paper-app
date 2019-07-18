@@ -9,9 +9,14 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
+  news:{
+    display:'flex',
+    flexWrap:'noWrap'
+  },
   paper: {
-    maxWidth: 600,
+    maxWidth: 700,
     minHeight: 800,
+    boxShadow:'none'
   },
   paperHead: {
     height: 100,
@@ -40,10 +45,10 @@ export default function Content() {
   return (
     <Grid container className={classes.root} spacing={2}>
       
-      <Grid item xs={9}>
+      <Grid item xs={9} className={classes.news}>
         <Grid container justify="center" spacing={spacing}>
-          {['Most Read', 'Trending', 'Latest'].map(value => (
-            <Grid key={value} item>
+          {['Headlines', 'Trending', 'Latest'].map(value => (
+            <Grid key={value} item >
               <Typography  variant="h6" noWrap>
                 {value} 
               </Typography>

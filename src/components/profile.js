@@ -9,7 +9,10 @@ import myImage from '../images/myImage.jpg';
 
 const testObj = {
   name:'maher',
-  
+  email: 'maher@example.com',
+  end_date: '18.08.2019',
+  bought:[]
+
 };
 const useStyles = makeStyles(theme => ({
   root: {
@@ -35,7 +38,10 @@ const useStyles = makeStyles(theme => ({
 
 export default function Profile (props){
 	const classes = useStyles();
-	const obj = window.obj === null ? testObj : window.obj ;
+	let myObj = testObj ;
+
+  if(window.obj !== undefined)
+    myObj = window.obj;
  
 	return (
     <div className={classes.root}>
@@ -50,15 +56,15 @@ export default function Profile (props){
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
                 <Typography gutterBottom variant="subtitle1">
-                  {window.obj.name}
+                  {myObj.name}
                 </Typography>
                 <Typography variant="body2" gutterBottom>
-                  {window.obj.email}
+                  {myObj.email}
                 </Typography>
                 
-                  {window.obj.end_date !== null ? 
+                  {myObj.end_date !== null ? 
                   	<Typography variant="body2" color="textSecondary"> Monthly subscription
-                  	</Typography> : window.obj.bought.length !== null ? 
+                  	</Typography> : myObj.bought.length !== null ? 
                   	<Typography variant="body2" color="textSecondary"> Package subscription
                   	</Typography> : <Typography variant="body2" color="textSecondary"> Not subscriped!
                   	</Typography>
@@ -72,10 +78,10 @@ export default function Profile (props){
               </Grid>
             </Grid>
             <Grid item>
-            	{window.obj.end_date !== null ? 
-                  	<Typography variant="subtitle1" color="textSecondary"> ends {window.obj.end_date}
-                  	</Typography> : window.obj.bought.length !== null ? 
-                  	<Typography variant="subtitle1" color="textSecondary"> {window.obj.prepaid} left 
+            	{myObj.end_date !== null ? 
+                  	<Typography variant="subtitle1" color="textSecondary"> ends {myObj.end_date}
+                  	</Typography> : myObj.bought.length !== null ? 
+                  	<Typography variant="subtitle1" color="textSecondary"> {myObj.prepaid} left 
                   	</Typography> : <Typography variant="subtitle1" color="textSecondary"> Non!
                   	</Typography>
                   }
