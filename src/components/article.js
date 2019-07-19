@@ -8,6 +8,9 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import FavoriteIcon from '@material-ui/icons/FavoriteBorder';
+import ShareIcon from '@material-ui/icons/Share';
+import IconButton from '@material-ui/core/IconButton';
 
 
 const useStyles = makeStyles(theme => ({
@@ -27,12 +30,15 @@ const useStyles = makeStyles(theme => ({
   image: {
     width: 128,
     height: 128,
+    top:0,
+    paddingBottom:50
   },
   img: {
-    margin: 'auto',
+    
     display: 'block',
     maxWidth: '100%',
     maxHeight: '100%',
+     top:0
   },
 }));
 
@@ -65,12 +71,18 @@ export default function Article(props) {
                         {props.data.title}
                       </Typography>
                     </a>
-                    <Typography variant="body2" gutterBottom>
+                    <Typography  variant="body2" gutterBottom >
                       By {props.data.author}
                     </Typography>
-                    <Typography variant="body2" color="textSecondary">
+                    <Typography  component='span' variant="body2" color="textSecondary" >
                       date of article
                     </Typography>
+                    <IconButton aria-label="Add to favorites" spacing={2}>
+                      <FavoriteIcon />
+                    </IconButton>
+                    <IconButton aria-label="Share" spacing={2}>
+                      <ShareIcon />
+                    </IconButton>
                   </Grid>
                 </Grid>
               </Grid>
