@@ -4,6 +4,9 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import NewsSection from './newsSection';
+import {myObj} from './components/profile';
+import Link from '@material-ui/core/Link';
+import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -60,7 +63,39 @@ export default function Content() {
         </Grid>
       </Grid>
        <Grid item xs={3}>
-          <Paper className={classes.paperSide}>User Information</Paper>
+          <Paper className={classes.paperSide}>
+            <Typography gutterBottom variant="h6">
+                 Welcome {myObj.name}
+            </Typography>
+            {myObj.end_date !== null ? 
+              <Typography variant="body2" color="textSecondary"> Monthly subscription
+              </Typography> : myObj.bought.length !== null ? 
+              <Typography variant="body2" color="textSecondary"> Package subscription
+              </Typography> : <Typography variant="body2" color="textSecondary"> Not subscriped!
+              </Typography>
+            }
+            {myObj.end_date !== null ? 
+              <Typography variant="subtitle1" color="textSecondary"> ends {myObj.end_date}
+              </Typography> : myObj.bought.length !== null ? 
+              <Typography variant="subtitle1" color="textSecondary"> {myObj.prepaid} left 
+              </Typography> : <Typography variant="subtitle1" color="textSecondary"> Non!
+              </Typography>
+            }
+            <Typography gutterBottom variant="h6">
+                 Your latest reads
+            </Typography>
+
+            {
+              myObj.latestArticles.map(data => 
+                <div>
+                <Link href={data.link}>
+                  <Typography style={{textAlign:'left', fontSize:'10pt'}} variant='subtitle1'>
+                    {data.title}
+                  </Typography>
+                </Link>
+                <Divider /></div>)
+            }
+          </Paper>
         </Grid>
     </Grid>
   );

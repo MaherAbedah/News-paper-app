@@ -6,7 +6,7 @@ import GuestDashboard from './AppBar';
 import SignUp from './signUp';
 import SignIn from './components/signIn';
 import UserDashboard from './components/userDashboard';
-import Profile from './components/profile';
+import {Profile} from './components/profile';
 import ForgotPW from './components/forgotPW';
 import Analytics from './components/analytics';
 import FrontPage from './components/guestDashboardNew';
