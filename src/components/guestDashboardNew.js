@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(4),
     textAlign: 'center',
     color: theme.palette.text.secondary,
     boxShadow:'none'
@@ -52,7 +52,8 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   image:{
-    
+    paddingLeft:'5%',
+
     margin: 'auto',
     display: 'block',
     maxWidth: '100%',
@@ -68,7 +69,7 @@ export default function FrontPage() {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={3}>
+      <Grid container spacing={4}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <div className={classes.header}>

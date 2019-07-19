@@ -22,3 +22,13 @@ add a text to the front login page to explain what to do to the new user.
 check spiegle+ for the registration flow.
 
 give 5 tokens to every new user
+
+priorities: 18.07
+- complete the payment process
+including payment page , including payment in registration page and the progress bar.
+- adding favorite ,and drop down to open the description.
+the tick for the payd article.
+the space in the main page 
+the sidebar articles will be link and date accessed 
+
+
