@@ -25,10 +25,10 @@ give 5 tokens to every new user
 
 priorities: 18.07
 - complete the payment process
-including payment page , including payment in registration page and the progress bar.
-- adding favorite ,and drop down to open the description.
-the tick for the payd article.
+including payment page , including payment in registration page (done) and the progress bar.
+- adding favorite ,and drop down to open the description. (done)
+the tick for the paid article.
 the space in the main page 
-the sidebar articles will be link and date accessed 
+the sidebar articles will be link and date accessed (done)
 
 

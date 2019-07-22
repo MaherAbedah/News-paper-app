@@ -14,6 +14,11 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from "@material-ui/core/FormControl";
 
+import InputLabel from '@material-ui/core/InputLabel';
+import Input from '@material-ui/core/Input';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
@@ -37,6 +42,10 @@ const useStyles = makeStyles(theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  formControl: {
+    margin: theme.spacing(1),
+    width: '100%',
+  }
 }));
 
 export default function SignUp() {
@@ -44,11 +53,14 @@ export default function SignUp() {
     matched: false ,
     password:'',
     rPassword:'',
+    method:'',
+    payWith: '',
+    amount:'',
   });
 
   const handleChange = name => event => {
     setState({ ...state, [name]: event.target.value });
-    console.log(`password = ${state.password}`);
+    console.log(`method = ${state.method}`);
   };
 
   const handleMatch = name => event => {
@@ -64,7 +76,7 @@ useEffect(() => {
       setState({ ...state, matched: true});
     else 
       setState({ ...state, matched: false});
-});
+},[state]);
 
 
 
@@ -146,6 +158,47 @@ useEffect(() => {
              
               {!state.matched &&<FormHelperText>password not matched </FormHelperText>}
             </Grid>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="method-simple">Subscription type</InputLabel>
+              <Select
+                name='pay-method'
+                value={state.method}
+                onChange={handleChange('method')}
+                input={<Input name='pay-method' id="method-simple" />}
+              >
+                <MenuItem value={1}>Monthly</MenuItem>
+                <MenuItem value={2}>Package</MenuItem>
+                <MenuItem value={3}>One-time</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="payWith-native-simple">Pay with</InputLabel>
+              <Select
+                
+                value={state.payWith}
+                onChange={handleChange('payWith')}
+                input={<Input  name='pay-with' id="payWith-simple" />}
+              >
+                <MenuItem value={1}>Credit Card</MenuItem>
+                <MenuItem value={2}>Bank Payment</MenuItem>
+              </Select>
+            </FormControl>
+
+            {state.method === 3 ? <div className={classes.formControl}>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="amount-simple">Amount €</InputLabel>
+              <Select
+                value={state.amount}
+                onChange={handleChange('amount')}
+                input={<Input name="amount" id="amount-simple" />}
+              >
+                <MenuItem value={5}>5</MenuItem>
+                <MenuItem value={10}>10</MenuItem>
+                <MenuItem value={20}>20</MenuItem>
+                <MenuItem value={30}>30</MenuItem>
+              </Select>
+            </FormControl> </div> : <br/>}
+
             <FormControlLabel
             control={<Checkbox value="policy" required color="primary" />}
             label="I agree to your Terms of use and Privacy Policy."

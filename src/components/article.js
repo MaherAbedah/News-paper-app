@@ -91,8 +91,7 @@ export default function Article(props) {
            </ExpansionPanelSummary>
         <ExpansionPanelDetails>
          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
+            Preview of the article will be shown here !! 
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>

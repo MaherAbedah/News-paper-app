@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     padding: theme.spacing(4),
-    textAlign: 'center',
+    textAlign: 'left',
     color: theme.palette.text.secondary,
     boxShadow:'none'
   },
@@ -92,12 +92,12 @@ export default function FrontPage() {
           </div>
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={10} sm={6}>
           <Paper className={classes.paper}>
             <img className={classes.image} alt="woman reading newspaper"  src='https://media2.s-nbcnews.com/j/newscms/2018_27/2487506/180705-woman-reading-news-dk_5c79d65a34a99f47e3fce86bbefe01dd.fit-2000w.jpg'/>
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={10} sm={6}>
           <Paper className={classes.paper}>
           <Typography textAlign='left' variant="h4">
             <Box textAlign="justify">
@@ -184,7 +184,7 @@ export default function FrontPage() {
             </List>
           </Paper>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} sm={12}>
           <Paper className={classes.paper}>
           {
             SampleData.map(tile => <Article data={tile} />)

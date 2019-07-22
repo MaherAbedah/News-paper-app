@@ -5,7 +5,6 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import NewsSection from './newsSection';
 import {myObj} from './components/profile';
-import Link from '@material-ui/core/Link';
 import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles(theme => ({
@@ -14,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   },
   news:{
     display:'flex',
-    flexWrap:'noWrap'
+    flexWrap:'Wrap'
   },
   paper: {
     maxWidth: 700,
@@ -48,10 +47,10 @@ export default function Content() {
   return (
     <Grid container className={classes.root} spacing={2}>
       
-      <Grid item xs={9} className={classes.news}>
-        <Grid container justify="center" spacing={spacing}>
+      <Grid item xs={9} >
+        <Grid container justify="center" spacing={spacing} className={classes.news}>
           {['Headlines', 'Trending', 'Latest'].map(value => (
-            <Grid key={value} item >
+            <Grid key={value} item xs={9}>
               <Typography  variant="h6" noWrap>
                 {value} 
               </Typography>
@@ -81,18 +80,22 @@ export default function Content() {
               </Typography> : <Typography variant="subtitle1" color="textSecondary"> Non!
               </Typography>
             }
-            <Typography gutterBottom variant="h6">
+            <br/>
+            <Typography style={{textAlign:'left'}} gutterBottom variant="h6">
                  Your latest reads
             </Typography>
-
-            {
-              myObj.latestArticles.map(data => 
+            
+            {/*choosing the last 5 articles added to the latestarticles to show in the main dashboard*/
+              myObj.latestArticles.slice(0,5).map(data => 
                 <div>
-                <Link href={data.link}>
-                  <Typography style={{textAlign:'left', fontSize:'10pt'}} variant='subtitle1'>
+                <a href={data.link} rel="noopener noreferrer" target="_blank" >
+                  <Typography  style={{textAlign:'left', fontSize:'10pt'}} variant='subtitle1'>
                     {data.title}
                   </Typography>
-                </Link>
+                </a>
+                <Typography  style={{textAlign:'right', fontSize:'8pt'}} variant="body2" color="textSecondary" >
+                     accessed {data.accessed}
+                </Typography>
                 <Divider /></div>)
             }
           </Paper>
