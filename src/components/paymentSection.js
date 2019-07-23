@@ -31,6 +31,11 @@ const useStyles = makeStyles(theme => ({
 export default function PaymentSection() {
   const classes = useStyles();
   const theme = useTheme();
+  const [state, setState] = React.useState({
+    method:'',
+    payWith: '',
+    amount:'',
+  });
   const [value, setValue] = React.useState(0);
 
   function handleChange(event, newValue) {
@@ -89,7 +94,9 @@ export default function PaymentSection() {
         index={value}
         onChangeIndex={handleChangeIndex}
       >
-        <TabContainer dir={theme.direction}>Item One</TabContainer>
+        <TabContainer dir={theme.direction}>
+
+        </TabContainer>
         <TabContainer dir={theme.direction}>Item Two</TabContainer>
         <TabContainer dir={theme.direction}>Item Three</TabContainer>
       </SwipeableViews>

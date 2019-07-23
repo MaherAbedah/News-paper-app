@@ -25,6 +25,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     margin: 'auto',
     maxWidth: 700,
+    boxShadow:'none'
     
   },
   image: {
@@ -44,6 +45,23 @@ const useStyles = makeStyles(theme => ({
 
 export default function Article(props) {
   const classes = useStyles();
+  const [state, setState] = React.useState({
+    fav: false,
+});
+
+  function addToFavorite(){
+    setState({ ...state, fav: !state.fav });
+    fetch("/api/favtoggle",
+    {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({"url": props.data.link ,"fav":state.fav})
+    }).then(res => console.log(res))  
+
+  };
   
 
   return (
@@ -75,9 +93,13 @@ export default function Article(props) {
                       By {props.data.author}
                     </Typography>
                     <Typography  component='span' variant="body2" color="textSecondary" >
-                      date of article
+                      {props.data.date}
                     </Typography>
-                    <IconButton aria-label="Add to favorites" spacing={2}>
+                    <IconButton 
+                    color={state.fav === false? 'inherete' : 'secondary'}
+                    onClick={addToFavorite}
+                    aria-label="Add to favorites" 
+                    spacing={2}>
                       <FavoriteIcon />
                     </IconButton>
                     <IconButton aria-label="Share" spacing={2}>
@@ -91,7 +113,7 @@ export default function Article(props) {
            </ExpansionPanelSummary>
         <ExpansionPanelDetails>
          <Typography>
-            Preview of the article will be shown here !! 
+            {props.data.preview} 
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
