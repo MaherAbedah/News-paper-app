@@ -14,6 +14,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import PowerSettingsNew from '@material-ui/icons/PowerSettingsNew';
 import Link from '@material-ui/core/Link';
+import Button from '@material-ui/core/Button';
 
 import Movie from '@material-ui/icons/Movie';
 import Devices from '@material-ui/icons/Devices';
@@ -312,9 +313,11 @@ function UserDashboard() {
             </Typography>
           
           <div className={classes.grow} />
-
-          <PaymentDialogNew />
-          
+          {/* change from the popup payment dialog to a separated payment page
+          <PaymentDialogNew />*/}
+          <Button variant="contained" color="secondary" href="/payment">
+        Go To Payment
+      </Button>
           <div className={classes.sectionDesktop}>
             <IconButton
               edge="end"

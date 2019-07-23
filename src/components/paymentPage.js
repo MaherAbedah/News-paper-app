@@ -78,11 +78,11 @@ export default function PaymentPage() {
           <Paper className={classes.paper}>
             <div className={classes.header}>
             <div className={classes.home}>
-                <Link className={classes.link} href='/'>
-                <Button variant="contained" color="primary" >
+               
+                <Button variant="contained" color="primary" href='/dashboard'>
                Home
             </Button>
-            </Link>
+            
            </div>
              <div className={classes.title}>
               <Typography  variant="h2">
