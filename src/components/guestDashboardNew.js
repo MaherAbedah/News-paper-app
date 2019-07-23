@@ -13,6 +13,11 @@ import CheckIcon from '@material-ui/icons/CheckCircleOutline';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
+import PropTypes from 'prop-types';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+
 import SampleData from './sampleData';
 import Article from './article';
 
@@ -21,6 +26,19 @@ import { ReactComponent as HsLogo } from '../svg/Helsinginsanomat.svg';
 import { ReactComponent as KslmLogo } from '../svg/keskisuomalainen.svg';
 import { ReactComponent as TsLogo } from '../svg/Turunsanomat.svg';
 import { ReactComponent as SsLogo } from '../svg/savonsanomat.svg';
+
+function TabContainer({ children, dir }) {
+  return (
+    <Typography component="div" dir={dir} style={{ padding: 8 * 3 }}>
+      {children}
+    </Typography>
+  );
+}
+
+TabContainer.propTypes = {
+  children: PropTypes.node.isRequired,
+  dir: PropTypes.string.isRequired,
+};
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -62,10 +80,41 @@ const useStyles = makeStyles(theme => ({
   icon: {
     backgroundColor:'green'
   },
+  /*payment section styles*/
+  PaymentSec: {
+    backgroundColor: theme.palette.background.paper,
+    maxWidth: 1000,
+    margin:'auto',
+    textAlign:'center'
+
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 180,
+  },
+  form : {
+    display: 'flex',
+    flexWrap: 'wrap',
+    width:'100%'
+  },
+  button: {
+    margin: theme.spacing(1),
+  },
 }));
 
 export default function FrontPage() {
   const classes = useStyles();
+
+  const [value, setValue] = React.useState(0);
+
+  function handleChangeValue(event, newValue) {
+    setValue(newValue);
+    console.log(newValue);
+  }
+
+  function handleChangeIndex(index) {
+    setValue(index);
+  }
 
   return (
     <div className={classes.root}>
@@ -182,6 +231,60 @@ export default function FrontPage() {
               </Typography>} />
               </ListItem>
             </List>
+          </Paper>
+        </Grid>
+        <Grid item xs={12} sm={12}>
+          <Paper className={classes.paper}>
+            <div className={classes.PaymentSec}>
+            <Typography style={{color:'Blue', fontSize:'16pt',margin:'10px'}} component="div">
+              check out and choose your favorite subsciption type here ,or you can do it later in the payment page! 
+            </Typography>
+              <AppBar position="static" color="default">
+                <Tabs
+                  value={value}
+                  onChange={handleChangeValue}
+                  indicatorColor="primary"
+                  textColor="primary"
+                  variant="fullWidth"
+                  centered
+                >
+                  <Tab label={<div>
+                    <Typography style={{color:'black'}} component="div">Monthly subscription </Typography>
+                    <Typography style={{color:'red', fontSize:'14pt'}} component="div">29.99 € per month </Typography>
+                    <Typography style={{color:'gray'}} component="span"> </Typography>
+                    <ul style={{color:'gray'}}>
+                      <li>Unlimited access to all Finnish online newspapers</li>
+                      <li>Read on any device</li>
+                      <li>Cancel at any time</li>
+                    </ul>
+                      </div>} />
+                  <Tab label={<div>
+                    <Typography style={{color:'black'}} component="div">Package subscription </Typography>
+                    <Typography style={{color:'red', fontSize:'14pt'}} component="div"> 5 € per month </Typography>
+                    <Typography style={{color:'gray'}} component="span"> </Typography>
+                    <ul style={{color:'gray'}}>
+                      <li>Access 15 articles from all Finnish online newspapers</li>
+                      <li>Read on any device</li>
+                      <li>Cancel at any time</li>
+                    </ul>
+                      </div>} />
+                  <Tab label={<div>
+                    <Typography style={{color:'black'}} component="div"> Single Payment </Typography>
+                    <Typography style={{color:'red', fontSize:'14pt'}} component="div">50 Cents per article </Typography>
+                    <Typography style={{color:'gray'}} component="span"> </Typography>
+                    <ul style={{color:'gray'}}>
+                      <li>Access articles from all Finnish online newspapers</li>
+                      <li>Read on any device</li>
+                      
+                    </ul>
+                      </div>} />
+                </Tabs>
+              </AppBar>
+              <Button  variant="outlined" color="secondary" href="/signup" className={classes.button}>
+                Continue to Registration 
+              </Button>
+            </div>
+            
           </Paper>
         </Grid>
         <Grid item xs={12} sm={12}>

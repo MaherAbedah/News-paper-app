@@ -6,6 +6,13 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+
+import InputLabel from '@material-ui/core/InputLabel';
+import Input from '@material-ui/core/Input';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 function TabContainer({ children, dir }) {
   return (
@@ -26,6 +33,18 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 800,
 
   },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 180,
+  },
+  form : {
+    display: 'flex',
+    flexWrap: 'wrap',
+    width:'100%'
+  },
+  button: {
+    margin: theme.spacing(1),
+  },
 }));
 
 export default function PaymentSection() {
@@ -38,20 +57,40 @@ export default function PaymentSection() {
   });
   const [value, setValue] = React.useState(0);
 
-  function handleChange(event, newValue) {
+  function handleChangeValue(event, newValue) {
     setValue(newValue);
+    console.log(newValue);
   }
 
   function handleChangeIndex(index) {
     setValue(index);
   }
 
+  const handleChange = name => event => {
+    setState({ ...state, [name]: Number(event.target.value) });
+    console.log(`value= ${value} , pay-with= ${state.payWith} , amount= ${state.amount}`)
+  };
+
+  const paymentSuccess = (method,amount) =>
+  {
+    
+    fetch("/api/paytokens",
+    {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({"amount": state.amount, "method": value})
+    }).then(res => console.log(res))  
+}
+
   return (
     <div className={classes.root}>
       <AppBar position="static" color="default">
         <Tabs
           value={value}
-          onChange={handleChange}
+          onChange={handleChangeValue}
           indicatorColor="primary"
           textColor="primary"
           variant="fullWidth"
@@ -95,10 +134,75 @@ export default function PaymentSection() {
         onChangeIndex={handleChangeIndex}
       >
         <TabContainer dir={theme.direction}>
-
+          <form method="POST" action="/api/topup" className={classes.form}>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="payWith-native-simple">Pay with</InputLabel>
+              <Select
+                
+                value={state.payWith}
+                onChange={handleChange('payWith')}
+                input={<Input  name='pay-with' id="payWith-simple" />}
+              >
+                <MenuItem value={1}>Credit Card</MenuItem>
+                <MenuItem value={2}>Bank Payment</MenuItem>
+              </Select>
+            </FormControl>
+            <Button onClick={paymentSuccess} variant="contained" color="secondary" type="submit">
+              Order
+            </Button>
+          </form>
         </TabContainer>
-        <TabContainer dir={theme.direction}>Item Two</TabContainer>
-        <TabContainer dir={theme.direction}>Item Three</TabContainer>
+        <TabContainer dir={theme.direction}>
+          <form method="POST" action="/api/topup" className={classes.form}>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="payWith-native-simple">Pay with</InputLabel>
+              <Select
+                
+                value={state.payWith}
+                onChange={handleChange('payWith')}
+                input={<Input  name='pay-with' id="payWith-simple" />}
+              >
+                <MenuItem value={1}>Credit Card</MenuItem>
+                <MenuItem value={2}>Bank Payment</MenuItem>
+              </Select>
+            </FormControl>
+            <Button onClick={paymentSuccess} variant="contained" color="secondary" type="submit">
+              Order
+            </Button>
+          </form>
+        </TabContainer>
+        <TabContainer dir={theme.direction}>
+          <form method="POST" action="/api/topup" className={classes.form}>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="payWith-native-simple">Pay with</InputLabel>
+              <Select
+                
+                value={state.payWith}
+                onChange={handleChange('payWith')}
+                input={<Input  name='pay-with' id="payWith-simple" />}
+              >
+                <MenuItem value={1}>Credit Card</MenuItem>
+                <MenuItem value={2}>Bank Payment</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="amount-simple">Amount €</InputLabel>
+              <Select
+                value={state.amount}
+                onChange={handleChange('amount')}
+                input={<Input name="amount" id="amount-simple" />}
+              >
+                <MenuItem value={5}>5</MenuItem>
+                <MenuItem value={10}>10</MenuItem>
+                <MenuItem value={20}>20</MenuItem>
+                <MenuItem value={30}>30</MenuItem>
+              </Select>
+            </FormControl> 
+            <Button onClick={paymentSuccess} variant="contained" color="secondary" type="submit">
+              Order
+            </Button>
+          </form>
+        </TabContainer>
       </SwipeableViews>
     </div>
   );
