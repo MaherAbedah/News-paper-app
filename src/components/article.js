@@ -46,12 +46,13 @@ const useStyles = makeStyles(theme => ({
 export default function Article(props) {
   const classes = useStyles();
   const [state, setState] = React.useState({
-    fav: false,
+    fav: props.data.fav,
 });
 
-  function addToFavorite(){
+  function addToFavorite(event){
+    event.stopPropagation();
     setState({ ...state, fav: !state.fav });
-    fetch("/api/favtoggle",
+    fetch("/favtoggle",
     {
       headers: {
         'Accept': 'application/json',
@@ -96,6 +97,7 @@ export default function Article(props) {
                       {props.data.date}
                     </Typography>
                     <IconButton 
+
                     color={state.fav === false? 'inherete' : 'secondary'}
                     onClick={addToFavorite}
                     aria-label="Add to favorites" 

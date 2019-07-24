@@ -12,7 +12,8 @@ import image5 from './images/most-read/image_five.jpg';
       author: 'BBC',
       link: 'https://www.bbc.com/news/live/world-asia-china-48455370',
       date:'16.08.2018',
-      preview:'article preview'
+      preview:'article preview',
+      fav: false
     },
     {
       img: image2,
@@ -20,7 +21,8 @@ import image5 from './images/most-read/image_five.jpg';
       author: 'BBC',
       link: 'https://www.bbc.com/sport/football/48601917',
       date:'16.08.2018',
-      preview:'article preview'
+      preview:'article preview',
+      fav: false
     },
     {
       img: image3,
@@ -28,7 +30,8 @@ import image5 from './images/most-read/image_five.jpg';
       author: 'HS',
       link: 'https://www.hs.fi/politiikka/art-2000006139593.html',
       date:'16.08.2018',
-      preview:'article preview'
+      preview:'article preview',
+      fav: false
     },
     {
       img: image4,
@@ -36,7 +39,8 @@ import image5 from './images/most-read/image_five.jpg';
       author: 'TS',
       link: 'https://www.ts.fi/uutiset/paikalliset/4607966/Turku+haluaa+turvata+Karinakodin+jatkon++Kaskenlinnan+saattohoitopaikkojen+ei+uskota+riittavan+tulevaisuudessa',
       date:'16.08.2018',
-      preview:'article preview'
+      preview:'article preview',
+      fav: false
     },
     {
       img: image5,
@@ -44,7 +48,8 @@ import image5 from './images/most-read/image_five.jpg';
       author: 'KSML',
       link: 'https://www.ksml.fi/talous/Mets%C3%A4-Fibre-ja-jyv%C3%A4skyl%C3%A4l%C3%A4inen-Fimpec-tekiv%C3%A4t-sopimuksen-Kemin-biotuotetehtaan-rakennuttamisesta/1389449',
       date:'16.08.2018',
-      preview:'article preview'
+      preview:'article preview',
+      fav: false
     },
   ];
 

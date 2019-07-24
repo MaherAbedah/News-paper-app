@@ -5,7 +5,14 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase'; 
-import myImage from '../images/myImage.jpg';
+import myImage from '../images/myImage.jpg'; 
+
+import Dialog from '@material-ui/core/Dialog';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import TextField from '@material-ui/core/TextField';
 
 const testObj = {
   name:'maher',
@@ -62,6 +69,24 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '100%',
     maxHeight: '100%',
   },
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    width: '100%',
+  },
+  editButton:{
+    margin: theme.spacing(2),
+    width:'30%'
+  },
+  home:{
+    padding: theme.spacing(2),
+    textAlign:'right',
+    margin :'auto',
+    textDecoration :'none'
+  },
 }));
 
 let myObj = testObj ;
@@ -71,10 +96,35 @@ let myObj = testObj ;
 
   function Profile (props){
 	const classes = useStyles();
+  const [state, setState] = React.useState({
+    open: false,
+    name:myObj.name,
+    email:myObj.email,
+  });
+
+  const handleChange = name => event => {
+    setState({ ...state, [name]: (event.target.value) });
+  };
+  function handleClickOpen() {
+    setState({ ...state, open: true });
+  }
+
+  function handleClose() {
+    setState({ ...state, open: false });
+  }
+
+  function editSuccess(){
+    setState({ ...state, open: false });
+  }
 	
  
 	return (
     <div className={classes.root}>
+      <div className={classes.home}>  
+        <Button variant="contained" color="primary" href='/dashboard'>
+           Home
+        </Button>   
+      </div>
       <Paper className={classes.paper}>
         <Grid container spacing={2}>
           <Grid item>
@@ -102,9 +152,54 @@ let myObj = testObj ;
                 
               </Grid>
               <Grid item>
-                <Button variant="body2" style={{ cursor: 'pointer' }}>
-                  Edit
-                </Button>
+                <div>
+                  <Button variant="outlined" color="primary" style={{ cursor: 'pointer' }} onClick={handleClickOpen}>
+                    Edit
+                  </Button>
+                  <Dialog open={state.open} onClose={handleClose}>
+                    <DialogTitle id="alert-dialog-slide-title">{"Edit your personal information"}</DialogTitle>
+                    <DialogContent>
+                  
+                    </DialogContent>
+                    <DialogContent>
+                      <form method="POST" action="/api/topup" className={classes.container}>
+                        <FormControl className={classes.formControl}>
+                          
+                          <TextField
+                            autoComplete="fname"
+                            name="firstName"
+                            variant="outlined"
+                            
+                            fullWidth
+                            id="firstName"
+                            label="name"
+                            autoFocus
+                          />
+                        </FormControl>
+                        <FormControl className={classes.formControl}>
+                          
+                          <TextField
+                            variant="outlined"
+                            
+                            fullWidth
+                            id="email"
+                            label="email"
+                            name="email"
+                            autoComplete="email"
+                          />
+                        </FormControl>
+                        <Button variant="outlined" onClick={editSuccess} color="primary" type="submit" className={classes.editButton}>
+                          Save
+                        </Button>
+                        <Button variant="outlined" onClick={handleClose} color="secondary" className={classes.editButton}>
+                          Cancel
+                        </Button>
+                      
+                      </form>
+                    </DialogContent>
+                
+                  </Dialog>
+                </div>
               </Grid>
             </Grid>
             <Grid item>

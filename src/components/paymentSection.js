@@ -30,7 +30,7 @@ TabContainer.propTypes = {
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    maxWidth: 800,
+    maxWidth: '100%',
 
   },
   formControl: {
@@ -74,7 +74,7 @@ export default function PaymentSection() {
   const paymentSuccess = (method,amount) =>
   {
     
-    fetch("/api/paytokens",
+    fetch("/topup",
     {
       headers: {
         'Accept': 'application/json',
@@ -134,7 +134,7 @@ export default function PaymentSection() {
         onChangeIndex={handleChangeIndex}
       >
         <TabContainer dir={theme.direction}>
-          <form method="POST" action="/api/topup" className={classes.form}>
+          <form method="POST" action="/topup" className={classes.form}>
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="payWith-native-simple">Pay with</InputLabel>
               <Select
@@ -150,10 +150,11 @@ export default function PaymentSection() {
             <Button onClick={paymentSuccess} variant="contained" color="secondary" type="submit">
               Order
             </Button>
+            <input type="hidden" id="payment_token" name="csrf_token" value='0' />
           </form>
         </TabContainer>
         <TabContainer dir={theme.direction}>
-          <form method="POST" action="/api/topup" className={classes.form}>
+          <form method="POST" action="/topup" className={classes.form}>
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="payWith-native-simple">Pay with</InputLabel>
               <Select
@@ -169,10 +170,11 @@ export default function PaymentSection() {
             <Button onClick={paymentSuccess} variant="contained" color="secondary" type="submit">
               Order
             </Button>
+            <input type="hidden" id="payment_token" name="csrf_token" value='1' />
           </form>
         </TabContainer>
         <TabContainer dir={theme.direction}>
-          <form method="POST" action="/api/topup" className={classes.form}>
+          <form method="POST" action="/topup" className={classes.form}>
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="payWith-native-simple">Pay with</InputLabel>
               <Select
@@ -201,6 +203,7 @@ export default function PaymentSection() {
             <Button onClick={paymentSuccess} variant="contained" color="secondary" type="submit">
               Order
             </Button>
+            <input type="hidden" id="payment_token" name="csrf_token" value='2' />
           </form>
         </TabContainer>
       </SwipeableViews>

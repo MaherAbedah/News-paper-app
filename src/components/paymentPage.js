@@ -29,13 +29,12 @@ const useStyles = makeStyles(theme => ({
   },
   paymentPaper: {
     padding: theme.spacing(2),
-    textAlign: 'center',
+    paddingLeft:'20%',
+    paddingRight:'20%',
     color: theme.palette.text.secondary,
     boxShadow:'none',
-    backgroundColor: '#F7F7F7FF',
-    paddingLeft: '20%',
-    paddingRight:'20%'
-  },
+    backgroundColor: '#F7F7F7FF', 
+    },
   header:{
     width: '100%',
     display:'flex',
@@ -190,7 +189,7 @@ export default function PaymentPage() {
           </Paper>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item xs={12} sm={12}>
           <Paper className={classes.paymentPaper}>
             <PaymentSection />
           </Paper>
