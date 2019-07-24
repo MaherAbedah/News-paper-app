@@ -13,6 +13,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
+import Divider from '@material-ui/core/Divider';
+
 
 const testObj = {
   name:'maher',
@@ -60,8 +62,8 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 700,
   },
   image: {
-    width: 128,
-    height: 128,
+    maxWidth: 200,
+    maxHeight: 128,
   },
   img: {
     margin: 'auto',
@@ -81,11 +83,26 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(2),
     width:'30%'
   },
+  headPaper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    boxShadow:'none'
+  },
+ header:{
+    width: '100%',
+    display:'flex',
+    flexWrap:'nowrap'
+  },
   home:{
     padding: theme.spacing(2),
     textAlign:'right',
     margin :'auto',
     textDecoration :'none'
+  },
+   title:{
+    textAlign:'center',
+    width:'100%'
   },
 }));
 
@@ -120,13 +137,33 @@ let myObj = testObj ;
  
 	return (
     <div className={classes.root}>
-      <div className={classes.home}>  
-        <Button variant="contained" color="primary" href='/dashboard'>
-           Home
-        </Button>   
-      </div>
-      <Paper className={classes.paper}>
-        <Grid container spacing={2}>
+    
+        <Grid item xs={12}>
+            <Paper className={classes.headPaper}>
+              <div className={classes.header}>
+              <div className={classes.home}>
+                 
+                  <Button variant="contained" color="primary" href='/dashboard'>
+                 Home
+              </Button>
+              
+             </div>
+               <div className={classes.title}>
+                <Typography  variant="h2">
+                       FINN+
+                </Typography>
+                <Typography  variant="h5">
+                      User Profile page  
+                </Typography>
+                    
+                </div>
+                
+            </div>
+            </Paper>
+          </Grid>
+       
+      <Paper className={classes.paper}>  
+        <Grid container spacing={2}>  
           <Grid item>
             <ButtonBase className={classes.image}>
               <img className={classes.img} alt="user personal photo " src={myImage} />
@@ -136,10 +173,10 @@ let myObj = testObj ;
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
                 <Typography gutterBottom variant="subtitle1">
-                  {myObj.name}
+                  {state.name}
                 </Typography>
                 <Typography variant="body2" gutterBottom>
-                  {myObj.email}
+                  {state.email}
                 </Typography>
                 
                   {myObj.end_date !== null ? 
@@ -162,14 +199,13 @@ let myObj = testObj ;
                   
                     </DialogContent>
                     <DialogContent>
-                      <form method="POST" action="/api/topup" className={classes.container}>
+                      <form method="POST" action="/edit" className={classes.container}>
                         <FormControl className={classes.formControl}>
                           
                           <TextField
-                            autoComplete="fname"
                             name="firstName"
                             variant="outlined"
-                            
+                            onChange={handleChange('firstName')}
                             fullWidth
                             id="firstName"
                             label="name"
@@ -180,12 +216,11 @@ let myObj = testObj ;
                           
                           <TextField
                             variant="outlined"
-                            
                             fullWidth
                             id="email"
                             label="email"
                             name="email"
-                            autoComplete="email"
+                            onChange={handleChange('email')}
                           />
                         </FormControl>
                         <Button variant="outlined" onClick={editSuccess} color="primary" type="submit" className={classes.editButton}>
@@ -205,16 +240,42 @@ let myObj = testObj ;
             <Grid item>
             	{myObj.end_date !== null ? 
                   	<Typography variant="subtitle1" color="textSecondary"> ends {myObj.end_date}
-                  	</Typography> : myObj.bought.length !== null ? 
+                  	</Typography> : myObj.bought.length > 0 ? 
                   	<Typography variant="subtitle1" color="textSecondary"> {myObj.prepaid} left 
                   	</Typography> : <Typography variant="subtitle1" color="textSecondary"> Non!
                   	</Typography>
                   }
               
             </Grid>
+            
           </Grid>
         </Grid>
       </Paper>
+      <Paper className={classes.paper}>  
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm container>
+              <Typography style={{textAlign:'center'}} gutterBottom variant="h6">
+                 Your latest reads 
+            </Typography>
+
+            <ul>
+            {
+              myObj.latestArticles.map(data => 
+                <div>
+                <a href={data.link} rel="noopener noreferrer" target="_blank" >
+                 <li> <Typography  style={{textAlign:'left', fontSize:'10pt'}} variant='subtitle1'>
+                    {data.title}
+                  </Typography>
+                </li></a>
+                <Typography  style={{textAlign:'right', fontSize:'8pt'}} variant="body2" color="textSecondary" >
+                     accessed {data.accessed}
+                </Typography>
+                <Divider /></div>)
+            }
+            </ul>
+            </Grid>
+          </Grid>
+        </Paper>
     </div>
   );
 };
