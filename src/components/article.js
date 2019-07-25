@@ -11,6 +11,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import FavoriteIcon from '@material-ui/icons/FavoriteBorder';
 import ShareIcon from '@material-ui/icons/Share';
 import IconButton from '@material-ui/core/IconButton';
+import DoubleCheckIcon from '../images/double-tick-48.png';
 
 
 const useStyles = makeStyles(theme => ({
@@ -107,6 +108,9 @@ export default function Article(props) {
                     <IconButton aria-label="Share" spacing={2}>
                       <ShareIcon />
                     </IconButton>
+                    {props.data.read &&
+                    <img style={{width:24, hight:24, paddingLeft:4, marginLeft:10}} src={DoubleCheckIcon} alt="check for read articles"/>
+                  }
                   </Grid>
                 </Grid>
               </Grid>
