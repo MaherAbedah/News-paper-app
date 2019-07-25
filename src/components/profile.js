@@ -185,7 +185,7 @@ let myObj = testObj ;
                 
                   {myObj.end_date !== null ? 
                   	<Typography variant="body2" color="textSecondary"> Monthly subscription
-                  	</Typography> : myObj.bought.length !== null ? 
+                  	</Typography> : myObj.prepaid > 0 ? 
                   	<Typography variant="body2" color="textSecondary"> Package subscription
                   	</Typography> : <Typography variant="body2" color="textSecondary"> Not subscriped!
                   	</Typography>
@@ -244,7 +244,7 @@ let myObj = testObj ;
             <Grid item>
             	{myObj.end_date !== null ? 
                   	<Typography variant="subtitle1" color="textSecondary"> ends {myObj.end_date}
-                  	</Typography> : myObj.bought.length > 0 ? 
+                  	</Typography> : myObj.prepaid > 0 ? 
                   	<Typography variant="subtitle1" color="textSecondary"> {myObj.prepaid} left 
                   	</Typography> : <Typography variant="subtitle1" color="textSecondary"> Non!
                   	</Typography>

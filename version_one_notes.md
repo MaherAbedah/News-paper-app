@@ -28,8 +28,8 @@ priorities: 18.07
 including payment page (done), including payment in registration page (done)
  and the progress bar.
 - adding favorite ,and drop down to open the description. (done)
-the tick for the paid article.
-the space in the main page 
+the tick for the paid article. (done)
+the space in the main page (done)
 the sidebar articles will be link and date accessed (done)
 
 
