@@ -121,6 +121,7 @@ let myObj = testObj ;
 
   const handleChange = name => event => {
     setState({ ...state, [name]: (event.target.value) });
+    
   };
   function handleClickOpen() {
     setState({ ...state, open: true });
@@ -131,7 +132,10 @@ let myObj = testObj ;
   }
 
   function editSuccess(){
-    setState({ ...state, open: false });
+    if (state.name !==myObj.name || state.email !==myObj.email){
+      setState({ ...state, open: false });
+    }
+    console.log(`name=${state.name} , Oname=${myObj.name}`)
   }
 	
  
@@ -205,10 +209,10 @@ let myObj = testObj ;
                           <TextField
                             name="firstName"
                             variant="outlined"
-                            onChange={handleChange('firstName')}
+                            onChange={handleChange('name')}
                             fullWidth
                             id="firstName"
-                            label="name"
+                            label="Name"
                             autoFocus
                           />
                         </FormControl>
@@ -229,7 +233,7 @@ let myObj = testObj ;
                         <Button variant="outlined" onClick={handleClose} color="secondary" className={classes.editButton}>
                           Cancel
                         </Button>
-                      
+                      <input type="hidden" id="edit_token" name="csrf_token" value={window.csrf_token} />
                       </form>
                     </DialogContent>
                 
