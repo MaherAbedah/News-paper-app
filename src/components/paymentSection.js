@@ -71,7 +71,7 @@ export default function PaymentSection() {
     console.log(`value= ${value} , pay-with= ${state.payWith} , amount= ${state.amount}`)
   };
 
-  const paymentSuccess = (method,amount) =>
+  /*const paymentSuccess = (method,amount) =>
   {
     
     fetch("/topup",
@@ -83,7 +83,7 @@ export default function PaymentSection() {
       method: "POST",
       body: JSON.stringify({"amount": state.amount, "method": value})
     }).then(res => console.log(res))  
-}
+}*/
 
   return (
     <div className={classes.root}>
@@ -147,10 +147,12 @@ export default function PaymentSection() {
                 <MenuItem value={2}>Bank Payment</MenuItem>
               </Select>
             </FormControl>
-            <Button onClick={paymentSuccess} variant="contained" color="secondary" type="submit">
+            <Button  variant="contained" color="secondary" type="submit">
               Order
             </Button>
-            <input type="hidden" id="payment_token" name="csrf_token" value='0' />
+            <input type="hidden" id="pay-method" name="pay-method" value= '0' />
+            <input type="hidden" id="pay-with" name="pay-with" value= {state.payWith} />
+            <input type="hidden" id="payment_token" name="csrf_token" value= {window.csrf_token} />
           </form>
         </TabContainer>
         <TabContainer dir={theme.direction}>
@@ -167,10 +169,12 @@ export default function PaymentSection() {
                 <MenuItem value={2}>Bank Payment</MenuItem>
               </Select>
             </FormControl>
-            <Button onClick={paymentSuccess} variant="contained" color="secondary" type="submit">
+            <Button  variant="contained" color="secondary" type="submit">
               Order
             </Button>
-            <input type="hidden" id="payment_token" name="csrf_token" value='1' />
+            <input type="hidden" id="pay-method" name="pay-method" value= '1' />
+            <input type="hidden" id="pay-with" name="pay-with" value= {state.payWith} />
+            <input type="hidden" id="payment_token" name="csrf_token" value= {window.csrf_token} />
           </form>
         </TabContainer>
         <TabContainer dir={theme.direction}>
@@ -200,10 +204,13 @@ export default function PaymentSection() {
                 <MenuItem value={30}>30</MenuItem>
               </Select>
             </FormControl> 
-            <Button onClick={paymentSuccess} variant="contained" color="secondary" type="submit">
+            <Button  variant="contained" color="secondary" type="submit">
               Order
             </Button>
-            <input type="hidden" id="payment_token" name="csrf_token" value='2' />
+            <input type="hidden" id="pay-method" name="pay-method" value= '2' />
+            <input type="hidden" id="pay-with" name="pay-with" value= {state.payWith} />
+            <input type="hidden" id="pay-with" name="pay-with" value= {state.amount} />
+            <input type="hidden" id="payment_token" name="csrf_token" value= {window.csrf_token} />
           </form>
         </TabContainer>
       </SwipeableViews>

@@ -11,6 +11,7 @@ import ForgotPW from './components/forgotPW';
 import Analytics from './components/analytics';
 import FrontPage from './components/guestDashboardNew';
 import PaymentPage from './components/paymentPage';
+import ResetPW from './components/pwReset';
 
 
 
@@ -31,6 +32,7 @@ function App()  {
 		      			<Route path='/analytics' component={Analytics} />
 		      			<Route path='/forgotpw' component={ForgotPW} />
 		      			<Route path='/payment' component={PaymentPage} />
+		      			<Route path='/resetpw' component={ResetPW} />
 
 
 		      			

@@ -280,9 +280,13 @@ export default function FrontPage() {
                       </div>} />
                 </Tabs>
               </AppBar>
+              <form method="POST" action="/signup" className={classes.form}>
               <Button  variant="outlined" color="secondary" href="/signup" className={classes.button}>
                 Continue to Registration 
               </Button>
+              <input type="hidden" id="pay-method" name="pay-method" value= {value} />
+              <input type="hidden" id="payment_token" name="csrf_token" value= {window.csrf_token} />
+              </form>
             </div>
             
           </Paper>
