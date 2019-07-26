@@ -9,18 +9,21 @@ const SampleData = [
       title: 'parental leave for both parents to be 5-6 months in Finland',
       author: 'HS',
       link: '/signin',
+      fav:false
     },
     {
       img: image4,
       title: 'Turku wants to secure the future of Kariinodi',
       author: 'TS',
       link: '/signin',
+      fav:false
     },
     {
       img: image5,
       title: 'Metsä Fibre ja jyväskyläläinen Fimpec tekivät sopimuksen Kemin biotuotetehtaan rakennuttamisesta',
       author: 'KSML',
       link: '/signin',
+      fav:false
     },
   ];
 

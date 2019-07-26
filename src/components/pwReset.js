@@ -87,7 +87,7 @@ const handleMatch = name => event => {
                 fullWidth
                 value={state.password}
                 name="password"
-                label="Password"
+                label="New Password"
                 type="password"
                 id="password"
                 onChange={handleMatch('password')}
@@ -120,7 +120,7 @@ const handleMatch = name => event => {
             className={classes.submit}
           >
           
-            Send
+            Change Password
           </Button>
           
           <input type="hidden" id="reset_token" name="csrf_token" value={window.csrf_token} />

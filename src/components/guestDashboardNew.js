@@ -132,11 +132,11 @@ export default function FrontPage() {
                 
               </div>
               <div className={classes.login}>
-                <Link className={classes.link} href='/signin'>
-                <Button variant="contained" color="secondary" >
+                
+                <Button variant="contained" color="secondary" href='/signin' >
                LOGIN
             </Button>
-            </Link>
+
            </div>
           </div>
           </Paper>
@@ -280,8 +280,8 @@ export default function FrontPage() {
                       </div>} />
                 </Tabs>
               </AppBar>
-              <form method="POST" action="/signup" className={classes.form}>
-              <Button  variant="outlined" color="secondary" href="/signup" className={classes.button}>
+              <form method="POST" action="/signup" className={classes.button}>
+              <Button  variant="outlined" color="secondary" href={'/signup?method='+value} className={classes.button}>
                 Continue to Registration 
               </Button>
               <input type="hidden" id="pay-method" name="pay-method" value= {value} />

@@ -48,19 +48,23 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+let myparams = (new URL(document.location)).searchParams;
+let type = myparams.get('method');
+
 export default function SignUp() {
   const [state, setState] = React.useState({
     matched: false ,
     password:'',
     rPassword:'',
-    method:'',
+    method:type,
     payWith: '',
     amount:'',
   });
 
   const handleChange = name => event => {
     setState({ ...state, [name]: event.target.value });
-    console.log(`method = ${state.method}`);
+    
+    console.log(`method = ${state.method}, href=${window.location.search}`);
   };
 
   const handleMatch = name => event => {
@@ -68,6 +72,9 @@ export default function SignUp() {
     
     console.log(`password = ${state.password} ,rPassword= ${state.rPassword} ,matched= ${state.matched}`)
   };
+//get the chosen subscription type from the frontpage
+
+
 
 
 useEffect(() => {
@@ -166,9 +173,9 @@ useEffect(() => {
                 onChange={handleChange('method')}
                 input={<Input name='pay-method' id="method-simple" />}
               >
-                <MenuItem value={1}>Monthly</MenuItem>
-                <MenuItem value={2}>Package</MenuItem>
-                <MenuItem value={3}>One-time</MenuItem>
+                <MenuItem value={0}>Monthly</MenuItem>
+                <MenuItem value={1}>Package</MenuItem>
+                <MenuItem value={2}>One-time</MenuItem>
               </Select>
             </FormControl>
             <FormControl className={classes.formControl}>

@@ -32,7 +32,7 @@ function App()  {
 		      			<Route path='/analytics' component={Analytics} />
 		      			<Route path='/forgotpw' component={ForgotPW} />
 		      			<Route path='/payment' component={PaymentPage} />
-		      			<Route path='/resetpw' component={ResetPW} />
+		      			<Route path='/resetpw/:userId' component={ResetPW} />
 
 
 		      			
