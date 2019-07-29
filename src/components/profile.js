@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase'; 
-import myImage from '../images/myImage.jpg'; 
+import myImage from '../images/profile-placeholder.png'; 
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -20,6 +20,7 @@ const testObj = {
   name:'maher',
   email: 'maher@example.com',
   end_date: '18.08.2019',
+  image:myImage,
   bought:[],
   latestArticles:[
     {
@@ -62,14 +63,16 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 700,
   },
   image: {
-    maxWidth: 200,
-    maxHeight: 128,
+    maxWidth: 140,
+    maxHeight: 160,
+
   },
   img: {
     margin: 'auto',
     display: 'block',
     maxWidth: '100%',
     maxHeight: '100%',
+    cursor:'pointer'
   },
   container: {
     display: 'flex',
@@ -104,6 +107,10 @@ const useStyles = makeStyles(theme => ({
     textAlign:'center',
     width:'100%'
   },
+  input:{
+    display:'none',
+
+  },
 }));
 
 let myObj = testObj ;
@@ -117,6 +124,7 @@ let myObj = testObj ;
     open: false,
     name:myObj.name,
     email:myObj.email,
+    image:myObj.image,
   });
 
   const handleChange = name => event => {
@@ -170,7 +178,10 @@ let myObj = testObj ;
         <Grid container spacing={2}>  
           <Grid item>
             <ButtonBase className={classes.image}>
-              <img className={classes.img} alt="user personal photo " src={myImage} />
+            <input onChange={handleChange('image')} accept="image/*" className={classes.input} id="profile-photo-file" type="file" />
+              <label htmlFor="profile-photo-file">
+                <img className={classes.img} alt="user personal photo " src={state.image} />
+              </label>
             </ButtonBase>
           </Grid>
           <Grid item xs={12} sm container>

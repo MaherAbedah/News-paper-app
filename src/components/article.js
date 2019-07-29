@@ -8,10 +8,13 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import FavoriteIcon from '@material-ui/icons/FavoriteBorder';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import IconButton from '@material-ui/core/IconButton';
-import DoubleCheckIcon from '../images/double-tick-48.png';
+import DoneIcon from '@material-ui/icons/Done';
+import doubleCheckIcon from '../images/double-tick-48.png';
+import BoxCheckIcon from '../images/tick-box-48.png';
+import ShareMenu from './shareMenu';
 
 
 const useStyles = makeStyles(theme => ({
@@ -105,11 +108,11 @@ export default function Article(props) {
                     spacing={2}>
                       <FavoriteIcon />
                     </IconButton>
-                    <IconButton aria-label="Share" spacing={2}>
-                      <ShareIcon />
-                    </IconButton>
+                    <ShareMenu url={props.data.link} style={{display:''}}/>
                     {props.data.read &&
-                    <img style={{width:24, hight:24, paddingLeft:4, marginLeft:10}} src={DoubleCheckIcon} alt="check for read articles"/>
+                    <IconButton color='secondary' aria-label="done" spacing={2}>
+                      <DoneIcon />
+                    </IconButton>
                   }
                   </Grid>
                 </Grid>

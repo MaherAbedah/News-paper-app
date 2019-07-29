@@ -64,18 +64,15 @@ export default function SignUp() {
   const handleChange = name => event => {
     setState({ ...state, [name]: event.target.value });
     
-    console.log(`method = ${state.method}, href=${window.location.search}`);
+    //console.log(`method = ${state.method}, href=${window.location.search}`);
   };
 
   const handleMatch = name => event => {
     setState({ ...state, [name]: event.target.value});
     
-    console.log(`password = ${state.password} ,rPassword= ${state.rPassword} ,matched= ${state.matched}`)
+    //console.log(`password = ${state.password} ,rPassword= ${state.rPassword} ,matched= ${state.matched}`)
   };
 //get the chosen subscription type from the frontpage
-
-
-
 
 useEffect(() => {
     // checking the password and the confirm password all the time.
@@ -191,7 +188,8 @@ useEffect(() => {
               </Select>
             </FormControl>
 
-            {state.method === 3 ? <div className={classes.formControl}>
+           
+              {state.method === 2 || state.method ==='2' ? <div className={classes.formControl}>
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="amount-simple">Amount €</InputLabel>
               <Select

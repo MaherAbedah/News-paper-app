@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     boxShadow:'none'
   },
   paymentPaper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(4),
     paddingLeft:'20%',
     paddingRight:'20%',
     color: theme.palette.text.secondary,
@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     textAlign:'right',
     margin :'auto',
-    textDecoration :'none'
+    
   },
   title:{
     textAlign:'center',
@@ -56,7 +56,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   image:{
-    
+   paddingLeft:'5%',
     margin: 'auto',
     display: 'block',
     maxWidth: '100%',
@@ -88,7 +88,7 @@ export default function PaymentPage() {
                      FINN+
               </Typography>
               <Typography  variant="h5">
-                    The national newspaper subscription service in Finland
+                    Choose your favorite subscription and payment method! 
               </Typography>
                   
               </div>
@@ -188,9 +188,17 @@ export default function PaymentPage() {
             </List>
           </Paper>
         </Grid>
-
+        
         <Grid item xs={12} sm={12}>
           <Paper className={classes.paymentPaper}>
+            <Typography variant="h5"
+                  component="div"
+                  className={classes.listText}
+                  color="textPrimary" 
+                  justify='center'
+                  textAlign="center" >
+                The new subscription will start after your current one ends!
+              </Typography>
             <PaymentSection />
           </Paper>
         </Grid>

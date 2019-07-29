@@ -58,7 +58,7 @@ const useStyles = makeStyles(theme => ({
   login:{
     textAlign:'right',
     margin :'auto',
-    textDecoration :'none'
+    
   },
   title:{
     textAlign:'center',
@@ -71,7 +71,6 @@ const useStyles = makeStyles(theme => ({
   },
   image:{
     paddingLeft:'5%',
-
     margin: 'auto',
     display: 'block',
     maxWidth: '100%',
@@ -237,7 +236,7 @@ export default function FrontPage() {
           <Paper className={classes.paper}>
             <div className={classes.PaymentSec}>
             <Typography style={{color:'Blue', fontSize:'16pt',margin:'10px'}} component="div">
-              check out and choose your favorite subsciption type here ,or you can do it later in the payment page! 
+              Choose your favorite subsciption type here ,or you can do it later in the payment page! 
             </Typography>
               <AppBar position="static" color="default">
                 <Tabs

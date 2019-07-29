@@ -32,4 +32,13 @@ the tick for the paid article. (done)
 the space in the main page (done)
 the sidebar articles will be link and date accessed (done)
 
+26.07.2019
+full heart, one tick, ( both done)
+space
 
+change profile picture 
+
+adding your plan to profile page and make it to the right
+paid after 50%
+
+delete account.
