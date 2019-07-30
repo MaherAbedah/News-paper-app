@@ -1,4 +1,5 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ShareIcon from '@material-ui/icons/Share';
@@ -12,20 +13,29 @@ import {
   TwitterIcon,
   EmailIcon, } from 'react-share';
 
+const useStyles = makeStyles(theme => ({
+  root:{
+    display:'inline',
+    
+  }
+}));
 
 export default function ShareMenu(props) {
+  const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   function handleClick(event) {
+    event.stopPropagation();
     setAnchorEl(event.currentTarget);
   }
 
-  function handleClose() {
+  function handleClose(event) {
+    event.stopPropagation();
     setAnchorEl(null);
   }
 
   return (
-    <div>
+    <div className={classes.root}>
       <IconButton aria-label="Share-menu" spacing={2} onClick={handleClick}>
         <ShareIcon />
       </IconButton>
