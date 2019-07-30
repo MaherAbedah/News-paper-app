@@ -43,7 +43,7 @@ import { ReactComponent as HsLogo } from '../svg/Helsinginsanomat.svg';
 import { ReactComponent as KslmLogo } from '../svg/keskisuomalainen.svg';
 import { ReactComponent as TsLogo } from '../svg/Turunsanomat.svg';
 import { ReactComponent as SsLogo } from '../svg/savonsanomat.svg';
-import Logo from '../images/logo/logo9.png';
+
 
 import Content from '../content.js';
 import PaymentDialog from './paymentDialog';
@@ -166,7 +166,7 @@ const useStyles = makeStyles(theme => ({
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
-    marginLeft: 0,
+    marginLeft: -120,
   },
   gridContent: {
     padding: theme.spacing(2),

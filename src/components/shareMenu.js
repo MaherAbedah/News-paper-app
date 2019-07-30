@@ -15,8 +15,7 @@ import {
 
 const useStyles = makeStyles(theme => ({
   root:{
-    display:'inline',
-    
+    display:'inline', 
   }
 }));
 
