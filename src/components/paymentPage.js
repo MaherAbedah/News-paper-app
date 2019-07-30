@@ -194,9 +194,7 @@ export default function PaymentPage() {
             <Typography variant="h5"
                   component="div"
                   className={classes.listText}
-                  color="textPrimary" 
-                  justify='center'
-                  textAlign="center" >
+                  color="textPrimary" >
                 The new subscription will start after your current one ends!
               </Typography>
             <PaymentSection />

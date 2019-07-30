@@ -108,9 +108,9 @@ export default function Article(props) {
                     spacing={2}>
                       <FavoriteIcon />
                     </IconButton>
-                    <ShareMenu url={props.data.link} style={{display:''}}/>
+                    <ShareMenu url={props.data.link} />
                     {props.data.read &&
-                    <IconButton color='secondary' aria-label="done" spacing={2}>
+                    <IconButton style={{color:'green'}} aria-label="done" spacing={2}>
                       <DoneIcon />
                     </IconButton>
                   }

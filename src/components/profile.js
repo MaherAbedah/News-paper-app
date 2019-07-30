@@ -14,6 +14,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Divider from '@material-ui/core/Divider';
+import EditImage from './editImage'
 
 
 const testObj = {
@@ -180,7 +181,9 @@ let myObj = testObj ;
             <ButtonBase className={classes.image}>
             <input onChange={handleChange('image')} accept="image/*" className={classes.input} id="profile-photo-file" type="file" />
               <label htmlFor="profile-photo-file">
+              {console.log(`state.image= ${state.image}`)}
                 <img className={classes.img} alt="user personal photo " src={state.image} />
+              
               </label>
             </ButtonBase>
           </Grid>
@@ -194,13 +197,7 @@ let myObj = testObj ;
                   {state.email}
                 </Typography>
                 
-                  {myObj.end_date !== null ? 
-                  	<Typography variant="body2" color="textSecondary"> Monthly subscription
-                  	</Typography> : myObj.prepaid > 0 ? 
-                  	<Typography variant="body2" color="textSecondary"> Package subscription
-                  	</Typography> : <Typography variant="body2" color="textSecondary"> Not subscriped!
-                  	</Typography>
-                  } 
+                  
                 
               </Grid>
               <Grid item>
@@ -253,6 +250,14 @@ let myObj = testObj ;
               </Grid>
             </Grid>
             <Grid item>
+              <Typography variant="subtitle1"> Your Plan</Typography>
+              {myObj.end_date !== null ? 
+                    <Typography variant="subtitle1" color="textPrimary"> Monthly subscription
+                    </Typography> : myObj.prepaid > 0 ? 
+                    <Typography variant="body2" color="textSecondary"> Package subscription
+                    </Typography> : <Typography variant="body2" color="textSecondary"> Not subscriped!
+                    </Typography>
+                  } 
             	{myObj.end_date !== null ? 
                   	<Typography variant="subtitle1" color="textSecondary"> ends {myObj.end_date}
                   	</Typography> : myObj.prepaid > 0 ? 
@@ -291,6 +296,7 @@ let myObj = testObj ;
             </Grid>
           </Grid>
         </Paper>
+     
     </div>
   );
 };

@@ -35,10 +35,10 @@ the sidebar articles will be link and date accessed (done)
 26.07.2019
 full heart, one tick, ( both done)
 space (done)
+progress bar and paid after 50% (done)
 
 change profile picture 
 
 adding your plan to profile page and make it to the right
-paid after 50%
 
 delete account.

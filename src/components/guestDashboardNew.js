@@ -237,7 +237,7 @@ export default function FrontPage() {
         <Grid item xs={12} sm={12}>
           <Paper className={classes.paper}>
             <div className={classes.PaymentSec}>
-            <Typography style={{color:'Blue', fontSize:'16pt',margin:'10px'}} component="div">
+            <Typography style={{color:'#2D2D46FF', fontSize:'16pt',margin:'10px'}} component="div">
               Choose your favorite subsciption type here ,or you can do it later in the payment page! 
             </Typography>
               <AppBar position="static" color="default">
