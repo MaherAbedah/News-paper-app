@@ -34,7 +34,7 @@ the sidebar articles will be link and date accessed (done)
 
 26.07.2019
 full heart, one tick, ( both done)
-space
+space (done)
 
 change profile picture 
 

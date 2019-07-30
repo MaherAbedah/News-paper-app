@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -20,6 +20,7 @@ import Tab from '@material-ui/core/Tab';
 
 import SampleData from './sampleData';
 import Article from './article';
+import SwipeableViews from 'react-swipeable-views';
 
 import { ReactComponent as KlLogo } from '../svg/kauppalehti.svg';
 import { ReactComponent as HsLogo } from '../svg/Helsinginsanomat.svg';
@@ -103,6 +104,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function FrontPage() {
   const classes = useStyles();
+  const theme = useTheme();
 
   const [value, setValue] = React.useState(0);
 
@@ -279,13 +281,47 @@ export default function FrontPage() {
                       </div>} />
                 </Tabs>
               </AppBar>
+             {/* this is the design with one registration button 
               <form method="POST" action="/signup" className={classes.button}>
               <Button  variant="outlined" color="secondary" href={'/signup?method='+value} className={classes.button}>
                 Continue to Registration 
               </Button>
               <input type="hidden" id="pay-method" name="pay-method" value= {value} />
               <input type="hidden" id="payment_token" name="csrf_token" value= {window.csrf_token} />
-              </form>
+              </form>*/}
+              <SwipeableViews
+                  axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                  index={value}
+                  onChangeIndex={handleChangeIndex}
+              >
+                  <TabContainer dir={theme.direction}>
+                    <form method="POST" action="/signup" className={classes.button}>
+                      <Button  variant="outlined" color="secondary" href={'/signup?method='+value} className={classes.button}>
+                        Continue to Registration 
+                      </Button>
+                      <input type="hidden" id="pay-method" name="pay-method" value= {value} />
+                      <input type="hidden" id="payment_token" name="csrf_token" value= {window.csrf_token} />
+                    </form>
+                  </TabContainer>
+                  <TabContainer dir={theme.direction}>
+                    <form method="POST" action="/signup" className={classes.button}>
+                      <Button  variant="outlined" color="secondary" href={'/signup?method='+value} className={classes.button}>
+                        Continue to Registration 
+                      </Button>
+                      <input type="hidden" id="pay-method" name="pay-method" value= {value} />
+                      <input type="hidden" id="payment_token" name="csrf_token" value= {window.csrf_token} />
+                    </form>
+                   </TabContainer>
+                  <TabContainer dir={theme.direction}>
+                    <form method="POST" action="/signup" className={classes.button}>
+                      <Button  variant="outlined" color="secondary" href={'/signup?method='+value} className={classes.button}>
+                        Continue to Registration 
+                      </Button>
+                      <input type="hidden" id="pay-method" name="pay-method" value= {value} />
+                      <input type="hidden" id="payment_token" name="csrf_token" value= {window.csrf_token} />
+                    </form>                  
+                  </TabContainer>
+              </SwipeableViews>
             </div>
             
           </Paper>
