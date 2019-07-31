@@ -148,21 +148,30 @@ let myObj = testObj ;
   }
 
   const handleImageChange = name => event => {
-    setState({ ...state, [name]: (event.target.value) });
-
-     
     
-    console.log("change", document.getElementById("profile-photo-file").files[0])
+
+    console.log( document.getElementById("profile-photo-file").files[0]);
+    let imageFile = document.getElementById("profile-photo-file").files[0];
+    
     
     let reader = new FileReader();
     
+    
+    
     reader.onload = function (event) {
         document.getElementById("profile-photo").src = event.target.result;
-        
     };
     
     reader.readAsDataURL(document.getElementById("profile-photo-file").files[0]);
-      console.log(`state.image= ${state.image} , reader = ${reader}`)
+    console.log(imageFile)
+    fetch("/edit",
+    {
+      headers: {
+        'Content-Type':'multipart/form-data'
+      },
+      method: "POST",
+      body: {imageFile}
+    }).then(res => console.log(res))
   }
 
   
@@ -200,14 +209,14 @@ let myObj = testObj ;
           <Grid item>
             <form method="POST" action="/edit">
             <ButtonBase className={classes.image}>
-            <input onChange={handleImageChange('image')} accept="image/*" className={classes.input} id="profile-photo-file" type="file" />
+            <input onChange={handleImageChange('image')} accept="image/*" encType="multipart/form-data" className={classes.input} id="profile-photo-file" type="file" />
               <label htmlFor="profile-photo-file">
             
                 <img id="profile-photo" className={classes.img} alt="user personal photo " src={state.image} />
               
               </label>
             </ButtonBase>
-            <input type="hidden" id="edit_token" name="csrf_token" value={window.csrf_token} />
+            
             </form>
           </Grid>
           <Grid item xs={12} sm container>
