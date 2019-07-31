@@ -167,7 +167,8 @@ let myObj = testObj ;
     fetch("/edit",
     {
       headers: {
-        'Content-Type':'multipart/form-data'
+        'Content-Type':'multipart/form-data',
+        'X-CSRFToken': window.csrf_token
       },
       method: "POST",
       body: {imageFile}

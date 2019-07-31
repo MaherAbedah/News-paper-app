@@ -42,3 +42,30 @@ change profile picture
 adding your plan to profile page and make it to the right
 
 delete account.
+
+
+## Publisher Dashboard: 
+
+1.      Devices (mobile, PC, tablet)
+
+2.      Operating systems
+
+3.      Active users
+
+4.      Referral: from where did the user came from (e.g., google, or direct)?
+
+5.       Location (city, country)
+
+6.       Browsers
+
+7.      Performance of publishers (how many users have visited a publisher compared to overall publisher traffic)
+
+8.      Duration: how much time users spent on the service
+
+9.       Graph that shows the traffic during the day (noon most traffic etc.)
+
+10.   For the most read/paid articles, provide chart bar showing the percentage of three subscription types.
+
+11.   Summarize how many articles being read or paid in each topic (Politics, sports, economy, technology, health, entertainment) to find most users’ interest.
+
+12.   New and returning users.
