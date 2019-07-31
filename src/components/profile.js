@@ -14,7 +14,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Divider from '@material-ui/core/Divider';
-import EditImage from './editImage'
+
 
 
 const testObj = {
@@ -146,6 +146,26 @@ let myObj = testObj ;
     }
     console.log(`name=${state.name} , Oname=${myObj.name}`)
   }
+
+  const handleImageChange = name => event => {
+    setState({ ...state, [name]: (event.target.value) });
+
+     
+    
+    console.log("change", document.getElementById("profile-photo-file").files[0])
+    
+    let reader = new FileReader();
+    
+    reader.onload = function (event) {
+        document.getElementById("profile-photo").src = event.target.result;
+        
+    };
+    
+    reader.readAsDataURL(document.getElementById("profile-photo-file").files[0]);
+      console.log(`state.image= ${state.image} , reader = ${reader}`)
+  }
+
+  
 	
  
 	return (
@@ -178,14 +198,17 @@ let myObj = testObj ;
       <Paper className={classes.paper}>  
         <Grid container spacing={2}>  
           <Grid item>
+            <form method="POST" action="/edit">
             <ButtonBase className={classes.image}>
-            <input onChange={handleChange('image')} accept="image/*" className={classes.input} id="profile-photo-file" type="file" />
+            <input onChange={handleImageChange('image')} accept="image/*" className={classes.input} id="profile-photo-file" type="file" />
               <label htmlFor="profile-photo-file">
-              {console.log(`state.image= ${state.image}`)}
-                <img className={classes.img} alt="user personal photo " src={state.image} />
+            
+                <img id="profile-photo" className={classes.img} alt="user personal photo " src={state.image} />
               
               </label>
             </ButtonBase>
+            <input type="hidden" id="edit_token" name="csrf_token" value={window.csrf_token} />
+            </form>
           </Grid>
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
