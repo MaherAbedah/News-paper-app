@@ -16,9 +16,9 @@ const useStyles = makeStyles(theme => ({
     flexWrap:'Wrap'
   },
   paper: {
-    maxWidth: 700,
-    minHeight: 800,
-    boxShadow:'none'
+    maxWidth: 1000,
+    maxHeight: '100%',
+    boxShadow:'none',
   },
   paperHead: {
     height: 100,
@@ -38,18 +38,18 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Content() {
+export default function Content(props) {
   const [spacing] = React.useState(6);
   const classes = useStyles();
 
 
 
   return (
-    <Grid container className={classes.root} spacing={2}>
+    <Grid container justify="center" className={classes.root} spacing={2}>
       
-      <Grid item xs={9} >
+      <Grid item xs={9} justify="center">
         <Grid container justify="center" spacing={spacing} className={classes.news}>
-          {['Headlines', 'Trending', 'Latest'].map(value => (
+          {[props.category].map(value => (
             <Grid key={value} item xs={9}>
               <Typography  variant="h6" noWrap>
                 {value} 
@@ -61,7 +61,7 @@ export default function Content() {
           ))}
         </Grid>
       </Grid>
-       <Grid item xs={3}>
+       <Grid item xs={3} justify="center">
           <Paper className={classes.paperSide}>
             <Typography gutterBottom variant="h6">
                  Welcome {myObj.name}

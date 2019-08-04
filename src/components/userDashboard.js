@@ -171,13 +171,22 @@ const useStyles = makeStyles(theme => ({
   gridContent: {
     padding: theme.spacing(2),
     marginTop: '10px',
+  },
+  clickedList:{
+    color:'#0094FFC4'
+  },
+  notClickedList:{
+    color:'inherit'
   }
+
 }));
 
 function UserDashboard() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [contentNews, setContentNews] = React.useState('Politics');
+  const [listColor, setListColor] =React.useState(false);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -212,6 +221,18 @@ function UserDashboard() {
   function handleDrawerClose() {
     setOpen(false);
   }
+  function handleContent(cat,event){
+    setContentNews(cat);
+    
+    
+    console.log(`handleContent onClick= ${contentNews}, listColor= ${listColor}`)
+  }
+console.log(`handleContent = ${contentNews}`)
+
+  function handleListColor(event){
+    event.currentTarget.setListColor(!listColor);
+  }
+
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -361,10 +382,10 @@ function UserDashboard() {
           </IconButton>
         </div>
         <Divider />
-        <List>
+        <List >
           {['Politics', 'Sports', 'Economy', 'Technology' , 'Health' , 'Entertainment'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 6 === 0 ? <AccountBalance /> : index % 6 === 1 ? <Pool/> : index % 6 === 2 ? <AttachMoney/> : index % 6 === 3 ? <Devices/> : index % 6 === 4 ? <LocalHospital/> : <Movie/> }</ListItemIcon>
+            <ListItem button className={listColor ? classes.clickedList: classes.notClickedList}  onClick={(event) => handleContent(text,event)} key={text}>
+              <ListItemIcon  >{index % 6 === 0 ? <AccountBalance /> : index % 6 === 1 ? <Pool/> : index % 6 === 2 ? <AttachMoney/> : index % 6 === 3 ? <Devices/> : index % 6 === 4 ? <LocalHospital/> : <Movie/> }</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
@@ -374,7 +395,7 @@ function UserDashboard() {
           {[{name:'Helsingin Sonomat',link:'http://127.0.0.1:8000/hs/'}, {name:'Kauppalehti',link:'http://127.0.0.1:8000/kl/'}, {name:'Keskisuomalainen',link:'http://127.0.0.1:8000/ks/'} ,{name:'Savon Sanomat',link:'http://127.0.0.1:8000/ss/'} , {name:'Turun Sanomat', link:'http://127.0.0.1:8000/ts/'}].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index % 5 === 0 ? <HsLogo width={40} height={50} /> : index % 5 === 1 ? <KlLogo width={40} height={50}/> : index % 5 === 2 ? <KslmLogo width={40} height={50}/> : index % 5 === 3 ? <SsLogo width={40} height={50}/> : <Link href="http://127.0.0.1:8000/ts/"><TsLogo width={40} height={50}/></Link> }</ListItemIcon>
-             <Link href={text.link}> <ListItemText primary={text.name} /></Link>
+             <Link style={{textDecoration:'none', color:'black'}} href={text.link}> <ListItemText primary={text.name} /></Link>
             </ListItem>
           ))}
         </List>
@@ -386,7 +407,7 @@ function UserDashboard() {
       >
         <div className={classes.drawerHeader} />
         <div className={classes.gridContent}>
-          <Content  />
+          <Content category={contentNews} />
         </div>
       </main>
     </div>

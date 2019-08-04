@@ -20,6 +20,7 @@ import ShareMenu from './shareMenu';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
+
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -28,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(2),
     margin: 'auto',
-    maxWidth: 700,
+    maxWidth: '100%',
     boxShadow:'none'
     
   },

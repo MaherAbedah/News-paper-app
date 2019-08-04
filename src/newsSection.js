@@ -8,7 +8,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import MrData from './mostReadData';
 import TrData from './trendingData';
 import LtData from './latestData';
-import Link from '@material-ui/core/Link';
+import Articles from './articles';
 import Article from './components/article'
 
 
@@ -21,9 +21,9 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
-    maxWidth: 700,
-    minHeight: 800,
-    
+    maxWidth: '100%',
+    minHeight: '100%', 
+
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
@@ -48,13 +48,16 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+console.log(`MrData= ${MrData} , Articles= ${Articles.filter(cat=>cat.name === 'politics')[0].content}`);
+
 export default function NewsSection(props) {
   const classes = useStyles();
 
   function renderSection () {
-    if (props.name === 'Headlines') {
+    if (props.name === 'Politics') {
+      console.log(`name= ${props.name} , Articles= ${Articles}`);
       return(
-        MrData.map(tile => (  <Article data = {tile}/>
+        Articles.filter(tile => tile.name === 'politics')[0].content.map(content => (  <Article data = {content}/>
               /*<GridListTile key={tile.img}>
                 <Link href={tile.link} target="_blank" rel="noopener" className={classes.wrapper}>
                   <img src={tile.img} alt={tile.title} className={classes.image} />
@@ -74,9 +77,9 @@ export default function NewsSection(props) {
             ))
       )
     }
-    else if (props.name === 'Trending') {
+    else if (props.name === 'Sports') {
       return(
-        TrData.map(tile => ( <Article data = {tile}/>
+        Articles.filter(tile => tile.name === 'sports')[0].content.map(tile => ( <Article data = {tile}/>
             /*<GridListTile key={tile.img}>
               <Link href={tile.link} target="_blank" rel="noopener" className={classes.wrapper}>
                 <img src={tile.img} alt={tile.title} className={classes.image} />
@@ -94,9 +97,9 @@ export default function NewsSection(props) {
             </GridListTile>*/
           ))
       )
-    } else {
+    } else if (props.name === 'Economy'){
       return(
-        LtData.map(tile => ( <Article data = {tile}/>
+        Articles.filter(tile => tile.name === 'economy')[0].content.map(tile => ( <Article data = {tile}/>
            /* <GridListTile key={tile.img}>
               <Link href={tile.link} target="_blank" rel="noopener" className={classes.wrapper}>
                 <img src={tile.img} alt={tile.title} className={classes.image} />

@@ -147,15 +147,17 @@ let myObj = testObj ;
     console.log(`name=${state.name} , Oname=${myObj.name}`)
   }
 
-  const handleImageChange = name => event => {
+  const handleImageChange = name=> event => {
     
 
-    console.log( document.getElementById("profile-photo-file").files[0]);
+    //console.log( document.getElementById("profile-photo-file").files[0]);
     let imageFile = document.getElementById("profile-photo-file").files[0];
     
     
     let reader = new FileReader();
-    
+    let formData = new FormData();
+    formData.append("file",event.target.files[0]);
+    console.log(event.target.files[0]);
     
     
     reader.onload = function (event) {
