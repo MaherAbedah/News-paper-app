@@ -23,6 +23,7 @@ import LocalHospital from '@material-ui/icons/LocalHospital';
 import AttachMoney from '@material-ui/icons/AttachMoney';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import AllNewsIcon from '@material-ui/icons/Ballot';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
@@ -185,7 +186,7 @@ function UserDashboard() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-  const [contentNews, setContentNews] = React.useState('Politics');
+  const [contentNews, setContentNews] = React.useState('All News');
   const [listColor, setListColor] =React.useState(false);
 
   const isMenuOpen = Boolean(anchorEl);
@@ -229,9 +230,9 @@ function UserDashboard() {
   }
 console.log(`handleContent = ${contentNews}`)
 
-  function handleListColor(event){
+  /*function handleListColor(event){
     event.currentTarget.setListColor(!listColor);
-  }
+  }*/
 
 
   const menuId = 'primary-search-account-menu';
@@ -383,9 +384,9 @@ console.log(`handleContent = ${contentNews}`)
         </div>
         <Divider />
         <List >
-          {['Politics', 'Sports', 'Economy', 'Technology' , 'Health' , 'Entertainment'].map((text, index) => (
+          {['All News','Politics', 'Sports', 'Economy', 'Technology' , 'Health' , 'Entertainment'].map((text, index) => (
             <ListItem button className={listColor ? classes.clickedList: classes.notClickedList}  onClick={(event) => handleContent(text,event)} key={text}>
-              <ListItemIcon  >{index % 6 === 0 ? <AccountBalance /> : index % 6 === 1 ? <Pool/> : index % 6 === 2 ? <AttachMoney/> : index % 6 === 3 ? <Devices/> : index % 6 === 4 ? <LocalHospital/> : <Movie/> }</ListItemIcon>
+              <ListItemIcon  >{index % 7 === 0 ? <AllNewsIcon /> :index % 6 === 0 ? <AccountBalance /> : index % 6 === 1 ? <Pool/> : index % 6 === 2 ? <AttachMoney/> : index % 6 === 3 ? <Devices/> : index % 6 === 4 ? <LocalHospital/> : <Movie/> }</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}

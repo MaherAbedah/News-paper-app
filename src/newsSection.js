@@ -54,68 +54,46 @@ export default function NewsSection(props) {
   const classes = useStyles();
 
   function renderSection () {
-    if (props.name === 'Politics') {
+    if (props.name === 'All News') {
       console.log(`name= ${props.name} , Articles= ${Articles}`);
       return(
-        Articles.filter(tile => tile.name === 'politics')[0].content.map(content => (  <Article data = {content}/>
-              /*<GridListTile key={tile.img}>
-                <Link href={tile.link} target="_blank" rel="noopener" className={classes.wrapper}>
-                  <img src={tile.img} alt={tile.title} className={classes.image} />
-                  <p className={classes.text}> {tile.title} </p> 
-                  <GridListTileBar
-                    title={tile.title}
-                    subtitle={<span>by: {tile.author}</span>}
-                    actionIcon={
-                      <IconButton aria-label={`add ${tile.title} to favorite`} className={classes.icon}>
-                        <FavoriteIcon />
-                      </IconButton>
-                    }
-                  />
-                </Link>
-              </GridListTile>*/
-              
+        Articles.map(tile => tile.content.map(content => (  <Article data = {content}/>)     
             ))
+      )
+    }else if(props.name === 'Politics') {
+      console.log(`name= ${props.name} , Articles= ${Articles}`);
+      return(
+        Articles.filter(tile => tile.name === 'politics')[0].content.map(content => (  <Article data = {content}/> 
+     ))
       )
     }
     else if (props.name === 'Sports') {
       return(
         Articles.filter(tile => tile.name === 'sports')[0].content.map(tile => ( <Article data = {tile}/>
-            /*<GridListTile key={tile.img}>
-              <Link href={tile.link} target="_blank" rel="noopener" className={classes.wrapper}>
-                <img src={tile.img} alt={tile.title} className={classes.image} />
-                <p className={classes.text}> {tile.title} </p>
-                <GridListTileBar
-                  title={tile.title}
-                  subtitle={<span>by: {tile.author}</span>}
-                  actionIcon={
-                    <IconButton aria-label={`add ${tile.title} to favorite`} className={classes.icon}>
-                      <FavoriteIcon />
-                    </IconButton>
-                  }
-                />
-              </Link>
-            </GridListTile>*/
-          ))
+             ))
       )
     } else if (props.name === 'Economy'){
       return(
         Articles.filter(tile => tile.name === 'economy')[0].content.map(tile => ( <Article data = {tile}/>
-           /* <GridListTile key={tile.img}>
-              <Link href={tile.link} target="_blank" rel="noopener" className={classes.wrapper}>
-                <img src={tile.img} alt={tile.title} className={classes.image} />
-                <p className={classes.text}> {tile.title} </p>
-                <GridListTileBar
-                  title={tile.title}
-                  subtitle={<span>by: {tile.author}</span>}
-                  actionIcon={
-                    <IconButton aria-label={`add ${tile.title} to favorite`} className={classes.icon}>
-                      <FavoriteIcon />
-                    </IconButton>
-                  }
-                />
-                </Link>
-            </GridListTile>*/
-          ))
+                ))
+      )
+    }
+    else if (props.name === 'Technology'){
+      return(
+        Articles.filter(tile => tile.name === 'technology')[0].content.map(tile => ( <Article data = {tile}/>
+        ))
+      )
+    }
+    else if (props.name === 'Health'){
+      return(
+        Articles.filter(tile => tile.name === 'health')[0].content.map(tile => ( <Article data = {tile}/>
+        ))
+      )
+    }
+    else if (props.name === 'Entertainment'){
+      return(
+        Articles.filter(tile => tile.name === 'entertainment')[0].content.map(tile => ( <Article data = {tile}/>
+        ))
       )
     }
   }
