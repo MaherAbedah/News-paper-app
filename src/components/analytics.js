@@ -17,7 +17,7 @@ import PackagePaymentIcon from '@material-ui/icons/Redeem';
 import PercentageIcon from '@material-ui/icons/AspectRatio';
 
 import {XYPlot, XAxis, YAxis, ArcSeries, VerticalBarSeries, LabelSeries} from 'react-vis';
-import TestObj from './testObj'
+import TestObj from '../test-data/testObj'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -61,21 +61,30 @@ export default function Analytics() {
       y: myObj.top_articles[0].total_reads,
       name: myObj.top_articles[0].title,
       color:'#00137FFF',
-      link:myObj.top_articles[0].link
+      link:myObj.top_articles[0].link,
+      monthly_percent:myObj.top_articles[0].monthly_percent,
+      package_percent:myObj.top_articles[0].package_percent,
+      single_percent:myObj.top_articles[0].single_percent
     },
     {
       x: 2,
       y: myObj.top_articles[1].total_reads,
       name: myObj.top_articles[1].title,
       color:'#0013D4FF',
-      link:myObj.top_articles[1].link
+      link:myObj.top_articles[1].link,
+      monthly_percent:myObj.top_articles[1].monthly_percent,
+      package_percent:myObj.top_articles[1].package_percent,
+      single_percent:myObj.top_articles[1].single_percent
     },
     {
       x: 3,
       y: myObj.top_articles[2].total_reads,
       name: myObj.top_articles[2].title,
       color:'#0074FFFF',
-      link:myObj.top_articles[2].link
+      link:myObj.top_articles[2].link,
+      monthly_percent:myObj.top_articles[2].monthly_percent,
+      package_percent:myObj.top_articles[2].package_percent,
+      single_percent:myObj.top_articles[2].single_percent
     },
    /* {
       x: 4,
@@ -199,7 +208,7 @@ export default function Analytics() {
   			      </ListItem>
               </Grid>
             <Grid item xs={6}>
-                <table style={{width:'50%', fontSize:10}}>
+                <table style={{width:'80%', fontSize:11}}>
                   <tr>
                     <th>Monthly %</th>
                     <th>Package %</th> 

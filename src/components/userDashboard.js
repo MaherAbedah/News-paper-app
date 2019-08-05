@@ -47,8 +47,8 @@ import { ReactComponent as SsLogo } from '../svg/savonsanomat.svg';
 
 
 import Content from '../content.js';
-import PaymentDialog from './paymentDialog';
-import PaymentDialogNew from './paymentDialogNew';
+
+
 
 
 const drawerWidth = 240;

@@ -5,10 +5,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import MrData from './mostReadData';
-import TrData from './trendingData';
-import LtData from './latestData';
-import TestArticles from './articles';
+import TestArticles from './test-data/articles';
 import Typography from '@material-ui/core/Typography';
 import Article from './components/article'
 
