@@ -17,6 +17,7 @@ import PackagePaymentIcon from '@material-ui/icons/Redeem';
 import PercentageIcon from '@material-ui/icons/AspectRatio';
 
 import {XYPlot, XAxis, YAxis, ArcSeries, VerticalBarSeries, LabelSeries} from 'react-vis';
+import DevicesTable from './analytics-files/devicesTable'
 import TestObj from '../test-data/testObj'
 
 const useStyles = makeStyles(theme => ({
@@ -270,6 +271,9 @@ export default function Analytics() {
 			      </ListItem>
 			</List>
           </Paper>
+        </Grid>
+        <Grid item xs={3}>
+          <DevicesTable />
         </Grid>
       </Grid>
     </div>
