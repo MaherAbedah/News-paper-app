@@ -58,28 +58,31 @@ export default function Analytics() {
 	const articlesData = [
     {
       x: 1,
-      y: myObj.articles[0].hits,
-      name: myObj.articles[0].name,
-      color:'#00137FFF'
+      y: myObj.top_articles[0].total_reads,
+      name: myObj.top_articles[0].title,
+      color:'#00137FFF',
+      link:myObj.top_articles[0].link
     },
     {
       x: 2,
-      y: myObj.articles[1].hits,
-      name: myObj.articles[1].name,
-      color:'#0013D4FF'
+      y: myObj.top_articles[1].total_reads,
+      name: myObj.top_articles[1].title,
+      color:'#0013D4FF',
+      link:myObj.top_articles[1].link
     },
     {
       x: 3,
-      y: myObj.articles[2].hits,
-      name: myObj.articles[2].name,
-      color:'#0074FFFF'
+      y: myObj.top_articles[2].total_reads,
+      name: myObj.top_articles[2].title,
+      color:'#0074FFFF',
+      link:myObj.top_articles[2].link
     },
-    {
+   /* {
       x: 4,
       y: myObj.articles[3].hits,
       name: myObj.articles[3].name,
       color:'#00DBFFFF'
-    }
+    }*/
   ];
   /*//this is used to add lebles to the chart bars if needed 
   const articleLabel = [
@@ -130,7 +133,7 @@ export default function Analytics() {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={3}>
+      <Grid container spacing={2}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
 	        <div className={classes.header}>
@@ -139,11 +142,11 @@ export default function Analytics() {
 		          	<h3> Most Read Articles and subscription types </h3>
 	          	</div>
 	          	<div className={classes.logout}>
-		          	<Link href='/logout'>
-		          	<Button variant="contained" color="secondary" >
+		          	
+		          	<Button href='/logout' variant="contained" color="secondary" >
 				       Logout
 				    </Button>
-				    </Link>
+				    
 			     </div>
 	        </div>
           	
@@ -154,7 +157,7 @@ export default function Analytics() {
 			            <PercentageIcon style={{color:'#000000FF'}}/>
 			          </Avatar>
 			        </ListItemAvatar>
-			        <ListItemText primary="Percentage of all read article % " secondary={myObj.revenue * 100 } />
+			        <ListItemText primary="Percentage of total revenue % " secondary={myObj.percent_of_total_revenue * 100 } />
 			      </ListItem>
 			</List>
 
@@ -181,14 +184,35 @@ export default function Analytics() {
           	<div>
 				<List className={classes.list}>
 				{articlesData.map((item) =>
-			      <ListItem button>
-			        <ListItemAvatar>
-			          <Avatar>
-			            <BookIcon style={{color:item.color}}/>
-			          </Avatar>
-			        </ListItemAvatar>
-			        <ListItemText primary={item.name} secondary={item.y} />
-			      </ListItem>)}
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+  			      <ListItem button >
+  			        <ListItemAvatar>
+  			          <Avatar>
+  			            <BookIcon style={{color:item.color}}/>
+  			          </Avatar>
+  			        </ListItemAvatar>
+                <Link href={item.link} style={{color:'gray'}} rel="noopener noreferrer" target="_blank">
+  			        <ListItemText primary={item.name} secondary={item.y} />
+
+                </Link>
+  			      </ListItem>
+              </Grid>
+            <Grid item xs={6}>
+                <table style={{width:'50%', fontSize:10}}>
+                  <tr>
+                    <th>Monthly %</th>
+                    <th>Package %</th> 
+                    <th>One-time %</th>
+                  </tr>
+                  <tr>
+                    <td>{item.monthly_percent}</td>
+                    <td>{item.package_percent}</td> 
+                    <td>{item.single_percent}</td>
+                  </tr>
+                </table>
+            </Grid>
+          </Grid>)}
 			     
     			</List>
 			</div>

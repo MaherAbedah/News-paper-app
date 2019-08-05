@@ -15,7 +15,7 @@ import image14 from './images/last/image_four.jpg';
 import image15 from './images/last/image_five.jpg';
 
  
-  const Articles = [
+  const TestArticles = [
     {name:'politics',
     content:[
       {
@@ -344,4 +344,4 @@ import image15 from './images/last/image_five.jpg';
     }
   ];
 
-  export default Articles
+  export default TestArticles

@@ -8,7 +8,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import MrData from './mostReadData';
 import TrData from './trendingData';
 import LtData from './latestData';
-import Articles from './articles';
+import TestArticles from './articles';
 import Typography from '@material-ui/core/Typography';
 import Article from './components/article'
 
@@ -49,11 +49,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-console.log(`MrData= ${MrData} , Articles= ${Articles.filter(cat=>cat.name === 'politics')[0].content}`);
+
 
 export default function NewsSection(props) {
   const classes = useStyles();
-
+  let Articles = TestArticles;
+  if(window.obj !== undefined)
+    Articles = window.obj ;
   function renderSection () {
     if (props.name === 'All News') {
       console.log(`name= ${props.name} , Articles= ${Articles}`);

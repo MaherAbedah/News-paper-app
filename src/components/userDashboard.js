@@ -223,8 +223,6 @@ function UserDashboard() {
     setOpen(false);
   }
    function handleListColor(event){
-    
-    console.log(document.getElementById('categoryList').children)
     let listItems = document.getElementById('categoryList').children
     for (let i=0;i<listItems.length;i++)
       listItems[i].style.backgroundColor='white'
@@ -234,14 +232,8 @@ function UserDashboard() {
   function handleContent(cat,event){
     handleListColor()
     setContentNews(cat);
-    event.currentTarget.style.backgroundColor='#0094FFC4'
-    
-    console.log(`handleContent onClick= ${contentNews}, listColor= ${listColor}`)
+    event.currentTarget.style.backgroundColor='#00C6FFC4'
   }
-console.log(`handleContent = ${contentNews}`);
-
-
-
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
