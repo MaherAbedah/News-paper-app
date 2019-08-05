@@ -9,6 +9,7 @@ import MrData from './mostReadData';
 import TrData from './trendingData';
 import LtData from './latestData';
 import Articles from './articles';
+import Typography from '@material-ui/core/Typography';
 import Article from './components/article'
 
 
@@ -21,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
-    maxWidth: '100%',
+    maxWidth: 800,
     minHeight: '100%', 
 
   },
@@ -57,8 +58,8 @@ export default function NewsSection(props) {
     if (props.name === 'All News') {
       console.log(`name= ${props.name} , Articles= ${Articles}`);
       return(
-        Articles.map(tile => tile.content.map(content => (  <Article data = {content}/>)     
-            ))
+        Articles.map(tile =>{ return [<Typography style={{height:40}}  variant="h6" > {tile.name} </Typography> , tile.content.map(content => (  <Article data = {content}/>)     
+            )]})
       )
     }else if(props.name === 'Politics') {
       console.log(`name= ${props.name} , Articles= ${Articles}`);

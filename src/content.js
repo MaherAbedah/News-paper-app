@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     flexWrap:'Wrap'
   },
   paper: {
-    maxWidth: 1000,
+    maxWidth: 800,
     maxHeight: '100%',
     boxShadow:'none',
   },
@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    maxHight:600,
+    maxHight:'100%',
     marginTop:'30px'
   },
   control: {

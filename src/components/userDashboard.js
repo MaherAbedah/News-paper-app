@@ -222,17 +222,25 @@ function UserDashboard() {
   function handleDrawerClose() {
     setOpen(false);
   }
-  function handleContent(cat,event){
-    setContentNews(cat);
+   function handleListColor(event){
     
+    console.log(document.getElementById('categoryList').children)
+    let listItems = document.getElementById('categoryList').children
+    for (let i=0;i<listItems.length;i++)
+      listItems[i].style.backgroundColor='white'
+    //event.target.setListColor(!listColor);
+    //event.target.classList.add('classes.clickedList')
+  }
+  function handleContent(cat,event){
+    handleListColor()
+    setContentNews(cat);
+    event.currentTarget.style.backgroundColor='#0094FFC4'
     
     console.log(`handleContent onClick= ${contentNews}, listColor= ${listColor}`)
   }
-console.log(`handleContent = ${contentNews}`)
+console.log(`handleContent = ${contentNews}`);
 
-  /*function handleListColor(event){
-    event.currentTarget.setListColor(!listColor);
-  }*/
+
 
 
   const menuId = 'primary-search-account-menu';
@@ -383,14 +391,58 @@ console.log(`handleContent = ${contentNews}`)
           </IconButton>
         </div>
         <Divider />
-        <List >
-          {['All News','Politics', 'Sports', 'Economy', 'Technology' , 'Health' , 'Entertainment'].map((text, index) => (
+        <List  id='categoryList'>
+          {/*['All News','Politics', 'Sports', 'Economy', 'Technology' , 'Health' , 'Entertainment'].map((text, index) => (
             <ListItem button className={listColor ? classes.clickedList: classes.notClickedList}  onClick={(event) => handleContent(text,event)} key={text}>
-              <ListItemIcon  >{index % 7 === 0 ? <AllNewsIcon /> :index % 6 === 0 ? <AccountBalance /> : index % 6 === 1 ? <Pool/> : index % 6 === 2 ? <AttachMoney/> : index % 6 === 3 ? <Devices/> : index % 6 === 4 ? <LocalHospital/> : <Movie/> }</ListItemIcon>
+              <ListItemIcon  >{index % 7 === 0 ? <AllNewsIcon /> :index % 7 === 1 ? <AccountBalance /> : index % 7 === 2 ? <Pool/> : index % 7 === 3 ? <AttachMoney/> : index % 7 === 4 ? <Devices/> : index % 7 === 5 ? <LocalHospital/> : <Movie/> }</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
-          ))}
+          ))*/}
+          <ListItem button   onClick={(event) => handleContent('All News',event)} key='All News'>
+             <ListItemIcon  >
+            <AllNewsIcon />
+            </ListItemIcon>
+            <ListItemText primary='All News' />
+          </ListItem>
+          <ListItem button   onClick={(event) => handleContent('Politics',event)} key='Politics'>
+             <ListItemIcon  >
+            <AccountBalance />
+            </ListItemIcon>
+            <ListItemText primary='Politics' />
+          </ListItem>
+          <ListItem button   onClick={(event) => handleContent('Sports',event)} key='Sports'>
+             <ListItemIcon  >
+            <Pool/>
+            </ListItemIcon>
+            <ListItemText primary='Sports' />
+          </ListItem>
+          <ListItem button   onClick={(event) => handleContent('Economy',event)} key='Economy'>
+             <ListItemIcon  >
+            <AttachMoney/>
+            </ListItemIcon>
+            <ListItemText primary='Economy' />
+          </ListItem>
+          <ListItem button   onClick={(event) => handleContent('Technology',event)} key='Technology'>
+             <ListItemIcon  >
+            <Devices/>
+            </ListItemIcon>
+            <ListItemText primary='Technology' />
+          </ListItem>
+          <ListItem button   onClick={(event) => handleContent('Health',event)} key='Health'>
+             <ListItemIcon  >
+            <LocalHospital/>
+            </ListItemIcon>
+            <ListItemText primary='Health' />
+          </ListItem>
+          <ListItem button   onClick={(event) => handleContent('Entertainment',event)} key='Entertainment'>
+             <ListItemIcon  >
+            <Movie/>
+            </ListItemIcon>
+            <ListItemText primary='Entertainment' />
+          </ListItem>
+        
         </List>
+
         <Divider />
         <List>
           {[{name:'Helsingin Sonomat',link:'http://127.0.0.1:8000/hs/'}, {name:'Kauppalehti',link:'http://127.0.0.1:8000/kl/'}, {name:'Keskisuomalainen',link:'http://127.0.0.1:8000/ks/'} ,{name:'Savon Sanomat',link:'http://127.0.0.1:8000/ss/'} , {name:'Turun Sanomat', link:'http://127.0.0.1:8000/ts/'}].map((text, index) => (
