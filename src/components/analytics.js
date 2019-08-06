@@ -17,12 +17,14 @@ import PackagePaymentIcon from '@material-ui/icons/Redeem';
 import PercentageIcon from '@material-ui/icons/AspectRatio';
 
 import {XYPlot, XAxis, YAxis, ArcSeries, VerticalBarSeries, LabelSeries,
- VerticalGridLines,HorizontalGridLines,AreaSeries} from 'react-vis';
+ VerticalGridLines,HorizontalGridLines,AreaSeries,LineSeries} from 'react-vis';
 import DevicesTable from './analytics-files/devicesTable'
 import SystemsTable from './analytics-files/systemsTable'
 import BrowsersTable from './analytics-files/browsersTable'
 import LocationsTable from './analytics-files/locationsTable'
-import TestObj from '../test-data/testObj'
+import DurationTable from './analytics-files/durationTable'
+import TrafficTable from './analytics-files/trafficTable'
+import TestObj from './analytics-files/testObj'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -175,8 +177,30 @@ export default function Analytics() {
     x:myObj.duration_chart[4].time,
     y:myObj.duration_chart[4].amount
   }
-  ]
+  ];
 
+  const trafficData = [
+     {
+        x:myObj.traffic_chart[0].time,
+        y:myObj.traffic_chart[0].amount
+      },
+      {
+        x:myObj.traffic_chart[1].time,
+        y:myObj.traffic_chart[1].amount
+      },
+      {
+        x:myObj.traffic_chart[2].time,
+        y:myObj.traffic_chart[2].amount
+      },
+      {
+        x:myObj.traffic_chart[3].time,
+        y:myObj.traffic_chart[3].amount
+      },
+      {
+        x:myObj.traffic_chart[4].time,
+        y:myObj.traffic_chart[4].amount
+      }
+  ]
 
 
   return (
@@ -325,42 +349,59 @@ export default function Analytics() {
         <Grid item xs={6}>
           <Paper className={classes.paper}>
             <h3> Duration spent on site </h3>
-            <XYPlot
-              width={300}
-              height={300}
-              
-              
-              >
-              <VerticalGridLines />
-              <HorizontalGridLines />
-              <XAxis/>
-              <YAxis/>
-              
-              <AreaSeries
-                className="area-series-example"
-                curve="curveNatural"
-                data={durationData}
-              />
-              <LabelSeries
-                animation
-                allowOffsetToBeReversed
-                data={[{x: 65, y: 0, label: 'duration(minutes)', xOffset: 10, rotation: 0},
-                        {x: 0, y: 45, label: 'users', xOffset: -10, rotation: 90}]} />
-            </XYPlot>
+            <Grid container spacing={2}>
+              <Grid item xs={7}>
+                <XYPlot
+                  width={300}
+                  height={300}
+                  
+                  
+                  >
+                  
+                  <XAxis/>
+                  <YAxis/>
+                  
+                  <AreaSeries
+                    className="area-series-example"
+                    curve="curveNatural"
+                    data={durationData}
+                  />
+                  <LabelSeries
+                    animation
+                    allowOffsetToBeReversed
+                    data={[{x: 65, y: 0, label: 'duration(minutes)', xOffset: 10, rotation: 0},
+                            {x: 0, y: 45, label: 'users', xOffset: -10, rotation: 90}]} />
+                </XYPlot>
+              </Grid>
+              <Grid item xs={5}>
+                <DurationTable />
+              </Grid>
+            </Grid>
           </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
               <h3> Site traffic </h3>
-              <XYPlot
-                width={300}
-                height={300}
-                
-                
-                >
-                <XAxis/>
-                <YAxis/>
-              </XYPlot>
+              <Grid container spacing={2}>
+                <Grid item xs={7}>
+                  <XYPlot
+                    width={300}
+                    height={300}
+                    >
+                    <XAxis/>
+                    <YAxis/>
+                    <LineSeries 
+                      data={trafficData}
+                      curve={'curveMonotoneX'}
+                      color='red'
+                      strok= '2' 
+                    />
+                  </XYPlot>
+                </Grid>
+                <Grid item xs={5}>
+                  <TrafficTable />
+                </Grid>
+              </Grid>  
             </Paper>
         </Grid>
       </Grid>

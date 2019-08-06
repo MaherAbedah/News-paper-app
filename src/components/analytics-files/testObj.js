@@ -78,20 +78,23 @@
   "returning_users": 5,
   "anonymous_users": 1,
   "average_duration": 33,
-  "min_duration": 1,
-  "max_duration": 631,
+   "min_duration": 1,
+  "max_duration": 60,
   "duration_chart": [
-    { "time": 1, "amount": 21},
-    { "time": 2, "amount": 11},
-    { "time": 3, "amount": 41},
-    { "time": 631, "amount": 1}
+    { "time": 1, "amount": 2},
+    { "time": 10, "amount": 21},
+    { "time": 20, "amount": 11},
+    { "time": 30, "amount": 41},
+    { "time": 60, "amount": 1},
   ],
-  "max_traffic": "klo 12",
-  "min_traffic": "klo 3",
+  "max_traffic": 19,
+  "min_traffic": 15,
   "traffic_chart": [
-    { "time": 1, "amount": 10},
-    { "time": 2, "amount": 12},
-    { "time": 24, "amount": 8}
+    { "time": 8, "amount": 20},
+    { "time": 12, "amount": 12},
+    { "time": 15, "amount": 4},
+    { "time": 19, "amount": 40},
+    { "time": 22, "amount": 6}
   ],
 };
 

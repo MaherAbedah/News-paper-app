@@ -79,9 +79,9 @@
   "anonymous_users": 1,
   "average_duration": 33,
   "min_duration": 1,
-  "max_duration": 631,
+  "max_duration": 60,
   "duration_chart": [
-    { "time": 0, "amount": 2},
+    { "time": 1, "amount": 2},
     { "time": 10, "amount": 21},
     { "time": 20, "amount": 11},
     { "time": 30, "amount": 41},
