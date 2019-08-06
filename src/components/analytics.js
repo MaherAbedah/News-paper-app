@@ -154,6 +154,29 @@ export default function Analytics() {
   	}
   ];
 
+  const durationData = [
+  {
+    x:myObj.duration_chart[0].time,
+    y:myObj.duration_chart[0].amount
+  },
+  {
+    x:myObj.duration_chart[1].time,
+    y:myObj.duration_chart[1].amount
+  },
+  {
+    x:myObj.duration_chart[2].time,
+    y:myObj.duration_chart[2].amount
+  },
+  {
+    x:myObj.duration_chart[3].time,
+    y:myObj.duration_chart[3].amount
+  },
+  {
+    x:myObj.duration_chart[4].time,
+    y:myObj.duration_chart[4].amount
+  }
+  ]
+
 
 
   return (
@@ -312,11 +335,17 @@ export default function Analytics() {
               <HorizontalGridLines />
               <XAxis/>
               <YAxis/>
+              
               <AreaSeries
-        className="area-series-example"
-        curve="curveNatural"
-        data={[{x: 1, y: 10}, {x: 2, y: 5}, {x: 3, y: 15}]}
-      />
+                className="area-series-example"
+                curve="curveNatural"
+                data={durationData}
+              />
+              <LabelSeries
+                animation
+                allowOffsetToBeReversed
+                data={[{x: 65, y: 0, label: 'duration(minutes)', xOffset: 10, rotation: 0},
+                        {x: 0, y: 45, label: 'users', xOffset: -10, rotation: 90}]} />
             </XYPlot>
           </Paper>
         </Grid>

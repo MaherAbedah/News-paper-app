@@ -81,10 +81,11 @@
   "min_duration": 1,
   "max_duration": 631,
   "duration_chart": [
-    { "time": 1, "amount": 21},
-    { "time": 2, "amount": 11},
-    { "time": 3, "amount": 41},
-    { "time": 631, "amount": 1}
+    { "time": 0, "amount": 2},
+    { "time": 10, "amount": 21},
+    { "time": 20, "amount": 11},
+    { "time": 30, "amount": 41},
+    { "time": 60, "amount": 1},
   ],
   "max_traffic": "klo 12",
   "min_traffic": "klo 3",

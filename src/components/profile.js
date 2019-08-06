@@ -118,7 +118,7 @@ const useStyles = makeStyles(theme => ({
 let myObj = testObj ;
 
   if(window.obj !== undefined)
-    myObj = window.obj;
+    myObj = window.obj.user;
 
   function Profile (props){
 	const classes = useStyles();
