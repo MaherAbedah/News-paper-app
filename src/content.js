@@ -41,7 +41,8 @@ const useStyles = makeStyles(theme => ({
 export default function Content(props) {
   const [spacing] = React.useState(6);
   const classes = useStyles();
-
+  if(window.obj !== undefined)
+    myObj = window.obj.user ;
 
 
   return (
@@ -66,18 +67,18 @@ export default function Content(props) {
             <Typography gutterBottom variant="h6">
                  Welcome {myObj.name}
             </Typography>
-            {myObj.end_date !== null ? 
+            {myObj.subscription_end !== null ? 
               <Typography variant="body2" color="textSecondary"> Monthly subscription
-              </Typography> : myObj.prepaid > 0 ? 
+              </Typography> : myObj.package_end > 0 ? 
               <Typography variant="body2" color="textSecondary"> Package subscription
-              </Typography> : <Typography variant="body2" color="textSecondary"> Not subscriped!
+              </Typography> : <Typography variant="body2" color="textSecondary"> Single Payment
               </Typography>
             }
-            {myObj.end_date !== null ? 
-              <Typography variant="subtitle1" color="textSecondary"> ends {myObj.end_date}
-              </Typography> : myObj.prepaid > 0 ? 
-              <Typography variant="subtitle1" color="textSecondary"> {myObj.prepaid} left 
-              </Typography> : <Typography variant="subtitle1" color="textSecondary"> Non!
+            {myObj.subscription_end !== null ? 
+              <Typography variant="subtitle1" color="textSecondary"> ends {myObj.subscription_end}
+              </Typography> : myObj.package_end > 0 ? 
+              <Typography variant="subtitle1" color="textSecondary"> {myObj.package_end} left 
+              </Typography> : <Typography variant="subtitle1" color="textSecondary"> {myObj.tokens} left
               </Typography>
             }
             <br/>

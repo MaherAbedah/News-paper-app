@@ -20,9 +20,10 @@ import Divider from '@material-ui/core/Divider';
 const testObj = {
   name:'maher',
   email: 'maher@example.com',
-  end_date: '18.08.2019',
+  subscription_end: '18.08.2019',
   image:myImage,
-  bought:[],
+  package_end:0,
+  tokens:3,
   latestArticles:[
     {
       title: 'STOCK EXCHANGE: Wall Street opened its bill on Wednesday',
@@ -286,18 +287,18 @@ let myObj = testObj ;
             </Grid>
             <Grid item>
               <Typography variant="subtitle1"> Your Plan</Typography>
-              {myObj.end_date !== null ? 
+              {myObj.subscription_end !== null ? 
                     <Typography variant="subtitle1" color="textPrimary"> Monthly subscription
-                    </Typography> : myObj.prepaid > 0 ? 
+                    </Typography> : myObj.package_end > 0 ? 
                     <Typography variant="body2" color="textSecondary"> Package subscription
-                    </Typography> : <Typography variant="body2" color="textSecondary"> Not subscriped!
+                    </Typography> : <Typography variant="body2" color="textSecondary"> Single Payment
                     </Typography>
                   } 
-            	{myObj.end_date !== null ? 
-                  	<Typography variant="subtitle1" color="textSecondary"> ends {myObj.end_date}
-                  	</Typography> : myObj.prepaid > 0 ? 
-                  	<Typography variant="subtitle1" color="textSecondary"> {myObj.prepaid} left 
-                  	</Typography> : <Typography variant="subtitle1" color="textSecondary"> Non!
+            	{myObj.subscription_end !== null ? 
+                  	<Typography variant="subtitle1" color="textSecondary"> ends {myObj.subscription_end}
+                  	</Typography> : myObj.package_end > 0 ? 
+                  	<Typography variant="subtitle1" color="textSecondary"> {myObj.package_end} left 
+                  	</Typography> : <Typography variant="subtitle1" color="textSecondary"> {myObj.tokens} left
                   	</Typography>
                   }
               

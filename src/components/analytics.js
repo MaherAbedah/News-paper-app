@@ -16,8 +16,12 @@ import MonthlyPaymentIcon from '@material-ui/icons/Forward30';
 import PackagePaymentIcon from '@material-ui/icons/Redeem';
 import PercentageIcon from '@material-ui/icons/AspectRatio';
 
-import {XYPlot, XAxis, YAxis, ArcSeries, VerticalBarSeries, LabelSeries} from 'react-vis';
+import {XYPlot, XAxis, YAxis, ArcSeries, VerticalBarSeries, LabelSeries,
+ VerticalGridLines,HorizontalGridLines,AreaSeries} from 'react-vis';
 import DevicesTable from './analytics-files/devicesTable'
+import SystemsTable from './analytics-files/systemsTable'
+import BrowsersTable from './analytics-files/browsersTable'
+import LocationsTable from './analytics-files/locationsTable'
 import TestObj from '../test-data/testObj'
 
 const useStyles = makeStyles(theme => ({
@@ -48,7 +52,16 @@ const useStyles = makeStyles(theme => ({
   title:{
   	textAlign:'center',
   	width:'100%'
-  }
+  },
+  border:{
+    borderWidth: 1, 
+    borderStyle:'solid',
+    borderColor:'#dddddd',
+    backgroundColor:'#dddddd',
+    textAlign:'center'
+    
+  },
+
 }));
 
 export default function Analytics() {
@@ -56,6 +69,8 @@ export default function Analytics() {
   let myObj = TestObj;
   if(window.obj !== undefined)
     myObj = window.obj ;
+  //const colors =['#00137FFF', '#0013D4FF', '#0074FFFF', '#00DBFFFF'];
+
 	const articlesData = [
     {
       x: 1,
@@ -210,15 +225,15 @@ export default function Analytics() {
               </Grid>
             <Grid item xs={6}>
                 <table style={{width:'80%', fontSize:11}}>
-                  <tr>
-                    <th>Monthly %</th>
-                    <th>Package %</th> 
-                    <th>One-time %</th>
+                  <tr >
+                    <th >Monthly %</th>
+                    <th >Package %</th> 
+                    <th >One-time %</th>
                   </tr>
                   <tr>
-                    <td>{item.monthly_percent}</td>
-                    <td>{item.package_percent}</td> 
-                    <td>{item.single_percent}</td>
+                    <td className={classes.border}>{item.monthly_percent}</td>
+                    <td className={classes.border}>{item.package_percent}</td> 
+                    <td className={classes.border}>{item.single_percent}</td>
                   </tr>
                 </table>
             </Grid>
@@ -274,6 +289,50 @@ export default function Analytics() {
         </Grid>
         <Grid item xs={3}>
           <DevicesTable />
+        </Grid>
+        <Grid item xs={3}>
+          <SystemsTable />
+        </Grid>
+        <Grid item xs={3}>
+          <BrowsersTable />
+        </Grid>
+        <Grid item xs={3}>
+          <LocationsTable />
+        </Grid>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>
+            <h3> Duration spent on site </h3>
+            <XYPlot
+              width={300}
+              height={300}
+              
+              
+              >
+              <VerticalGridLines />
+              <HorizontalGridLines />
+              <XAxis/>
+              <YAxis/>
+              <AreaSeries
+        className="area-series-example"
+        curve="curveNatural"
+        data={[{x: 1, y: 10}, {x: 2, y: 5}, {x: 3, y: 15}]}
+      />
+            </XYPlot>
+          </Paper>
+        </Grid>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>
+              <h3> Site traffic </h3>
+              <XYPlot
+                width={300}
+                height={300}
+                
+                
+                >
+                <XAxis/>
+                <YAxis/>
+              </XYPlot>
+            </Paper>
         </Grid>
       </Grid>
     </div>
