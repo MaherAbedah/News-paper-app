@@ -396,6 +396,11 @@ export default function Analytics() {
                       color='red'
                       strok= '2' 
                     />
+                    <LabelSeries
+                    animation
+                    allowOffsetToBeReversed
+                    data={[{x: 22, y: 0, label: 'time', xOffset: 10, rotation: 0},
+                            {x: 8, y: 45, label: 'hits', xOffset: -10, rotation: 90}]} />
                   </XYPlot>
                 </Grid>
                 <Grid item xs={5}>
