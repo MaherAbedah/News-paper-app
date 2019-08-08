@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import NewsSection from './newsSection';
-import {myObj} from './components/profile';
+import TestObj from './test-data/testObj';
 import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles(theme => ({
@@ -38,11 +38,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+let myObj = TestObj.user ;
+if(window.obj !== undefined)
+    myObj = window.obj.user ;
+
 export default function Content(props) {
   const [spacing] = React.useState(6);
   const classes = useStyles();
-  if(window.obj !== undefined)
-    myObj = window.obj.user ;
+  
 
 
   return (

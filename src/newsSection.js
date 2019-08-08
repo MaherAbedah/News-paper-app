@@ -46,13 +46,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-
+let Articles = TestArticles;
+  if(window.obj !== undefined)
+    Articles = window.obj.articles ;
 
 export default function NewsSection(props) {
   const classes = useStyles();
-  let Articles = TestArticles;
-  if(window.obj !== undefined)
-    Articles = window.obj.articles ;
+  
   function renderSection () {
     if (props.name === 'All News') {
       console.log(`name= ${props.name} , Articles= ${Articles}`);

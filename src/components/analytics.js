@@ -24,7 +24,7 @@ import BrowsersTable from './analytics-files/browsersTable'
 import LocationsTable from './analytics-files/locationsTable'
 import DurationTable from './analytics-files/durationTable'
 import TrafficTable from './analytics-files/trafficTable'
-import TestObj from './analytics-files/testObj'
+import TestObj from '../test-data/testObj'
 
 const useStyles = makeStyles(theme => ({
   root: {

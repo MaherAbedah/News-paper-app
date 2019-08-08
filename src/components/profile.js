@@ -5,8 +5,6 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase'; 
-import myImage from '../images/profile-placeholder.png'; 
-
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
@@ -14,46 +12,10 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Divider from '@material-ui/core/Divider';
+import TestObj from '../test-data/testObj';
+import UserArticles from './profile-files/userArticles'
 
 
-
-const testObj = {
-  name:'maher',
-  email: 'maher@example.com',
-  subscription_end: '18.08.2019',
-  image:myImage,
-  package_end:0,
-  tokens:3,
-  latestArticles:[
-    {
-      title: 'STOCK EXCHANGE: Wall Street opened its bill on Wednesday',
-      link: 'https://www.kauppalehti.fi/uutiset/porssit-wall-street-avasi-laskuun-keskiviikkona/1932d477-26d9-4585-ac79-e4cfb6aed90a',
-      accessed: '06.05.2019'
-    },
-    {
-      title: 'Kasil Classes Sent Satellite to the Stratosphere - Steam Summer School Trained Future Science Experts',
-      link: 'https://www.ts.fi/uutiset/paikalliset/4607509/Kasiluokkalaiset+lahettivat+satelliitin+stratosfaariin++Steamkesakoulussa+koulittiin+tulevaisuuden+tiedeosaajia',
-      accessed: '08.05.2019'
-    },
-    {
-      title: 'EK tyrmää kaavaillun perhevapaauudistuksen: "Emme ymmärrä, miksi työkykyisiä ihmisiä kannustetaan olemaan poissa töistä"',
-      link: 'https://www.ksml.fi/kotimaa/EK-tyrm%C3%A4%C3%A4-kaavaillun-perhevapaauudistuksen-Emme-ymm%C3%A4rr%C3%A4-miksi-ty%C3%B6kykyisi%C3%A4-ihmisi%C3%A4-kannustetaan-olemaan-poissa-t%C3%B6ist%C3%A4/1389516',
-      accessed: '13.04.2019'
-    },
-    {
-      title: 'Saksa murskasi Viron peräti 8–0 EM-karsinnoissa, Islanti kaatoi Turkin',
-      link: 'https://www.hs.fi/urheilu/art-2000006139642.html',
-      accessed: '25.11.2018'
-    },
-    {
-      title: 'Yli 400 mielenosoittajaa pidätetty Moskovassa – "Oletteko unohtaneet perustuslain?"',
-      link: 'https://www.savonsanomat.fi/ulkomaat/Yli-400-mielenosoittajaa-pid%C3%A4tetty-Moskovassa-%E2%80%93-Oletteko-unohtaneet-perustuslain/1389553',
-      accessed: '17.06.2019'    
-    },
-    
-  ],
-
-};
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -115,12 +77,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-let myObj = testObj ;
+let myObj = TestObj.user ;
 
   if(window.obj !== undefined)
     myObj = window.obj.user;
 
-  function Profile (props){
+  export default function Profile (props){
 	const classes = useStyles();
   const [state, setState] = React.useState({
     open: false,
@@ -310,25 +272,8 @@ let myObj = testObj ;
       <Paper className={classes.paper}>  
         <Grid container spacing={2}>
           <Grid item xs={12} sm container>
-              <Typography style={{textAlign:'center'}} gutterBottom variant="h6">
-                 Your latest reads 
-            </Typography>
 
-            <ul>
-            {
-              myObj.latestArticles.map(data => 
-                <div>
-                <a href={data.link} rel="noopener noreferrer" target="_blank" >
-                 <li> <Typography  style={{textAlign:'left', fontSize:'10pt'}} variant='subtitle1'>
-                    {data.title}
-                  </Typography>
-                </li></a>
-                <Typography  style={{textAlign:'right', fontSize:'8pt'}} variant="body2" color="textSecondary" >
-                     accessed {data.accessed}
-                </Typography>
-                <Divider /></div>)
-            }
-            </ul>
+            <UserArticles />
             </Grid>
           </Grid>
         </Paper>
@@ -337,5 +282,5 @@ let myObj = testObj ;
   );
 };
 
-export {Profile, myObj} 
+
 

@@ -6,7 +6,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import TestObj from './testObj'
+import TestObj from '../../test-data/testObj'
 
 const StyledTableCell = withStyles(theme => ({
   head: {
