@@ -45,8 +45,8 @@ function a11yProps(index) {
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    width: '100%',
-    minHeight:400
+    maxWidth: '100%',
+    
   },
 }));
 
@@ -55,7 +55,7 @@ let myObj = TestObj.user ;
   if(window.obj !== undefined)
     myObj = window.obj.user;
 
-export default function UserArticles() {
+export default function DashboardUserArticles() {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
@@ -76,11 +76,11 @@ export default function UserArticles() {
           onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"
-          variant="fullWidth"
+          centered
           aria-label="full width tabs example"
         >
-          <Tab icon={<HistoryIcon />} label="Latest Reads" {...a11yProps(0)} />
-          <Tab icon={<FavoriteIcon />} label="Favorites" {...a11yProps(1)} />
+          <Tab  icon={<HistoryIcon />}  {...a11yProps(0)} />
+          <Tab  icon={<FavoriteIcon />}  {...a11yProps(1)} />
           
         </Tabs>
       </AppBar>
@@ -92,7 +92,7 @@ export default function UserArticles() {
         <TabPanel value={value} index={0} dir={theme.direction}>
           <ul>
             {
-              myObj.latestArticles.map(data => 
+              myObj.latestArticles.slice(0,5).map(data => 
                 <div>
                 <a href={data.link} rel="noopener noreferrer" target="_blank" >
                  <li> <Typography  style={{textAlign:'left', fontSize:'10pt'}} variant='subtitle1'>
@@ -109,7 +109,7 @@ export default function UserArticles() {
         <TabPanel value={value} index={1} dir={theme.direction}>
           <ul>
             {
-              myObj.favoriteArticles.map(data => 
+              myObj.favoriteArticles.slice(0,5).map(data => 
                 <div>
                 <a href={data.link} rel="noopener noreferrer" target="_blank" >
                  <li> <Typography  style={{textAlign:'left', fontSize:'10pt'}} variant='subtitle1'>

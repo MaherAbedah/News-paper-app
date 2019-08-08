@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import NewsSection from './newsSection';
 import TestObj from './test-data/testObj';
 import Divider from '@material-ui/core/Divider';
+import DashboardUserArticles from './components/profile-files/dashboardUserArticles'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -67,41 +68,34 @@ export default function Content(props) {
       </Grid>
        <Grid item xs={3} justify="center">
           <Paper className={classes.paperSide}>
-            <Typography gutterBottom variant="h6">
-                 Welcome {myObj.name}
-            </Typography>
-            {myObj.subscription_end !== null ? 
-              <Typography variant="body2" color="textSecondary"> Monthly subscription
-              </Typography> : myObj.package_end > 0 ? 
-              <Typography variant="body2" color="textSecondary"> Package subscription
-              </Typography> : <Typography variant="body2" color="textSecondary"> Single Payment
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <Typography gutterBottom variant="h6">
+                   Welcome {myObj.name}
               </Typography>
-            }
-            {myObj.subscription_end !== null ? 
-              <Typography variant="subtitle1" color="textSecondary"> ends {myObj.subscription_end}
-              </Typography> : myObj.package_end > 0 ? 
-              <Typography variant="subtitle1" color="textSecondary"> {myObj.package_end} left 
-              </Typography> : <Typography variant="subtitle1" color="textSecondary"> {myObj.tokens} left
-              </Typography>
-            }
-            <br/>
-            <Typography style={{textAlign:'left'}} gutterBottom variant="h6">
-                 Your latest reads
-            </Typography>
-            
-            {/*choosing the last 5 articles added to the latestarticles to show in the main dashboard*/
-              myObj.latestArticles.slice(0,5).map(data => 
-                <div>
-                <a href={data.link} rel="noopener noreferrer" target="_blank" >
-                  <Typography  style={{textAlign:'left', fontSize:'10pt'}} variant='subtitle1'>
-                    {data.title}
-                  </Typography>
-                </a>
-                <Typography  style={{textAlign:'right', fontSize:'8pt'}} variant="body2" color="textSecondary" >
-                     accessed {data.accessed}
+              {myObj.subscription_end !== null ? 
+                <Typography variant="body2" color="textSecondary"> Monthly subscription
+                </Typography> : myObj.package_end > 0 ? 
+                <Typography variant="body2" color="textSecondary"> Package subscription
+                </Typography> : <Typography variant="body2" color="textSecondary"> Single Payment
                 </Typography>
-                <Divider /></div>)
-            }
+              }
+              {myObj.subscription_end !== null ? 
+                <Typography variant="subtitle1" color="textSecondary"> ends {myObj.subscription_end}
+                </Typography> : myObj.package_end > 0 ? 
+                <Typography variant="subtitle1" color="textSecondary"> {myObj.package_end} left 
+                </Typography> : <Typography variant="subtitle1" color="textSecondary"> {myObj.tokens} left
+                </Typography>
+              }
+              <br/>
+              <Typography style={{textAlign:'left'}} gutterBottom variant="h6">
+                   Recent Activities
+              </Typography>
+            </Grid>
+           
+              <DashboardUserArticles />
+            
+          </Grid>
           </Paper>
         </Grid>
     </Grid>
