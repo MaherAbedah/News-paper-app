@@ -174,7 +174,7 @@ useEffect(() => {
             
             
               <input accept="image/*" className={classes.input} id="photo-file" type="file" />
-                <label htmlFor="icon-button-file">
+                <label htmlFor="photo-file">
                   <IconButton
                     color="primary"
                     className={classes.button}
