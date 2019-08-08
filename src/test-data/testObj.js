@@ -98,6 +98,7 @@ import myImage from '../images/profile-placeholder.png';
   ],
   "user": {
   name:'maher',
+  last_name:'abedah',
   email: 'maher@example.com',
   subscription_end: '18.08.2019',
   image:myImage,

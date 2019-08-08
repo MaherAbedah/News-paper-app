@@ -200,7 +200,7 @@ let myObj = TestObj.user ;
               </Grid>
               <Grid item>
                 <div>
-                  <Button variant="outlined" color="primary" style={{ cursor: 'pointer' }} onClick={handleClickOpen}>
+                  <Button variant="outlined" color="primary" style={{ cursor: 'pointer' }} href='/profileedit'>
                     Edit
                   </Button>
                   <Dialog open={state.open} onClose={handleClose}>

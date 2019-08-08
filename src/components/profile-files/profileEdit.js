@@ -13,11 +13,14 @@ import Container from '@material-ui/core/Container';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from "@material-ui/core/FormControl";
+import IconButton from '@material-ui/core/IconButton';
+import PhotoIcon from '@material-ui/icons/Face';
 
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import TestObj from '../../test-data/testObj'
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -45,20 +48,24 @@ const useStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(1),
     width: '100%',
-  }
+  },
+  input: {
+    display: 'none',
+  },
 }));
-//getting the payment plan choosed by user in front page using URL 
-let myparams = (new URL(document.location)).searchParams;
-let type = myparams.get('method');
 
-export default function SignUp() {
+let myObj = TestObj.user ;
+
+  if(window.obj !== undefined)
+    myObj = window.obj.user;
+
+
+export default function ProfileEdit() {
   const [state, setState] = React.useState({
     matched: false ,
     password:'',
     rPassword:'',
-    method:type,
-    payWith: '',
-    amount:'',
+    
   });
 
   const handleChange = name => event => {
@@ -90,11 +97,11 @@ useEffect(() => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Link href='/'><Avatar className={classes.avatar}>
+        <Link href='/profile'><Avatar className={classes.avatar}>
           <HomeIcon /> 
         </Avatar></Link>
         <Typography component="h1" variant="h5">
-          Register with FINN+
+          Edit your information
         </Typography>
         <form className={classes.form} method="POST">
           <Grid container spacing={2}>
@@ -103,7 +110,7 @@ useEffect(() => {
                 autoComplete="fname"
                 name="firstName"
                 variant="outlined"
-                required
+                
                 fullWidth
                 id="firstName"
                 label="First Name"
@@ -113,7 +120,7 @@ useEffect(() => {
             <Grid item xs={12} sm={6}>
               <TextField
                 variant="outlined"
-                required
+                
                 fullWidth
                 id="lastName"
                 label="Last Name"
@@ -124,7 +131,7 @@ useEffect(() => {
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                required
+                
                 fullWidth
                 id="email"
                 label="Email Address"
@@ -135,11 +142,11 @@ useEffect(() => {
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                required
+                
                 fullWidth
                 value={state.password}
                 name="password"
-                label="Password"
+                label="New Password"
                 type="password"
                 id="password"
                 onChange={handleMatch('password')}
@@ -150,7 +157,7 @@ useEffect(() => {
               <TextField
                 error= {!state.matched}
                 variant="outlined"
-                required
+                
                 fullWidth
                 value={state.rPassword}
                 name="rPassword"
@@ -162,53 +169,23 @@ useEffect(() => {
              
               {!state.matched &&<FormHelperText>password not matched </FormHelperText>}
             </Grid>
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="method-simple">Subscription type</InputLabel>
-              <Select
-                name='pay-method'
-                value={state.method}
-                onChange={handleChange('method')}
-                input={<Input name='pay-method' id="method-simple" />}
-              >
-                <MenuItem value={0}>Monthly</MenuItem>
-                <MenuItem value={1}>Package</MenuItem>
-                <MenuItem value={2}>One-time</MenuItem>
-              </Select>
-            </FormControl>
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="payWith-native-simple">Pay with</InputLabel>
-              <Select
-                
-                value={state.payWith}
-                onChange={handleChange('payWith')}
-                input={<Input  name='pay-with' id="payWith-simple" />}
-              >
-                <MenuItem value={1}>Credit Card</MenuItem>
-                <MenuItem value={2}>Bank Payment</MenuItem>
-              </Select>
-            </FormControl>
-
-           
-              {state.method === 2 || state.method ==='2' ? <div className={classes.formControl}>
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="amount-simple">Amount €</InputLabel>
-              <Select
-                value={state.amount}
-                onChange={handleChange('amount')}
-                input={<Input name="amount" id="amount-simple" />}
-              >
-                <MenuItem value={5}>5</MenuItem>
-                <MenuItem value={10}>10</MenuItem>
-                <MenuItem value={20}>20</MenuItem>
-                <MenuItem value={30}>30</MenuItem>
-              </Select>
-            </FormControl> </div> : <br/>}
-
-            <FormControlLabel
-            control={<Checkbox value="policy" required color="primary" />}
-            label="I agree to your Terms of use and Privacy Policy."
-          />
+            <Grid item xs={12}>
+              <Typography variant="h6" component="span"> Choose profile photo </Typography>
             
+            
+              <input accept="image/*" className={classes.input} id="photo-file" type="file" />
+                <label htmlFor="icon-button-file">
+                  <IconButton
+                    color="primary"
+                    className={classes.button}
+                    aria-label="upload picture"
+                    component="span"
+                  >
+                    <PhotoIcon />
+                  </IconButton>
+                </label>
+            
+            </Grid>
           </Grid>
           
             <Button
@@ -219,17 +196,12 @@ useEffect(() => {
               color="primary"
               className={classes.submit}
             >
-              Register
+              Save 
             </Button>
-          
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link href="/signin" variant="body2">
-                Already have an account? Log In
-              </Link>
-            </Grid>
-          </Grid>
-          <input type="hidden" id="signup_token" name="csrf_token" value={window.csrf_token} />
+            <Button  fullWidth variant="contained" color="secondary" href="/profile">
+              cancel
+            </Button>
+                   <input type="hidden" id="edit_token" name="csrf_token" value={window.csrf_token} />
         </form>
       </div>
       
