@@ -26,20 +26,6 @@ const StyledTableRow = withStyles(theme => ({
   },
 }))(TableRow);
 
-let myObj = TestObj;
-  if(window.obj !== undefined)
-    myObj = window.obj ;
-
-function createData(type, amount) {
-  return { type, amount };
-}
-
-const rows = [
-  createData(myObj.os[0].name,myObj.os[0].amount),
-  createData(myObj.os[1].name,myObj.os[1].amount),
-  createData(myObj.os[2].name,myObj.os[2].amount),
-  createData(myObj.os[3].name,myObj.os[3].amount),
-];
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -54,6 +40,22 @@ const useStyles = makeStyles(theme => ({
 
 export default function SystemsTable() {
   const classes = useStyles();
+
+  let myObj = TestObj;
+  if(window.obj !== undefined)
+    myObj = window.obj ;
+
+function createData(type, amount) {
+  return { type, amount };
+}
+
+let rows = [];
+
+  for (let item of myObj.os ){
+    
+    rows.push(createData(item.name, item.amount))
+  }
+
 
 
   return (

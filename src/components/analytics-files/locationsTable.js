@@ -26,20 +26,6 @@ const StyledTableRow = withStyles(theme => ({
   },
 }))(TableRow);
 
-let myObj = TestObj;
-  if(window.obj !== undefined)
-    myObj = window.obj ;
-
-function createData(type, amount) {
-  return { type, amount };
-}
-
-const rows = [
-  createData(myObj.location[0].name,myObj.location[0].amount),
-  createData(myObj.location[1].name,myObj.location[1].amount),
-  createData(myObj.location[2].name,myObj.location[2].amount),
-  createData(myObj.location[3].name,myObj.location[3].amount),
-];
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -54,6 +40,22 @@ const useStyles = makeStyles(theme => ({
 
 export default function LocationsTable() {
   const classes = useStyles();
+
+  let myObj = TestObj;
+  if(window.obj !== undefined)
+    myObj = window.obj ;
+
+function createData(type, amount) {
+  return { type, amount };
+}
+
+let rows = [];
+
+  for (let item of myObj.location ){
+    
+    rows.push(createData(item.name, item.amount))
+  }
+
 
 
   return (

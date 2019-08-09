@@ -73,6 +73,10 @@ export default function Analytics() {
     myObj = window.obj ;
   //const colors =['#00137FFF', '#0013D4FF', '#0074FFFF', '#00DBFFFF'];
 
+  function createData(x, y) {
+  return { x, y };
+  }
+
 	const articlesData = [
     {
       x: 1,
@@ -178,6 +182,12 @@ export default function Analytics() {
     y:myObj.duration_chart[4].amount
   }
   ];
+
+  const myDurationData = [];
+   for (let item of myObj.duration_chart ){
+    
+    myDurationData.push(createData(item.time, item.amount))
+  }
 
   const trafficData = [
      {
@@ -364,7 +374,7 @@ export default function Analytics() {
                   <AreaSeries
                     className="area-series-example"
                     curve="curveNatural"
-                    data={durationData}
+                    data={myDurationData}
                   />
                   <LabelSeries
                     animation
@@ -387,6 +397,7 @@ export default function Analytics() {
                   <XYPlot
                     width={300}
                     height={300}
+                    colorType={'literal'}
                     >
                     <XAxis/>
                     <YAxis/>
@@ -409,6 +420,7 @@ export default function Analytics() {
               </Grid>  
             </Paper>
         </Grid>
+
       </Grid>
     </div>
   );

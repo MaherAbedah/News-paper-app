@@ -26,18 +26,6 @@ const StyledTableRow = withStyles(theme => ({
   },
 }))(TableRow);
 
-let myObj = TestObj;
-  if(window.obj !== undefined)
-    myObj = window.obj ;
-
-function createData(type, amount) {
-  return { type, amount };
-}
-
-const rows = [
-  createData('Minimum Traffic',myObj.min_traffic),
-  createData('Maximum Traffic',myObj.max_traffic),
-];
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -52,6 +40,20 @@ const useStyles = makeStyles(theme => ({
 
 export default function TrafficTable() {
   const classes = useStyles();
+
+  let myObj = TestObj;
+  if(window.obj !== undefined)
+    myObj = window.obj ;
+
+function createData(type, amount) {
+  return { type, amount };
+}
+
+const rows = [
+  createData('Minimum Traffic',myObj.min_traffic),
+  createData('Maximum Traffic',myObj.max_traffic),
+];
+
 
 
   return (

@@ -26,20 +26,8 @@ const StyledTableRow = withStyles(theme => ({
   },
 }))(TableRow);
 
-let myObj = TestObj;
-  if(window.obj !== undefined)
-    myObj = window.obj ;
 
-function createData(type, amount) {
-  return { type, amount };
-}
 
-const rows = [
-  createData(myObj.browser[0].name,myObj.browser[0].amount),
-  createData(myObj.browser[1].name,myObj.browser[1].amount),
-  createData(myObj.browser[2].name,myObj.browser[2].amount),
-  createData(myObj.browser[3].name,myObj.browser[3].amount),
-];
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -54,6 +42,22 @@ const useStyles = makeStyles(theme => ({
 
 export default function BrowsersTable() {
   const classes = useStyles();
+
+  let myObj = TestObj;
+  if(window.obj !== undefined)
+    myObj = window.obj ;
+
+function createData(type, amount) {
+  return { type, amount };
+}
+
+
+let rows = [];
+
+  for (let item of myObj.browser ){
+    
+    rows.push(createData(item.name, item.amount))
+  }
 
 
   return (

@@ -83,8 +83,10 @@ import myImage from '../images/profile-placeholder.png';
   "duration_chart": [
     { "time": 1, "amount": 2},
     { "time": 10, "amount": 21},
-    { "time": 20, "amount": 11},
+    { "time": 20, "amount": 60},
     { "time": 30, "amount": 41},
+    { "time": 40, "amount": 10},
+    { "time": 50, "amount": 15},
     { "time": 60, "amount": 1},
   ],
   "max_traffic": 19,

@@ -26,20 +26,7 @@ const StyledTableRow = withStyles(theme => ({
   },
 }))(TableRow);
 
-let myObj = TestObj;
-  if(window.obj !== undefined)
-    myObj = window.obj ;
 
-function createData(type, amount) {
-  return { type, amount };
-}
-
-const rows = [
-  createData(myObj.devices[0].name,myObj.devices[0].amount),
-  createData(myObj.devices[1].name,myObj.devices[1].amount),
-  createData(myObj.devices[2].name,myObj.devices[2].amount),
-  createData(myObj.devices[3].name,myObj.devices[3].amount),
-];
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -54,6 +41,22 @@ const useStyles = makeStyles(theme => ({
 
 export default function DevicesTable() {
   const classes = useStyles();
+
+  let myObj = TestObj;
+  if(window.obj !== undefined)
+    myObj = window.obj ;
+
+function createData(type, amount) {
+  return { type, amount };
+}
+
+
+let rows = [];
+
+  for (let item of myObj.devices ){
+    
+    rows.push(createData(item.name, item.amount))
+  }
 
 
   return (

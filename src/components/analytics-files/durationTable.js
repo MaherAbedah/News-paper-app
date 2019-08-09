@@ -26,19 +26,7 @@ const StyledTableRow = withStyles(theme => ({
   },
 }))(TableRow);
 
-let myObj = TestObj;
-  if(window.obj !== undefined)
-    myObj = window.obj ;
 
-function createData(type, amount) {
-  return { type, amount };
-}
-
-const rows = [
-  createData('Minimum Duration',myObj.min_duration),
-  createData('Average Duration',myObj.average_duration),
-  createData('Maximum Duration',myObj.max_duration),
-];
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -53,6 +41,20 @@ const useStyles = makeStyles(theme => ({
 
 export default function DurationTable() {
   const classes = useStyles();
+
+  let myObj = TestObj;
+  if(window.obj !== undefined)
+    myObj = window.obj ;
+
+function createData(type, amount) {
+  return { type, amount };
+}
+
+const rows = [
+  createData('Minimum Duration',myObj.min_duration),
+  createData('Average Duration',myObj.average_duration),
+  createData('Maximum Duration',myObj.max_duration),
+];
 
 
   return (
