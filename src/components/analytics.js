@@ -17,7 +17,7 @@ import PackagePaymentIcon from '@material-ui/icons/Redeem';
 import PercentageIcon from '@material-ui/icons/AspectRatio';
 
 import {XYPlot, XAxis, YAxis, ArcSeries, VerticalBarSeries, LabelSeries,
- VerticalGridLines,HorizontalGridLines,AreaSeries,LineSeries} from 'react-vis';
+ VerticalGridLines,HorizontalGridLines,AreaSeries,LineSeries, ChartLabel} from 'react-vis';
 import DevicesTable from './analytics-files/devicesTable'
 import SystemsTable from './analytics-files/systemsTable'
 import BrowsersTable from './analytics-files/browsersTable'
@@ -160,58 +160,24 @@ export default function Analytics() {
   	}
   ];
 
-  const durationData = [
-  {
-    x:myObj.duration_chart[0].time,
-    y:myObj.duration_chart[0].amount
-  },
-  {
-    x:myObj.duration_chart[1].time,
-    y:myObj.duration_chart[1].amount
-  },
-  {
-    x:myObj.duration_chart[2].time,
-    y:myObj.duration_chart[2].amount
-  },
-  {
-    x:myObj.duration_chart[3].time,
-    y:myObj.duration_chart[3].amount
-  },
-  {
-    x:myObj.duration_chart[4].time,
-    y:myObj.duration_chart[4].amount
-  }
-  ];
 
-  const myDurationData = [];
+  const durationData = [];
    for (let item of myObj.duration_chart ){
     
-    myDurationData.push(createData(item.time, item.amount))
+    durationData.push(createData(item.time, item.amount))
   }
 
-  const trafficData = [
-     {
-        x:myObj.traffic_chart[0].time,
-        y:myObj.traffic_chart[0].amount
-      },
-      {
-        x:myObj.traffic_chart[1].time,
-        y:myObj.traffic_chart[1].amount
-      },
-      {
-        x:myObj.traffic_chart[2].time,
-        y:myObj.traffic_chart[2].amount
-      },
-      {
-        x:myObj.traffic_chart[3].time,
-        y:myObj.traffic_chart[3].amount
-      },
-      {
-        x:myObj.traffic_chart[4].time,
-        y:myObj.traffic_chart[4].amount
-      }
-  ]
+  const trafficData = [];
+  for (let item of myObj.traffic_chart ){
+    
+    trafficData.push(createData(item.time, item.amount))
+  }
 
+  let maxAmountUsers = 1;
+  for (let item of myObj.duration_chart){
+    if(item.amount > maxAmountUsers)
+      maxAmountUsers = item.amount 
+  }
 
   return (
     <div className={classes.root}>
@@ -374,13 +340,13 @@ export default function Analytics() {
                   <AreaSeries
                     className="area-series-example"
                     curve="curveNatural"
-                    data={myDurationData}
+                    data={durationData}
                   />
                   <LabelSeries
                     animation
                     allowOffsetToBeReversed
-                    data={[{x: 65, y: 0, label: 'duration(minutes)', xOffset: 10, rotation: 0},
-                            {x: 0, y: 45, label: 'users', xOffset: -10, rotation: 90}]} />
+                    data={[{x: myObj.max_duration, y: 0, label: 'duration(minutes)', xOffset: 10, rotation: 0},
+                            {x: 0, y: maxAmountUsers, label: 'users', xOffset: -10, rotation: 90}]} />
                 </XYPlot>
               </Grid>
               <Grid item xs={5}>
@@ -411,7 +377,7 @@ export default function Analytics() {
                     animation
                     allowOffsetToBeReversed
                     data={[{x: 22, y: 0, label: 'time', xOffset: 10, rotation: 0},
-                            {x: 8, y: 45, label: 'hits', xOffset: -10, rotation: 90}]} />
+                            {x: 0, y: myObj.max_traffic, label: 'hits', xOffset: -10, rotation: 90}]} />
                   </XYPlot>
                 </Grid>
                 <Grid item xs={5}>
