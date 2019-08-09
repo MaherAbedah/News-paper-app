@@ -34,14 +34,6 @@ import myImage from '../images/profile-placeholder.png';
 	      "package_percent":40,
 	      "single_percent":30
 	    },
-	    {
-	      "title": "article_name_4",
-	      "link":  "url",
-	      "total_reads" : 80,
-	      "monthly_percent":10,
-	      "package_percent":90,
-	      "single_percent":0
-	    }
 	 ],
 	 "categories": [
     { "category":  "politics", "reads":  31 },
@@ -121,6 +113,8 @@ import myImage from '../images/profile-placeholder.png';
     { "time": 23, "amount": 40},
     { "time": 24, "amount": 6},
   ],
+
+
   "user": {
   name:'maher',
   last_name:'abedah',

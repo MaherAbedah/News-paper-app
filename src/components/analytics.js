@@ -71,15 +71,27 @@ export default function Analytics() {
   let myObj = TestObj;
   if(window.obj !== undefined)
     myObj = window.obj ;
-  //const colors =['#00137FFF', '#0013D4FF', '#0074FFFF', '#00DBFFFF'];
+  const colors =['#00137FFF', '#0013D4FF', '#0074FFFF', '#00DBFFFF'];
 
   function createData(x, y) {
   return { x, y };
   }
-
-	const articlesData = [
+  const myarticlesData = [];
+  for (let i= 0 ;i < myObj.top_articles.length; i++){
+    myarticlesData.push({
+      x:i+1,
+      y: myObj.top_articles[i].total_reads,
+      name: myObj.top_articles[i].title,
+      color:colors[i],
+      link:myObj.top_articles[i].link,
+      monthly_percent:myObj.top_articles[i].monthly_percent,
+      package_percent:myObj.top_articles[i].package_percent,
+      single_percent:myObj.top_articles[i].single_percent
+    })
+  }
+	/*const articlesData = [
     {
-      x: 1,
+      x: 1 ,
       y: myObj.top_articles[0].total_reads,
       name: myObj.top_articles[0].title,
       color:'#00137FFF',
@@ -114,7 +126,7 @@ export default function Analytics() {
       name: myObj.articles[3].name,
       color:'#00DBFFFF'
     }*/
-  ];
+ // ];*/
   /*//this is used to add lebles to the chart bars if needed 
   const articleLabel = [
   {
@@ -224,14 +236,14 @@ export default function Analytics() {
            		<YAxis/>
            		<VerticalBarSeries
            			colorType={'literal'}
-           		    data={articlesData}/>
+           		    data={myarticlesData}/>
            		{/*<LineSeries
            		    data={articlesData}/>*/}
            		{/*<LabelSeries  data={articleLabel} />*/}
         	</XYPlot>
           	<div>
 				<List className={classes.list}>
-				{articlesData.map((item) =>
+				{myarticlesData.map((item) =>
           <Grid container spacing={2}>
             <Grid item xs={6}>
   			      <ListItem button >
