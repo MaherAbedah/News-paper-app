@@ -6,6 +6,9 @@ import Typography from '@material-ui/core/Typography';
 import NewsSection from './newsSection';
 import TestObj from './test-data/testObj';
 import Divider from '@material-ui/core/Divider';
+import ReactWeather from 'react-open-weather';
+//Optional include of the default css styles 
+import 'react-open-weather/lib/css/ReactWeather.css';
 import DashboardUserArticles from './components/profile-files/dashboardUserArticles'
 
 const useStyles = makeStyles(theme => ({
@@ -70,6 +73,13 @@ export default function Content(props) {
           <Paper className={classes.paperSide}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
+              <ReactWeather
+                forecast="today"  
+                apikey="7ca4f321a63044edb82103920191208"
+                type="auto"
+              />
+            </Grid>
+            <Grid item xs={12}>
               <Typography gutterBottom variant="h6">
                    Welcome {myObj.name}
               </Typography>
@@ -98,6 +108,7 @@ export default function Content(props) {
           </Grid>
           </Paper>
         </Grid>
+
     </Grid>
   );
 }
