@@ -32,10 +32,11 @@ const useStyles = makeStyles(theme => ({
   },
   paperSide: {
     padding: theme.spacing(2),
-    textAlign: 'center',
+    textAlign: 'left',
     color: theme.palette.text.secondary,
     maxHight:'100%',
-    marginTop:'30px'
+    marginTop:'30px',
+    boxShadow:'none',
   },
   control: {
     padding: theme.spacing(2),
@@ -73,13 +74,6 @@ export default function Content(props) {
           <Paper className={classes.paperSide}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <ReactWeather
-                forecast="today"  
-                apikey="7ca4f321a63044edb82103920191208"
-                type="auto"
-              />
-            </Grid>
-            <Grid item xs={12}>
               <Typography gutterBottom variant="h6">
                    Welcome {myObj.name}
               </Typography>
@@ -97,13 +91,22 @@ export default function Content(props) {
                 </Typography> : <Typography variant="subtitle1" color="textSecondary"> {myObj.tokens} left
                 </Typography>
               }
+              
+              
+            </Grid>
+            <Grid item xs={12}>
+              <ReactWeather
+                forecast="today"  
+                apikey="7ca4f321a63044edb82103920191208"
+                type="auto"
+              />
               <br/>
-              <Typography style={{textAlign:'left'}} gutterBottom variant="h6">
+            </Grid>
+            
+           {/*<Typography style={{textAlign:'left'}} gutterBottom variant="h6">
                    Recent Activities
               </Typography>
-            </Grid>
-           
-              <DashboardUserArticles />
+              <DashboardUserArticles />*/}
             
           </Grid>
           </Paper>

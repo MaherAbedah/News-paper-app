@@ -96,6 +96,20 @@ export default function NewsSection(props) {
         ))
       )
     }
+    else if (props.name === 'Favorites'){
+      
+      return(
+        Articles.map(data => data.content.filter(item => item.fav === true).map(tile => ( <Article data = {tile}/>
+        )))
+      )
+    }
+    else if (props.name === 'Recent Reads'){
+      
+      return(
+        Articles.map(data => data.content.filter(item => item.read === true).map(tile => ( <Article data = {tile}/>
+        )))
+      )
+    }
   }
 
   return (

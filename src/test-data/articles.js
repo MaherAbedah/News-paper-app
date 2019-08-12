@@ -25,7 +25,7 @@ import image15 from '../images/last/image_five.jpg';
         link: 'https://www.bbc.com/news/live/world-asia-china-48455370',
         date:'16.08.2018',
         preview:'article preview',
-        fav: false,
+        fav: true,
         read:false,
       },
       {
@@ -35,7 +35,7 @@ import image15 from '../images/last/image_five.jpg';
         link: 'https://www.bbc.com/sport/football/48601917',
         date:'16.08.2018',
         preview:'article preview',
-        fav: false,
+        fav: true,
         read:true,
       },
       {
@@ -55,7 +55,7 @@ import image15 from '../images/last/image_five.jpg';
         link: 'https://www.ts.fi/uutiset/paikalliset/4607966/Turku+haluaa+turvata+Karinakodin+jatkon++Kaskenlinnan+saattohoitopaikkojen+ei+uskota+riittavan+tulevaisuudessa',
         date:'16.08.2018',
         preview:'article preview',
-        fav: false,
+        fav: true,
         read:true,
       },
       {
@@ -89,7 +89,7 @@ import image15 from '../images/last/image_five.jpg';
           link: 'https://www.ts.fi/uutiset/paikalliset/4607509/Kasiluokkalaiset+lahettivat+satelliitin+stratosfaariin++Steamkesakoulussa+koulittiin+tulevaisuuden+tiedeosaajia',
           date:'16.08.2018',
         preview:'article preview',
-        fav: false,
+        fav: true,
         read:false,
         },
         {
@@ -99,7 +99,7 @@ import image15 from '../images/last/image_five.jpg';
           link: 'https://www.ksml.fi/kotimaa/EK-tyrm%C3%A4%C3%A4-kaavaillun-perhevapaauudistuksen-Emme-ymm%C3%A4rr%C3%A4-miksi-ty%C3%B6kykyisi%C3%A4-ihmisi%C3%A4-kannustetaan-olemaan-poissa-t%C3%B6ist%C3%A4/1389516',
           date:'16.08.2018',
         preview:'article preview',
-        fav: false,
+        fav: true,
         read:false,
         },
         {

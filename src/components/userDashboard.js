@@ -34,6 +34,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import HistoryIcon from '@material-ui/icons/History';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 import clsx from 'clsx';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -223,9 +225,11 @@ function UserDashboard() {
     setOpen(false);
   }
    function handleListColor(event){
-    let listItems = document.getElementById('categoryList').children
+    let listItems = document.getElementById('categoryList').children;
+    let listDivider = document.getElementById('listDiv')
     for (let i=0;i<listItems.length;i++)
       listItems[i].style.backgroundColor='white'
+    listDivider.style.backgroundColor = 'gray'
     //event.target.setListColor(!listColor);
     //event.target.classList.add('classes.clickedList')
   }
@@ -384,9 +388,9 @@ function UserDashboard() {
         </div>
         <Divider />
         <List  id='categoryList'>
-          {/*['All News','Politics', 'Sports', 'Economy', 'Technology' , 'Health' , 'Entertainment'].map((text, index) => (
+          {/*['All News','Politics', 'Sports', 'Economy', 'Technology' , 'Health' , 'Entertainment','Favorites', 'Recent Reads'].map((text, index) => (
             <ListItem button className={listColor ? classes.clickedList: classes.notClickedList}  onClick={(event) => handleContent(text,event)} key={text}>
-              <ListItemIcon  >{index % 7 === 0 ? <AllNewsIcon /> :index % 7 === 1 ? <AccountBalance /> : index % 7 === 2 ? <Pool/> : index % 7 === 3 ? <AttachMoney/> : index % 7 === 4 ? <Devices/> : index % 7 === 5 ? <LocalHospital/> : <Movie/> }</ListItemIcon>
+              <ListItemIcon  >{index % 7 === 0 ? <AllNewsIcon /> :index % 7 === 1 ? <AccountBalance /> : index % 7 === 2 ? <Pool/> : index % 7 === 3 ? <AttachMoney/> : index % 7 === 4 ? <Devices/> : index % 7 === 5 ? <LocalHospital/> :index % 7 === 6 ? <Movie/> :index % 7 === 7 ? <FavoriteIcon/> : <HistoryIcon/>}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))*/}
@@ -432,7 +436,20 @@ function UserDashboard() {
             </ListItemIcon>
             <ListItemText primary='Entertainment' />
           </ListItem>
-        
+          <Divider id="listDiv"/>
+          <ListItem button   onClick={(event) => handleContent('Recent Reads',event)} key='Recent Reads'>
+             <ListItemIcon  >
+            <HistoryIcon/>
+            </ListItemIcon>
+            <ListItemText primary='Recent Reads' />
+          </ListItem>
+          <ListItem button   onClick={(event) => handleContent('Favorites',event)} key='Favorites'>
+             <ListItemIcon  >
+            <FavoriteIcon/>
+            </ListItemIcon>
+            <ListItemText primary='Favorites' />
+          </ListItem>
+          
         </List>
 
         <Divider />
