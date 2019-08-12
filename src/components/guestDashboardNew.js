@@ -258,6 +258,13 @@ export default function FrontPage() {
                       <li>Read on any device</li>
                       <li>Cancel at any time</li>
                     </ul>
+                    <form method="POST" action="/signup" className={classes.button}>
+                      <Button  variant="outlined" color="secondary" href={'/signup?method='+value} className={classes.button}>
+                        Continue to Registration 
+                      </Button>
+                      <input type="hidden" id="pay-method" name="pay-method" value= {value} />
+                      <input type="hidden" id="payment_token" name="csrf_token" value= {window.csrf_token} />
+                    </form>
                       </div>} />
                   <Tab label={<div>
                     <Typography style={{color:'black'}} component="div">Package subscription </Typography>
@@ -268,6 +275,13 @@ export default function FrontPage() {
                       <li>Read on any device</li>
                       <li>Cancel at any time</li>
                     </ul>
+                    <form method="POST" action="/signup" className={classes.button}>
+                      <Button  variant="outlined" color="secondary" href={'/signup?method='+value} className={classes.button}>
+                        Continue to Registration 
+                      </Button>
+                      <input type="hidden" id="pay-method" name="pay-method" value= {value} />
+                      <input type="hidden" id="payment_token" name="csrf_token" value= {window.csrf_token} />
+                    </form>
                       </div>} />
                   <Tab label={<div>
                     <Typography style={{color:'black'}} component="div"> Single Payment </Typography>
@@ -278,6 +292,13 @@ export default function FrontPage() {
                       <li>Read on any device</li>
                       
                     </ul>
+                    <form method="POST" action="/signup" className={classes.button}>
+                      <Button  variant="outlined" color="secondary" href={'/signup?method='+value} className={classes.button}>
+                        Continue to Registration 
+                      </Button>
+                      <input type="hidden" id="pay-method" name="pay-method" value= {value} />
+                      <input type="hidden" id="payment_token" name="csrf_token" value= {window.csrf_token} />
+                    </form>
                       </div>} />
                 </Tabs>
               </AppBar>
@@ -289,39 +310,7 @@ export default function FrontPage() {
               <input type="hidden" id="pay-method" name="pay-method" value= {value} />
               <input type="hidden" id="payment_token" name="csrf_token" value= {window.csrf_token} />
               </form>*/}
-              <SwipeableViews
-                  axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                  index={value}
-                  onChangeIndex={handleChangeIndex}
-              >
-                  <TabContainer dir={theme.direction}>
-                    <form method="POST" action="/signup" className={classes.button}>
-                      <Button  variant="outlined" color="secondary" href={'/signup?method='+value} className={classes.button}>
-                        Continue to Registration 
-                      </Button>
-                      <input type="hidden" id="pay-method" name="pay-method" value= {value} />
-                      <input type="hidden" id="payment_token" name="csrf_token" value= {window.csrf_token} />
-                    </form>
-                  </TabContainer>
-                  <TabContainer dir={theme.direction}>
-                    <form method="POST" action="/signup" className={classes.button}>
-                      <Button  variant="outlined" color="secondary" href={'/signup?method='+value} className={classes.button}>
-                        Continue to Registration 
-                      </Button>
-                      <input type="hidden" id="pay-method" name="pay-method" value= {value} />
-                      <input type="hidden" id="payment_token" name="csrf_token" value= {window.csrf_token} />
-                    </form>
-                   </TabContainer>
-                  <TabContainer dir={theme.direction}>
-                    <form method="POST" action="/signup" className={classes.button}>
-                      <Button  variant="outlined" color="secondary" href={'/signup?method='+value} className={classes.button}>
-                        Continue to Registration 
-                      </Button>
-                      <input type="hidden" id="pay-method" name="pay-method" value= {value} />
-                      <input type="hidden" id="payment_token" name="csrf_token" value= {window.csrf_token} />
-                    </form>                  
-                  </TabContainer>
-              </SwipeableViews>
+              
             </div>
             
           </Paper>
