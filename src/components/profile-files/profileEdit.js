@@ -103,7 +103,7 @@ useEffect(() => {
         <Typography component="h1" variant="h5">
           Edit your information
         </Typography>
-        <form className={classes.form} method="POST">
+        <form className={classes.form} method="POST" encType="multipart/form-data">
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -173,17 +173,8 @@ useEffect(() => {
               <Typography variant="h6" component="span"> Choose profile photo </Typography>
             
             
-              <input accept="image/*" className={classes.input} id="photo-file" type="file" />
-                <label htmlFor="photo-file">
-                  <IconButton
-                    color="primary"
-                    className={classes.button}
-                    aria-label="upload picture"
-                    component="span"
-                  >
-                    <PhotoIcon />
-                  </IconButton>
-                </label>
+              <Input  id="photo-file" name = "photo-file" type="file" />
+                
             
             </Grid>
           </Grid>

@@ -229,7 +229,7 @@ function UserDashboard() {
     let listDivider = document.getElementById('listDiv')
     for (let i=0;i<listItems.length;i++)
       listItems[i].style.backgroundColor='white'
-    listDivider.style.backgroundColor = 'gray'
+    listDivider.style.backgroundColor = '#E0E0E0FF'
     //event.target.setListColor(!listColor);
     //event.target.classList.add('classes.clickedList')
   }

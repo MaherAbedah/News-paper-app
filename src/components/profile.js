@@ -173,17 +173,10 @@ let myObj = TestObj.user ;
       <Paper className={classes.paper}>  
         <Grid container spacing={2}>  
           <Grid item>
-            <form method="POST" action="/edit">
             <ButtonBase className={classes.image}>
-            <input onChange={handleImageChange('image')} accept="image/*" encType="multipart/form-data" className={classes.input} id="profile-photo-file" type="file" />
-              <label htmlFor="profile-photo-file">
-            
-                <img id="profile-photo" className={classes.img} alt="user personal photo " src={state.image} />
-              
-              </label>
+              <img id="profile-photo" className={classes.img} alt="user personal photo " src={state.image} />
             </ButtonBase>
             
-            </form>
           </Grid>
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>

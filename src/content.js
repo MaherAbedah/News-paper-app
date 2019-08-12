@@ -96,7 +96,7 @@ export default function Content(props) {
             </Grid>
             <Grid item xs={12}>
               <ReactWeather
-                forecast="today"  
+                forecast="5days"  
                 apikey="7ca4f321a63044edb82103920191208"
                 type="auto"
               />
