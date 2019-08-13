@@ -119,7 +119,7 @@ import myImage from '../images/profile-placeholder.png';
   name:'maher',
   last_name:'abedah',
   email: 'maher@example.com',
-  subscription_end: '18.08.2019',
+  subscription_end: null,
   image:myImage,
   package_end:0,
   tokens:3,

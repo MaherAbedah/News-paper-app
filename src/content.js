@@ -7,7 +7,6 @@ import NewsSection from './newsSection';
 import TestObj from './test-data/testObj';
 import Divider from '@material-ui/core/Divider';
 import ReactWeather from 'react-open-weather';
-//Optional include of the default css styles 
 import 'react-open-weather/lib/css/ReactWeather.css';
 import DashboardUserArticles from './components/profile-files/dashboardUserArticles'
 
@@ -50,8 +49,6 @@ if(window.obj !== undefined)
 export default function Content(props) {
   const [spacing] = React.useState(6);
   const classes = useStyles();
-  
-
 
   return (
     <Grid container justify="center" className={classes.root} spacing={2}>
@@ -99,6 +96,7 @@ export default function Content(props) {
                 forecast="5days"  
                 apikey="7ca4f321a63044edb82103920191208"
                 type="auto"
+
               />
               <br/>
             </Grid>

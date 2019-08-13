@@ -52,58 +52,58 @@ let Articles = TestArticles;
 
 export default function NewsSection(props) {
   const classes = useStyles();
-  
+  const [newsCategory, setnewsCategory] = React.useState(props.name);
   function renderSection () {
-    if (props.name === 'All News') {
+    if (newsCategory === 'All News') {
       console.log(`name= ${props.name} , Articles= ${Articles}`);
       return(
         Articles.map(tile =>{ return [<Typography style={{height:40}}  variant="h6" > {tile.name} </Typography> , tile.content.map(content => (  <Article data = {content}/>)     
             )]})
       )
-    }else if(props.name === 'Politics') {
-      console.log(`name= ${props.name} , Articles= ${Articles}`);
+    }else if(newsCategory === 'Politics') {
+      console.log(`name= ${newsCategory} , Articles= ${Articles}`);
       return(
         Articles.filter(tile => tile.name === 'politics')[0].content.map(content => (  <Article data = {content}/> 
      ))
       )
     }
-    else if (props.name === 'Sports') {
+    else if (newsCategory === 'Sports') {
       return(
         Articles.filter(tile => tile.name === 'sports')[0].content.map(tile => ( <Article data = {tile}/>
              ))
       )
-    } else if (props.name === 'Economy'){
+    } else if (newsCategory === 'Economy'){
       return(
         Articles.filter(tile => tile.name === 'economy')[0].content.map(tile => ( <Article data = {tile}/>
                 ))
       )
     }
-    else if (props.name === 'Technology'){
+    else if (newsCategory === 'Technology'){
       return(
         Articles.filter(tile => tile.name === 'technology')[0].content.map(tile => ( <Article data = {tile}/>
         ))
       )
     }
-    else if (props.name === 'Health'){
+    else if (newsCategory === 'Health'){
       return(
         Articles.filter(tile => tile.name === 'health')[0].content.map(tile => ( <Article data = {tile}/>
         ))
       )
     }
-    else if (props.name === 'Entertainment'){
+    else if (newsCategory === 'Entertainment'){
       return(
         Articles.filter(tile => tile.name === 'entertainment')[0].content.map(tile => ( <Article data = {tile}/>
         ))
       )
     }
-    else if (props.name === 'Favorites'){
+    else if (newsCategory === 'Favorites'){
       
       return(
         Articles.map(data => data.content.filter(item => item.fav === true).map(tile => ( <Article data = {tile}/>
         )))
       )
     }
-    else if (props.name === 'Recent Reads'){
+    else if (newsCategory === 'Recent Reads'){
       
       return(
         Articles.map(data => data.content.filter(item => item.read === true).map(tile => ( <Article data = {tile}/>

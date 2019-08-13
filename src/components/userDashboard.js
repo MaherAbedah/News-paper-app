@@ -386,7 +386,8 @@ function UserDashboard() {
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
-        <Divider />
+        <Divider/>
+        <Divider/>
         <List  id='categoryList'>
           {/*['All News','Politics', 'Sports', 'Economy', 'Technology' , 'Health' , 'Entertainment','Favorites', 'Recent Reads'].map((text, index) => (
             <ListItem button className={listColor ? classes.clickedList: classes.notClickedList}  onClick={(event) => handleContent(text,event)} key={text}>
@@ -436,9 +437,10 @@ function UserDashboard() {
             </ListItemIcon>
             <ListItemText primary='Entertainment' />
           </ListItem>
+          <Divider/>
           <Divider id="listDiv"/>
           <ListItem button   onClick={(event) => handleContent('Recent Reads',event)} key='Recent Reads'>
-             <ListItemIcon  >
+             <ListItemIcon >
             <HistoryIcon/>
             </ListItemIcon>
             <ListItemText primary='Recent Reads' />
@@ -451,8 +453,8 @@ function UserDashboard() {
           </ListItem>
           
         </List>
-
-        <Divider />
+        <Divider/>
+        <Divider/>
         <List>
           {[{name:'Helsingin Sonomat',link:'http://127.0.0.1:8000/hs/'}, {name:'Kauppalehti',link:'http://127.0.0.1:8000/kl/'}, {name:'Keskisuomalainen',link:'http://127.0.0.1:8000/ks/'} ,{name:'Savon Sanomat',link:'http://127.0.0.1:8000/ss/'} , {name:'Turun Sanomat', link:'http://127.0.0.1:8000/ts/'}].map((text, index) => (
             <ListItem button key={text}>
