@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../node_modules/react-vis/dist/style.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -16,7 +17,7 @@ import MonthlyPaymentIcon from '@material-ui/icons/Forward30';
 import PackagePaymentIcon from '@material-ui/icons/Redeem';
 import PercentageIcon from '@material-ui/icons/AspectRatio';
 
-import {XYPlot, XAxis, YAxis, ArcSeries, VerticalBarSeries, LabelSeries,
+import {XYPlot, XAxis, YAxis, ArcSeries, VerticalBarSeries, LabelSeries,LineMarkSeries,
  VerticalGridLines,HorizontalGridLines,AreaSeries,LineSeries, ChartLabel} from 'react-vis';
 import DevicesTable from './analytics-files/devicesTable'
 import SystemsTable from './analytics-files/systemsTable'
@@ -172,7 +173,9 @@ export default function Analytics() {
   	}
   ];
 
-
+function createNewData(x, y) {
+  return { x, y };
+  }
   const durationData = [];
    for (let item of myObj.duration_chart ){
     
@@ -339,27 +342,35 @@ export default function Analytics() {
             <h3> Duration spent on site </h3>
             <Grid container spacing={2}>
               <Grid item xs={7}>
-                <XYPlot
-                  width={300}
-                  height={300}
-                  
-                  
-                  >
-                  
-                  <XAxis/>
-                  <YAxis/>
-                  
-                  <AreaSeries
-                    className="area-series-example"
-                    curve="curveNatural"
-                    data={durationData}
-                  />
-                  <LabelSeries
-                    animation
-                    allowOffsetToBeReversed
-                    data={[{x: myObj.max_duration, y: 0, label: 'duration(minutes)', xOffset: 10, rotation: 0},
-                            {x: 0, y: maxAmountUsers, label: 'users', xOffset: -10, rotation: 90}]} />
-                </XYPlot>
+                
+                  <XYPlot
+                    width={300}
+                    height={300}
+                    colorType={'literal'}
+                    >
+                    <VerticalGridLines />
+                    <HorizontalGridLines />
+                    <XAxis/>
+                    <YAxis/>
+                    <LineMarkSeries
+                      style={{
+                        strokeWidth: '3px'
+                      }}
+                      lineStyle={{stroke: 'red'}}
+                      markStyle={{stroke: 'blue'}}
+                      data= {durationData}/>
+                    {/*<AreaSeries
+                      
+                      curve="curveNatural"
+                      data={durationData}
+                    />*/}
+                    <LabelSeries
+                      animation
+                      allowOffsetToBeReversed
+                      data={[{x: myObj.max_duration, y: 0, label: 'duration(minutes)', xOffset: 10, rotation: 0},
+                              {x: 0, y: maxAmountUsers, label: 'users', xOffset: -10, rotation: 90}]} />
+                  </XYPlot>
+               
               </Grid>
               <Grid item xs={5}>
                 <DurationTable />
@@ -377,12 +388,14 @@ export default function Analytics() {
                     height={300}
                     colorType={'literal'}
                     >
+                    <VerticalGridLines />
+                    <HorizontalGridLines />
                     <XAxis/>
                     <YAxis/>
                     <LineSeries 
                       data={trafficData}
                       curve={'curveMonotoneX'}
-                      color='red'
+                      color='#39C5AAFF'
                       strok= '2' 
                     />
                     <LabelSeries
