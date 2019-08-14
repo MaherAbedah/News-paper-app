@@ -73,7 +73,7 @@ import myImage from '../images/profile-placeholder.png';
   "min_duration": 1,
   "max_duration": 90,
   "duration_chart": [
-    { "time":2 , "amount": 40},
+    { "time":5 , "amount": 40},
     { "time": 10, "amount": 21},
     { "time": 20, "amount": 60},
     { "time": 30, "amount": 41},
