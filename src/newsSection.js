@@ -97,18 +97,30 @@ export default function NewsSection(props) {
       )
     }
     else if (newsCategory === 'Favorites'){
-      
-      return(
-        Articles.map(data => data.content.filter(item => item.fav === true).map(tile => ( <Article data = {tile}/>
-        )))
+      return( 
+        fetch('/user_activities')
+         .then(res => res.json())
+         .then(data => data.favoriteArticles.map(tile => ( <Article data = {tile}/>)))
       )
+      
+   // /* this solution needs the page to be refreshed to include the favorited articles in the favorits section 
+    // return(
+    //  Articles.map(data => data.content.filter(item => item.fav === true).map(tile => ( <Article data = {tile}/>
+    //    )))
+    // )*/
     }
     else if (newsCategory === 'Recent Reads'){
-      
+      return( 
+        fetch('/user_activities')
+         .then(res => res.json())
+         .then(data => data.latestArticles.map(tile => ( <Article data = {tile}/>)))
+      )
+
+      /* this solution needs the page to be refreshed to include the favorited articles in the favorits section 
       return(
         Articles.map(data => data.content.filter(item => item.read === true).map(tile => ( <Article data = {tile}/>
         )))
-      )
+      )*/
     }
   }
 
