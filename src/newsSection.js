@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -53,6 +54,13 @@ let Articles = TestArticles;
 export default function NewsSection(props) {
   const classes = useStyles();
   const [newsCategory, setnewsCategory] = React.useState(props.name);
+  const [favList, setFavList]= useState([]);
+  
+  useEffect(() => {
+      fetch('/user_activities')
+         .then(res => res.json())
+         .then(data => setFavList(data.favoriteArticles))
+  }, []);
   function renderSection () {
     if (newsCategory === 'All News') {
       console.log(`name= ${props.name} , Articles= ${Articles}`);
@@ -97,11 +105,9 @@ export default function NewsSection(props) {
       )
     }
     else if (newsCategory === 'Favorites'){
-       
-        fetch('/user_activities')
-         .then(res => res.json())
-         .then(data => data.favoriteArticles.map(tile => ( <Article data = {tile}/>)))
-      
+      return( 
+        favList.map(tile => ( <Article data = {tile}/>))
+      )
       
    // /* this solution needs the page to be refreshed to include the favorited articles in the favorits section 
     // return(
@@ -110,11 +116,11 @@ export default function NewsSection(props) {
     // )*/
     }
     else if (newsCategory === 'Recent Reads'){
-      
+      return( 
         fetch('/user_activities')
          .then(res => res.json())
          .then(data => data.latestArticles.map(tile => ( <Article data = {tile}/>)))
-      
+      )
 
       /* this solution needs the page to be refreshed to include the favorited articles in the favorits section 
       return(

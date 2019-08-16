@@ -69,3 +69,23 @@ delete account.
 11.   Summarize how many articles being read or paid in each topic (Politics, sports, economy, technology, health, entertainment) to find most users’ interest.
 
 12.   New and returning users.
+
+
+
+16.08.2019
+
+adding pecentage till payment to the progress bar.
+in the profile page adding a third tab for the purchase history 
+adding home link to the website logo.
+adding the search button to the home page.
+adding the readers number to the table on analytics page
+
+adding the google analytics API with the suitable charts and information.??
+
+the automated registration for publishers. 
+
+seperating the technology analytics from business analytics.
+
+register as publisher in front page.
+
+the space between news and weather widget.
