@@ -6,9 +6,13 @@
     "@material-ui/core": "^4.0.2",
     "@material-ui/icons": "^4.1.0",
     "auth0-js": "^9.10.4",
+    "babel-polyfill": "^6.26.0",
     "badger-components-react": "^0.3.1",
     "cashid": "^0.2.5",
+    "core-js": "^3.2.1",
+    "es6-object-assign": "^1.1.0",
     "react": "^16.8.6",
+    "react-app-polyfill": "^1.0.2",
     "react-avatar-edit": "^0.8.3",
     "react-cashid": "^0.2.0",
     "react-dom": "^16.8.6",
@@ -43,7 +47,8 @@
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 safari version",
+      "last 1 ie version"
     ]
   },
   "devDependencies": {
