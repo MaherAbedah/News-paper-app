@@ -97,11 +97,11 @@ export default function NewsSection(props) {
       )
     }
     else if (newsCategory === 'Favorites'){
-      return( 
+       
         fetch('/user_activities')
          .then(res => res.json())
          .then(data => data.favoriteArticles.map(tile => ( <Article data = {tile}/>)))
-      )
+      
       
    // /* this solution needs the page to be refreshed to include the favorited articles in the favorits section 
     // return(
@@ -110,11 +110,11 @@ export default function NewsSection(props) {
     // )*/
     }
     else if (newsCategory === 'Recent Reads'){
-      return( 
+      
         fetch('/user_activities')
          .then(res => res.json())
          .then(data => data.latestArticles.map(tile => ( <Article data = {tile}/>)))
-      )
+      
 
       /* this solution needs the page to be refreshed to include the favorited articles in the favorits section 
       return(
