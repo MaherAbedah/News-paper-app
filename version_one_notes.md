@@ -3,7 +3,7 @@ adding the top up your account (monthly, package or top with 10 euros and pay wi
 
 once logged in and paid the access should be granted.
 
-automatic charges and refund for the package subscription
+automatic charges and refund for the package subscription.
 
 adding the home page button to all pages.
 
@@ -72,20 +72,24 @@ delete account.
 
 
 
-16.08.2019
+## 16.08.2019
 
 adding pecentage till payment to the progress bar.
-in the profile page adding a third tab for the purchase history 
-adding home link to the website logo.
-adding the search button to the home page.
-adding the readers number to the table on analytics page
 
-adding the google analytics API with the suitable charts and information.??
+in the profile page adding a third tab for the purchase history.
 
-the automated registration for publishers. 
+adding home link to the website logo.(done)
+
+adding the search button to the home page.(done)
+
+adding the readers number to the table on analytics page.(done but needs backend data tobe modifie).
+
+the automated registration for publishers.
 
 seperating the technology analytics from business analytics.
 
 register as publisher in front page.
 
 the space between news and weather widget.
+
+adding the google analytics API with the suitable charts and information.??

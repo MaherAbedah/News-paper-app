@@ -84,9 +84,11 @@ export default function PaymentPage() {
             
            </div>
              <div className={classes.title}>
-              <Typography  variant="h2">
-                     FINN+
-              </Typography>
+              <Link href="/dashboard" style={{textDecoration:'none', color: '#777777FF'}}>
+                <Typography  variant="h2">
+                       FINN+
+                </Typography>
+              </Link>
               <Typography  variant="h5">
                     Choose your favorite subscription and payment method! 
               </Typography>

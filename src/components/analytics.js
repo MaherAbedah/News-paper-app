@@ -87,7 +87,8 @@ export default function Analytics() {
       link:myObj.top_articles[i].link,
       monthly_percent:myObj.top_articles[i].monthly_percent,
       package_percent:myObj.top_articles[i].package_percent,
-      single_percent:myObj.top_articles[i].single_percent
+      single_percent:myObj.top_articles[i].single_percent,
+      users_number: myObj.unique_active_users_this_month
     })
   }
 	/*const articlesData = [
@@ -267,11 +268,14 @@ function createNewData(x, y) {
                     <th >Monthly %</th>
                     <th >Package %</th> 
                     <th >One-time %</th>
+                    <th> Users </th>
                   </tr>
                   <tr>
                     <td className={classes.border}>{item.monthly_percent}</td>
                     <td className={classes.border}>{item.package_percent}</td> 
                     <td className={classes.border}>{item.single_percent}</td>
+                    <td className={classes.border}>{item.users_number}</td>
+
                   </tr>
                 </table>
             </Grid>

@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
+import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase'; 
 import Dialog from '@material-ui/core/Dialog';
@@ -157,9 +158,11 @@ let myObj = TestObj.user ;
               
              </div>
                <div className={classes.title}>
-                <Typography  variant="h2">
-                       FINN+
-                </Typography>
+                <Link href="/dashboard" style={{textDecoration:'none', color: '#777777FF'}}>
+                  <Typography  variant="h2">
+                         FINN+
+                  </Typography>
+                </Link>
                 <Typography  variant="h5">
                       User Profile page  
                 </Typography>

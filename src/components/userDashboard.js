@@ -336,7 +336,20 @@ function UserDashboard() {
           </span>*/}
           <Typography  variant="h3">
                    FINN+
-            </Typography>
+          </Typography>
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Search…"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </div>
           
           <div className={classes.grow} />
           {/* change from the popup payment dialog to a separated payment page
