@@ -58,7 +58,11 @@ const useStyles = makeStyles(theme => ({
   },
   login:{
     textAlign:'right',
-    margin :'auto',
+    
+    
+  },
+  publisher:{
+    textAlign:'left',
     
   },
   title:{
@@ -123,6 +127,13 @@ export default function FrontPage() {
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <div className={classes.header}>
+              <div className={classes.publisher}>
+                
+                <Button variant="outlined" color="primary" href='/publisher' >
+                   Register as Publisher
+                </Button>
+
+               </div>
            <div className={classes.title}>
             <Typography  variant="h2">
                    FINN+
@@ -134,7 +145,7 @@ export default function FrontPage() {
               </div>
               <div className={classes.login}>
                 
-                <Button variant="contained" color="secondary" href='/signin' >
+                <Button variant="outlined" color="secondary" href='/signin' >
                LOGIN
             </Button>
 

@@ -13,6 +13,7 @@ import DashboardUserArticles from './components/profile-files/dashboardUserArtic
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
+    justifyContent: 'center'
   },
   news:{
     display:'flex',
@@ -27,10 +28,9 @@ const useStyles = makeStyles(theme => ({
     height: 100,
     width: 400,
     padding: 10,
-
   },
   paperSide: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     textAlign: 'left',
     color: theme.palette.text.secondary,
     maxHight:'100%',
@@ -38,8 +38,13 @@ const useStyles = makeStyles(theme => ({
     boxShadow:'none',
   },
   control: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
   },
+  sectionMobile: {
+    display: 'flex',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },}
 }));
 
 let myObj = TestObj.user ;
@@ -47,27 +52,28 @@ if(window.obj !== undefined)
     myObj = window.obj.user ;
 
 export default function Content(props) {
-  const [spacing] = React.useState(6);
+  const [spacing] = React.useState(2);
   const classes = useStyles();
 
   return (
-    <Grid container justify="center" className={classes.root} spacing={2}>
-      
-      <Grid item xs={9} justify="center">
+    <Grid container justify="center" className={classes.root} spacing={1}>
+      <Grid item xs={2} className={classes.sectionMobile}>
+      </Grid>
+      <Grid item xs={7} justify="center">
         <Grid container justify="center" spacing={spacing} className={classes.news}>
           {[props.category].map(value => (
-            <Grid key={value} item xs={9}>
+            <Grid key={value} item xs={11}>
               <Typography  variant="h6" noWrap>
                 {value} 
               </Typography>
-              <Paper className={classes.paper} >
+              <Paper className={classes.paper}>
                 <NewsSection name = {value}/>
               </Paper>
             </Grid>
           ))}
         </Grid>
       </Grid>
-       <Grid item xs={3} justify="center">
+       <Grid item xs={3} justify="center" className={classes.sectionMobile}>
           <Paper className={classes.paperSide}>
           <Grid container spacing={2}>
             <Grid item xs={12}>

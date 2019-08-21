@@ -10,7 +10,9 @@ import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import HistoryIcon from '@material-ui/icons/History';
-import TestObj from '../../test-data/testObj'
+import PaymentIcon from '@material-ui/icons/Payment';
+import TestObj from '../../test-data/testObj';
+import PaymentsTable from './paymentsTable';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -81,7 +83,7 @@ export default function UserArticles() {
         >
           <Tab icon={<HistoryIcon />} label="Latest Reads" {...a11yProps(0)} />
           <Tab icon={<FavoriteIcon />} label="Favorites" {...a11yProps(1)} />
-          
+          <Tab icon={<PaymentIcon />} label="payments" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -120,6 +122,9 @@ export default function UserArticles() {
                 <Divider /></div>)
             }
             </ul>
+        </TabPanel>
+        <TabPanel value={value} index={2} dir={theme.direction}>
+          <PaymentsTable />
         </TabPanel>
         
       </SwipeableViews>

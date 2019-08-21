@@ -74,21 +74,21 @@ delete account.
 
 ## 16.08.2019
 
-adding pecentage till payment to the progress bar.
-
-in the profile page adding a third tab for the purchase history.
+in the profile page adding a third tab for the purchase history.(done , backend modifications needed)
 
 adding home link to the website logo.(done)
 
 adding the search button to the home page.(done)
 
-adding the readers number to the table on analytics page.(done but needs backend data tobe modifie).
+adding the readers number to the table on analytics page.(done but needs backend data to be modified).
+
+register as publisher in front page. (done)
+
+adding percentage till payment to the progress bar.
 
 the automated registration for publishers.
 
 seperating the technology analytics from business analytics.
-
-register as publisher in front page.
 
 the space between news and weather widget.
 

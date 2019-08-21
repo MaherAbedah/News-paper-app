@@ -169,7 +169,7 @@ const useStyles = makeStyles(theme => ({
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
-    marginLeft: -120,
+    marginLeft: -180,
   },
   gridContent: {
     padding: theme.spacing(2),

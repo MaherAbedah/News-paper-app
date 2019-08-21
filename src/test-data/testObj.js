@@ -16,7 +16,8 @@ import myImage from '../images/profile-placeholder.png';
 	      "total_reads" : 270,
 	      "monthly_percent":50,
 	      "package_percent":30,
-	      "single_percent":20
+	      "single_percent":20,
+        "unique_readers":5
 	    },
 	    {
 	      "title": "article_name_2",
@@ -24,7 +25,8 @@ import myImage from '../images/profile-placeholder.png';
 	      "total_reads" : 210,
 	      "monthly_percent":60,
 	      "package_percent":30,
-	      "single_percent":10
+	      "single_percent":10,
+        "unique_readers":4
 	    },
 	    {
 	      "title": "article_name_3",
@@ -32,7 +34,8 @@ import myImage from '../images/profile-placeholder.png';
 	      "total_reads" : 150,
 	      "monthly_percent":30,
 	      "package_percent":40,
-	      "single_percent":30
+	      "single_percent":30,
+        "unique_readers":3
 	    },
 	 ],
 	 "categories": [
@@ -161,8 +164,30 @@ import myImage from '../images/profile-placeholder.png';
       link: 'https://www.ksml.fi/kotimaa/Hulavanne-on-t%C3%A4m%C3%A4n-kes%C3%A4n-piikkimatto-%E2%80%93-professori-py%C3%B6ritt%C3%A4%C3%A4-lantiota-P%C3%A4ij%C3%A4nteen-rannalla/1389510',
     },
   ],
+  payments:[
+    {
+      date:'14.06.2019',
+      type:'Monthly',
+      value:'29.99'
+    },
+    {
+      date:'20.07.2019',
+      type:'Package',
+      value:'5'
+    },
+    {
+      date:'20.07.2019',
+      type:'Single Payment',
+      value:'15'
+    },
+    {
+      date:'14.08.2019',
+      type:'Single Payment',
+      value:'10'
+    }
+  ],
 
-}
+  }
 };
 
 export default TestObj

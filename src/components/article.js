@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(2),
     margin: 'auto',
-    maxWidth: 800,
+    maxWidth: '100%',
     boxShadow:'none'
     
   },
@@ -54,9 +54,9 @@ export default function Article(props) {
     fav: props.data.fav,
 });
 
-  function addToFavorite(event){
-    event.stopPropagation();
-    setState({ ...state, fav: !state.fav }); 
+
+  useEffect(() => {
+
     fetch("/favtoggle",
     {
       headers: {
@@ -67,7 +67,14 @@ export default function Article(props) {
       body: JSON.stringify({"url": props.data.link ,"fav":state.fav})
     }).then(res => console.log(res)) 
 
-  };
+  
+  }, []);
+
+  function addToFavorite(event){
+    event.stopPropagation();
+    setState({ ...state, fav: !state.fav });
+};
+  
   
 
   return (
