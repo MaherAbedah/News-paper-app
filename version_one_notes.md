@@ -84,12 +84,12 @@ adding the readers number to the table on analytics page.(done but needs backend
 
 register as publisher in front page. (done)
 
+the space between news and weather widget. (done)
+
 adding percentage till payment to the progress bar.
 
 the automated registration for publishers.
 
 seperating the technology analytics from business analytics.
-
-the space between news and weather widget.
 
 adding the google analytics API with the suitable charts and information.??

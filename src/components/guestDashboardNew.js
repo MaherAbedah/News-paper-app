@@ -49,7 +49,15 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(4),
     textAlign: 'left',
     color: theme.palette.text.secondary,
-    boxShadow:'none'
+    boxShadow:'none',
+  },
+  articlePaper:{
+    padding: theme.spacing(4),
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
+    boxShadow:'none',
+    maxWidth:800,
+    margin:'auto'
   },
   header:{
     width: '100%',
@@ -129,7 +137,7 @@ export default function FrontPage() {
             <div className={classes.header}>
               <div className={classes.publisher}>
                 
-                <Button variant="outlined" color="primary" href='/publisher' >
+                <Button variant="outlined" color="primary" href='/publisherRegister' >
                    Register as Publisher
                 </Button>
 
@@ -326,8 +334,8 @@ export default function FrontPage() {
             
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={12}>
-          <Paper className={classes.paper}>
+        <Grid item xs={12} sm={12} justify='center'>
+          <Paper className={classes.articlePaper}>
           {
             SampleData.map(tile => <Article data={tile} />)
           }

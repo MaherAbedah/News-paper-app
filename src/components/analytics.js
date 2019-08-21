@@ -88,7 +88,7 @@ export default function Analytics() {
       monthly_percent:myObj.top_articles[i].monthly_percent,
       package_percent:myObj.top_articles[i].package_percent,
       single_percent:myObj.top_articles[i].single_percent,
-      users_number: myObj.top_articles[i].unique_readers
+      users_number: myObj.top_articles[i].total_reads
     })
   }
 	/*const articlesData = [

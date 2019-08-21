@@ -16,7 +16,8 @@ import Analytics from './components/analytics';
 import FrontPage from './components/guestDashboardNew';
 import PaymentPage from './components/paymentPage';
 import ResetPW from './components/pwReset';
-import ProfileEdit from './components/profile-files/profileEdit'
+import ProfileEdit from './components/profile-files/profileEdit';
+import PublisherRegister from './components/publisherRegister'
 
 
 
@@ -39,6 +40,7 @@ function App()  {
 		      			<Route path='/payment' component={PaymentPage} />
 		      			<Route path='/resetpw/:userId' component={ResetPW} />
 		      			<Route path='/profileedit' component={ProfileEdit} />
+		      			<Route path='/publisherRegister' component={PublisherRegister}/>
 
 
 		      			
