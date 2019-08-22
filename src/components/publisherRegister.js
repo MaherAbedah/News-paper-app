@@ -138,6 +138,7 @@ useEffect(() => {
                 name="email"
                 autoComplete="email"
               />
+              <FormHelperText>publisher admin acount</FormHelperText>
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -166,17 +167,26 @@ useEffect(() => {
                 id="rPassword" 
                 onChange={handleMatch('rPassword')}
               />
-             
+              
               {!state.matched &&<FormHelperText>password not matched </FormHelperText>}
             </Grid>
             <Grid item xs={12}>
-              <Typography variant="h6" component="span"> Choose Rss feed image </Typography>
+              <Typography variant="h6" component="span"> Add your Logo </Typography>
             
             
               <Input  id="photo-file" name = "photo-file" type="file" />
                 
             
             </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                fullWidth
+                id="rssUrl"
+                label="RSS Feed URL"
+                name="rssUrl"   
+              />
+             </Grid>
           </Grid>
           
             <Button

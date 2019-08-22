@@ -80,15 +80,15 @@ adding home link to the website logo.(done)
 
 adding the search button to the home page.(done)
 
-adding the readers number to the table on analytics page.(done but needs backend data to be modified).
+adding the readers number to the table on analytics page.(done).
 
 register as publisher in front page. (done)
 
 the space between news and weather widget. (done)
 
-adding percentage till payment to the progress bar.
+the automated registration for publishers.(done)
 
-the automated registration for publishers.
+adding percentage till payment to the progress bar.
 
 seperating the technology analytics from business analytics.
 
