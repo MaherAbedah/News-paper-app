@@ -55,8 +55,11 @@ export default function Article(props) {
 });
 
 
-  useEffect(() => {
 
+
+  function addToFavorite(event){
+    event.stopPropagation();
+    setState({ ...state, fav: !state.fav });
     fetch("/favtoggle",
     {
       headers: {
@@ -65,15 +68,8 @@ export default function Article(props) {
       },
       method: "POST",
       body: JSON.stringify({"url": props.data.link ,"fav":state.fav})
-    }).then(res => console.log(res)) 
-
-  
-  }, []);
-
-  function addToFavorite(event){
-    event.stopPropagation();
-    setState({ ...state, fav: !state.fav });
-};
+    }).then(res => console.log(res))
+  };
   
   
 
