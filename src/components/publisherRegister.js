@@ -190,7 +190,14 @@ useEffect(() => {
               <FormHelperText> "http://exampledomain.com/rss" </FormHelperText>
              </Grid>
           </Grid>
-          
+          <br/>
+           <Grid container justify="flex-end">
+            <Grid item>
+              <Link href="/publisher-docs" variant="body2">
+                publisher integration documentation
+              </Link>
+            </Grid>
+          </Grid>
             <Button
 
               type="submit"
@@ -203,8 +210,9 @@ useEffect(() => {
             </Button>
             <Button  fullWidth variant="contained" color="secondary" href="/">
               cancel
-            </Button>
-                   <input type="hidden" id="publisher_token" name="csrf_token" value={window.csrf_token} />
+            </Button> <br/><br/>
+           
+          <input type="hidden" id="publisher_token" name="csrf_token" value={window.csrf_token} />
         </form>
       </div>
       
