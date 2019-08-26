@@ -127,6 +127,7 @@ useEffect(() => {
                 name="domainName"
                 autoComplete="domainName"
               />
+              <FormHelperText>"exampledomain.com"</FormHelperText>
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -134,11 +135,11 @@ useEffect(() => {
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
+                label="publisher admin acount"
                 name="email"
                 autoComplete="email"
               />
-              <FormHelperText>publisher admin acount</FormHelperText>
+              <FormHelperText>admin e-mail acount</FormHelperText>
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -186,6 +187,7 @@ useEffect(() => {
                 label="RSS Feed URL"
                 name="rssUrl"   
               />
+              <FormHelperText> "http://exampledomain.com/rss" </FormHelperText>
              </Grid>
           </Grid>
           
