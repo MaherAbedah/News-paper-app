@@ -90,8 +90,8 @@ export default function Content(props) {
               {myObj.subscription_end !== null ? 
                 <Typography variant="subtitle1" color="textSecondary"> ends {myObj.subscription_end}
                 </Typography> : myObj.package_end > 0 ? 
-                <Typography variant="subtitle1" color="textSecondary"> {myObj.package_end} left 
-                </Typography> : <Typography variant="subtitle1" color="textSecondary"> {myObj.tokens} left
+                <Typography variant="subtitle1" color="textSecondary"> {myObj.package_end} articles left 
+                </Typography> : <Typography variant="subtitle1" color="textSecondary"> {myObj.tokens} articles left
                 </Typography>
               }
               
