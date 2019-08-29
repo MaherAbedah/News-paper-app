@@ -93,4 +93,15 @@ adding percentage till payment to the progress bar.(done)
 seperating the technology analytics from business analytics.(done)
 
 
-## adding the title to the link in the twiter share button
+## 28.08.2019 
+adding the title to the link in the twiter share button (done)
+adding the word read when hover on the green tick. (done)
+adding the publisher image to be required and add it in the publisher analytics page.(done)
+
+changing links to articles in the latest and recent reads in profile page 
+adding the latest 5 activities.
+the space in the dashboard.
+
+the bar to be fixed.
+changing the rss feed in the publisher.
+

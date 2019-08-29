@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -13,6 +14,8 @@ import HistoryIcon from '@material-ui/icons/History';
 import PaymentIcon from '@material-ui/icons/Payment';
 import TestObj from '../../test-data/testObj';
 import PaymentsTable from './paymentsTable';
+import Article from '../article'
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -61,6 +64,15 @@ export default function UserArticles() {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
+  const [favList, setFavList]= useState([]);
+  const [latestList, setLatestList]= useState([]);
+  useEffect(() => {
+      fetch('/user_activities')
+         .then(res => res.json())
+         .then(data => {setFavList(data.favoriteArticles);
+                        setLatestList(data.latestArticles)});
+  
+  }, []);
 
   function handleChange(event, newValue) {
     setValue(newValue);
@@ -92,7 +104,9 @@ export default function UserArticles() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <ul>
+          {latestList.map(tile => ( <Article data = {tile}/>))}
+
+          {/*<ul>
             {
               myObj.latestArticles.map(data => 
                 <div>
@@ -106,10 +120,11 @@ export default function UserArticles() {
                 </Typography>
                 <Divider /></div>)
             }
-            </ul>
+            </ul>*/}
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          <ul>
+          {favList.map(tile => ( <Article data = {tile}/>))}
+          {/*<ul>
             {
               myObj.favoriteArticles.map(data => 
                 <div>
@@ -121,7 +136,8 @@ export default function UserArticles() {
                 
                 <Divider /></div>)
             }
-            </ul>
+            </ul>*/}
+          
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
           <PaymentsTable />
