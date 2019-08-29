@@ -74,7 +74,7 @@ delete account.
 
 ## 16.08.2019
 
-in the profile page adding a third tab for the purchase history.(done , backend modifications needed)
+in the profile page adding a third tab for the purchase history.(done)
 
 adding home link to the website logo.(done)
 
@@ -88,8 +88,9 @@ the space between news and weather widget. (done)
 
 the automated registration for publishers.(done)
 
-adding percentage till payment to the progress bar.
+adding percentage till payment to the progress bar.(done)
 
-seperating the technology analytics from business analytics.
+seperating the technology analytics from business analytics.(done)
 
-adding the google analytics API with the suitable charts and information.??
+
+## adding the title to the link in the twiter share button

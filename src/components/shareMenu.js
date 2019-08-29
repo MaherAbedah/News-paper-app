@@ -51,7 +51,7 @@ export default function ShareMenu(props) {
           </FacebookShareButton>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <TwitterShareButton url={props.url}>
+          <TwitterShareButton url={props.url} title={props.title}>
             <TwitterIcon size={32} round={true}/>
           </TwitterShareButton>
         </MenuItem>

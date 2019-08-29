@@ -112,7 +112,7 @@ export default function Article(props) {
                     spacing={2}>
                       <FavoriteIcon />
                     </IconButton>
-                    <ShareMenu url={props.data.link} />
+                    <ShareMenu url={props.data.link} title={props.data.title} />
                     {props.data.read &&
                     <IconButton style={{color:'green'}} aria-label="done" spacing={2}>
                       <DoneIcon />

@@ -34,7 +34,11 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.text.secondary,
     boxShadow:'none',
     backgroundColor: '#F7F7F7FF', 
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft:2,
+      paddingRight:2,
     },
+  },
   header:{
     width: '100%',
     display:'flex',
