@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect ,  Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -15,6 +15,8 @@ import DoneIcon from '@material-ui/icons/Done';
 import doubleCheckIcon from '../images/double-tick-48.png';
 import BoxCheckIcon from '../images/tick-box-48.png';
 import ShareMenu from './shareMenu';
+import ReactTooltip from 'react-tooltip'
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -46,6 +48,15 @@ const useStyles = makeStyles(theme => ({
     maxHeight: '100%',
      top:0
   },
+  hover:{
+    position:'relative',
+    visibility: 'visible',
+    '&:hover':{
+      visibility:'visible',
+      backgroungColor:'red'
+    },
+
+  }
 }));
 
 export default function Article(props) {
@@ -114,10 +125,14 @@ export default function Article(props) {
                     </IconButton>
                     <ShareMenu url={props.data.link} title={props.data.title} />
                     {props.data.read &&
-                    <IconButton style={{color:'green'}} aria-label="done" spacing={2}>
-                      <DoneIcon />
-                    </IconButton>
-                  }
+                        <span data-tip="read">
+                          <IconButton style={{color:'green'}} aria-label="done" spacing={2}>
+                            <DoneIcon />
+                          </IconButton>
+                          <ReactTooltip />
+                        </span>}
+                           
+                      
                   </Grid>
                 </Grid>
               </Grid>
