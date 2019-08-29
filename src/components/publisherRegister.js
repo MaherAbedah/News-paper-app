@@ -175,7 +175,7 @@ useEffect(() => {
               <Typography variant="h6" component="span"> Add your Logo </Typography>
             
             
-              <Input  id="photo-file" name = "photo-file" type="file" />
+              <Input required  id="photo-file" name = "photo-file" type="file" />
                 
             
             </Grid>

@@ -52,6 +52,12 @@ const useStyles = makeStyles(theme => ({
   logout:{
   	textAlign:'right'
   },
+  logo:{
+    textAlign:'left',
+  },
+  img:{
+    maxWidth:120
+  },
   title:{
   	textAlign:'center',
   	width:'100%'
@@ -201,6 +207,9 @@ function createNewData(x, y) {
         <Grid item xs={12}>
           <Paper className={classes.paper}>
 	        <div className={classes.header}>
+            <div className={classes.logo}>
+              <img className={classes.img} alt="publisher logo" src={myObj.logo}/>
+            </div>
 			     <div className={classes.title}>
 		          	<h2> {myObj.name} Analytics </h2>
 		          	<h3> Most Read Articles and subscription types </h3>

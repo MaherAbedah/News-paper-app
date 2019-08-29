@@ -1,8 +1,10 @@
 import myImage from '../images/profile-placeholder.png'; 
+import HSLogo from '../images/HS-logo.png'
 
 
  const TestObj = {
   "name": "Hesari",
+  logo: HSLogo,
   "percent_of_total_revenue": 0.5,
   "payment_percent": {
     "monthly": 0.6,
