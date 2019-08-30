@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
 
   },
   heading: {
-    fontSize: theme.typography.pxToRem(15),
+    fontSize: theme.typography.pxToRem(10),
     fontWeight: theme.typography.fontWeightRegular,
   },
   paper: {
@@ -36,10 +36,10 @@ const useStyles = makeStyles(theme => ({
     
   },
   image: {
-    width: 128,
-    height: 128,
+    width: 80,
+    height: 80,
     top:0,
-    paddingBottom:10
+    
   },
   img: {
     
@@ -59,7 +59,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Article(props) {
+export default function MiniArticle(props) {
   const classes = useStyles();
   const [state, setState] = React.useState({
     fav: props.data.fav,
@@ -88,12 +88,7 @@ export default function Article(props) {
     <div className={classes.root}>
       
       <Paper className={classes.paper}>
-        <ExpansionPanel>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon style={{marginTop:100}} />}
-          aria-controls="panel1a-content"
-          id="panel1a-header">
-            <Grid container spacing={2}>
+            <Grid container spacing={1}>
               <Grid item>
                 <ButtonBase className={classes.image}>
                   <a href={props.data.link} rel="noopener noreferrer" target="_blank" >
@@ -102,17 +97,17 @@ export default function Article(props) {
                 </ButtonBase>
               </Grid>
               <Grid item xs={12} sm container>
-                <Grid item xs container direction="column" spacing={2}>
+                <Grid item xs container direction="column" spacing={1}>
                   <Grid item xs>
                     <a href={props.data.link} rel="noopener noreferrer" target="_blank" >
-                      <Typography gutterBottom variant="subtitle1">
+                      <Typography gutterBottom variant="body1">
                         {props.data.title}
                       </Typography>
                     </a>
-                    <Typography  variant="body2" gutterBottom >
+                    <Typography  variant="body2" >
                       By {props.data.author}
                     </Typography>
-                    <Typography  component='span' variant="body2" color="textSecondary" >
+                    <Typography  component='span' variant="caption" color="textSecondary" >
                       {props.data.date}
                     </Typography>
                     <IconButton 
@@ -120,13 +115,13 @@ export default function Article(props) {
                     color={state.fav === false? 'inherete' : 'secondary'}
                     onClick={addToFavorite}
                     aria-label="Add to favorites" 
-                    spacing={2}>
+                    spacing={1}>
                       <FavoriteIcon />
                     </IconButton>
                     <ShareMenu url={props.data.link} title={props.data.title} />
                     {props.data.read &&
                         <span data-tip="read">
-                          <IconButton style={{color:'green'}} aria-label="done" spacing={2}>
+                          <IconButton style={{color:'green'}} aria-label="done" spacing={1}>
                             <DoneIcon />
                           </IconButton>
                           <ReactTooltip />
@@ -137,14 +132,6 @@ export default function Article(props) {
                 </Grid>
               </Grid>
             </Grid>
-          
-           </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-         <Typography>
-            {props.data.preview} 
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
       </Paper>
     </div>
   );

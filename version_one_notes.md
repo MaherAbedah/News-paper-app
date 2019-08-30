@@ -102,6 +102,6 @@ changing links to articles in the latest and recent reads in profile page (done)
 adding the latest 5 activities.
 the space in the dashboard.
 
-the bar to be fixed.
+the bar to be fixed. (not possible)
 changing the rss feed in the publisher.
 

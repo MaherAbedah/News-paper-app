@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -8,9 +9,11 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import PaymentIcon from '@material-ui/icons/Payment';
 import HistoryIcon from '@material-ui/icons/History';
 import TestObj from '../../test-data/testObj'
+import PaymentsTable from './paymentsTable';
+import MiniArticle from '../miniArticle'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -59,6 +62,12 @@ export default function DashboardUserArticles() {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
+  const [recentList, setRecentList]= useState([]);
+  useEffect(() => {
+      fetch('/user_activities')
+         .then(res => res.json())
+         .then(data => {setRecentList(data.recentArticles)});
+  }, []);
 
   function handleChange(event, newValue) {
     setValue(newValue);
@@ -80,7 +89,7 @@ export default function DashboardUserArticles() {
           aria-label="full width tabs example"
         >
           <Tab  icon={<HistoryIcon />}  {...a11yProps(0)} />
-          <Tab  icon={<FavoriteIcon />}  {...a11yProps(1)} />
+          <Tab  icon={<PaymentIcon />}  {...a11yProps(1)} />
           
         </Tabs>
       </AppBar>
@@ -90,7 +99,8 @@ export default function DashboardUserArticles() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <ul>
+          {recentList.map(tile => ( <MiniArticle data = {tile}/>))}
+          {/*<ul>
             {
               myObj.latestArticles.slice(0,5).map(data => 
                 <div>
@@ -104,9 +114,10 @@ export default function DashboardUserArticles() {
                 </Typography>
                 <Divider /></div>)
             }
-            </ul>
+            </ul>*/}
         </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
+        {/* showing the most recent 5 favotited articles (replaced)
+          <TabPanel value={value} index={1} dir={theme.direction}>
           <ul>
             {
               myObj.favoriteArticles.slice(0,5).map(data => 
@@ -120,6 +131,9 @@ export default function DashboardUserArticles() {
                 <Divider /></div>)
             }
             </ul>
+        </TabPanel>*/}
+        <TabPanel value={value} index={1} dir={theme.direction}>
+          <PaymentsTable />
         </TabPanel>
         
       </SwipeableViews>

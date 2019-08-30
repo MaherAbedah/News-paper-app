@@ -107,12 +107,14 @@ export default function Content(props) {
               />
               <br/>
             </Grid>
-            
-           {/*<Typography style={{textAlign:'left'}} gutterBottom variant="h6">
-                   Recent Activities
+
+            <Grid item xs={12}>
+              <Typography style={{textAlign:'left'}} gutterBottom variant="h6">
+                     Recent Activities
               </Typography>
-              <DashboardUserArticles />*/}
-            
+              <DashboardUserArticles />
+            </Grid>
+           
           </Grid>
           </Paper>
         </Grid>
