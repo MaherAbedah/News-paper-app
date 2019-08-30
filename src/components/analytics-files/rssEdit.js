@@ -91,7 +91,7 @@ export default function RssEdit() {
           
             Cancel
           </Button>
-          <input type="hidden" id="rss_token" name="csrf_token" value={window.csrf_token} />
+          <input type="hidden" id="csrf_token" name="csrf_token" value={window.csrf_token} />
         </form>
       </div>
     </Container>
