@@ -224,6 +224,8 @@ function createNewData(x, y) {
 	        </div>
           	
           	<List className={classes.list}>
+            <Grid container spacing={2}>
+            <Grid item xs={6}>
 			      <ListItem>
 			        <ListItemAvatar>
 			          <Avatar>
@@ -232,6 +234,17 @@ function createNewData(x, y) {
 			        </ListItemAvatar>
 			        <ListItemText primary="Percentage of total revenue % " secondary={myObj.percent_of_total_revenue * 100 } />
 			      </ListItem>
+            </Grid>
+            <Grid item xs={6}>
+            <div className={classes.logout}>
+                
+                <Button href='/rssEdit' variant="outlined" color="secondary" >
+               Edit RSS
+            </Button>
+            
+           </div>
+           </Grid>
+          </Grid>
 			</List>
 
           </Paper>

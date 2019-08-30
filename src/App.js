@@ -18,6 +18,7 @@ import PaymentPage from './components/paymentPage';
 import ResetPW from './components/pwReset';
 import ProfileEdit from './components/profile-files/profileEdit';
 import PublisherRegister from './components/publisherRegister'
+import RssEdit from './components/analytics-files/rssEdit'
 
 
 
@@ -41,7 +42,7 @@ function App()  {
 		      			<Route path='/resetpw/:userId' component={ResetPW} />
 		      			<Route path='/profileedit' component={ProfileEdit} />
 		      			<Route path='/publisherRegister' component={PublisherRegister}/>
-
+		      			<Route path='/rssEdit' component={RssEdit}/>
 
 		      			
 		      		</Switch>      
