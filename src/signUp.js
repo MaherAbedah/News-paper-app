@@ -206,7 +206,7 @@ useEffect(() => {
 
             <FormControlLabel
             control={<Checkbox value="policy" required color="primary" />}
-            label="I agree to your Terms of use and Privacy Policy."
+            label={<span> I agree to your <a rel="noopenerp" target="_blank" href="https://finn-terms-and-policy.gitbook.io/finn-terms-of-use-and-privacy-policy/">Terms of use and Privacy Policy</a></span>}
           />
             
           </Grid>

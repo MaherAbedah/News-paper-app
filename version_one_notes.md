@@ -98,7 +98,7 @@ adding the title to the link in the twiter share button (done)
 adding the word read when hover on the green tick. (done)
 adding the publisher image to be required and add it in the publisher analytics page.(done)
 
-changing links to articles in the latest and recent reads in profile page 
+changing links to articles in the latest and recent reads in profile page (done)
 adding the latest 5 activities.
 the space in the dashboard.
 

@@ -71,7 +71,6 @@ export default function UserArticles() {
          .then(res => res.json())
          .then(data => {setFavList(data.favoriteArticles);
                         setLatestList(data.latestArticles)});
-  
   }, []);
 
   function handleChange(event, newValue) {
