@@ -103,5 +103,5 @@ adding the latest 5 activities.
 the space in the dashboard.
 
 the bar to be fixed. (not possible)
-changing the rss feed in the publisher.
+changing the rss feed in the publisher. 
 
