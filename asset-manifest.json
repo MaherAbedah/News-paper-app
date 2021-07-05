@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/News-paper-app/static/css/main.2cce8147.chunk.css",
+    "main.js": "/News-paper-app/static/js/main.b8e863bc.chunk.js",
+    "main.js.map": "/News-paper-app/static/js/main.b8e863bc.chunk.js.map",
+    "runtime~main.js": "/News-paper-app/static/js/runtime~main.a0c77757.js",
+    "runtime~main.js.map": "/News-paper-app/static/js/runtime~main.a0c77757.js.map",
+    "static/css/2.475c5765.chunk.css": "/News-paper-app/static/css/2.475c5765.chunk.css",
+    "static/js/2.ea8cdcdc.chunk.js": "/News-paper-app/static/js/2.ea8cdcdc.chunk.js",
+    "static/js/2.ea8cdcdc.chunk.js.map": "/News-paper-app/static/js/2.ea8cdcdc.chunk.js.map",
+    "index.html": "/News-paper-app/index.html",
+    "precache-manifest.5c228be3bee5933e161c8b73c1e07e29.js": "/News-paper-app/precache-manifest.5c228be3bee5933e161c8b73c1e07e29.js",
+    "service-worker.js": "/News-paper-app/service-worker.js",
+    "static/css/2.475c5765.chunk.css.map": "/News-paper-app/static/css/2.475c5765.chunk.css.map",
+    "static/css/main.2cce8147.chunk.css.map": "/News-paper-app/static/css/main.2cce8147.chunk.css.map",
+    "static/media/HS-logo.png": "/News-paper-app/static/media/HS-logo.5fdbe1ee.png",
+    "static/media/Helsinginsanomat.26820f47.svg": "/News-paper-app/static/media/Helsinginsanomat.26820f47.svg",
+    "static/media/Turunsanomat.77c15e58.svg": "/News-paper-app/static/media/Turunsanomat.77c15e58.svg",
+    "static/media/image_five.jpg": "/News-paper-app/static/media/image_five.9f2c9d0e.jpg",
+    "static/media/image_four.jpg": "/News-paper-app/static/media/image_four.beb4069c.jpg",
+    "static/media/image_one.jpg": "/News-paper-app/static/media/image_one.e291649c.jpg",
+    "static/media/image_three.jpg": "/News-paper-app/static/media/image_three.bcb6cf9f.jpg",
+    "static/media/image_two.jpg": "/News-paper-app/static/media/image_two.b0c64446.jpg",
+    "static/media/kauppalehti.706ed2f1.svg": "/News-paper-app/static/media/kauppalehti.706ed2f1.svg",
+    "static/media/keskisuomalainen.d6ee3ec1.svg": "/News-paper-app/static/media/keskisuomalainen.d6ee3ec1.svg",
+    "static/media/logo9.png": "/News-paper-app/static/media/logo9.4e8ac0a9.png",
+    "static/media/profile-placeholder.png": "/News-paper-app/static/media/profile-placeholder.5a0ca145.png",
+    "static/media/savonsanomat.8f41083c.svg": "/News-paper-app/static/media/savonsanomat.8f41083c.svg"
+  }
+}
